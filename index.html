@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Muhammet Özdemir</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Kelly
+    * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
+    * Updated: Aug 07 2024 with Bootstrap v5.3.3
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+
+    <style>
+        /* Küçük dokunuşlar – ana tema dosyasıyla uyumlu */
+        :root {
+            --hero-height: 72vh;
+        }
+
+        body {
+            font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .sitename {
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: .2px;
+        }
+
+        .hero {
+            position: relative;
+            min-height: var(--hero-height);
+        }
+
+            .hero picture, .hero img {
+                width: 100%;
+                height: var(--hero-height);
+                object-fit: cover;
+                object-position: center;
+                display: block;
+            }
+
+            .hero .overlay {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.45));
+            }
+
+            .hero .hero-content {
+                position: absolute;
+                inset: 0;
+                display: grid;
+                place-items: center;
+                text-align: center;
+                color: #fff;
+                padding: 1rem;
+            }
+
+        .btn-ghost {
+            border: 2px solid #fff;
+            color: #fff;
+        }
+
+            .btn-ghost:hover {
+                background: #fff;
+                color: #000;
+            }
+
+        .logo-strip img {
+            max-height: 36px;
+            opacity: .85;
+            filter: grayscale(100%);
+            transition: .2s;
+        }
+
+            .logo-strip img:hover {
+                filter: grayscale(0%);
+                opacity: 1;
+            }
+
+        .project-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .badge-tech {
+            background: rgba(0,0,0,.06);
+            border: 1px solid rgba(0,0,0,.08);
+        }
+
+        .stat {
+            border-radius: 1rem;
+        }
+
+        .section-title p {
+            opacity: .8;
+        }
+
+        @media (max-width: 576px) {
+            :root {
+                --hero-height: 62vh;
+            }
+
+            .project-card img {
+                height: 180px;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center light-background sticky-top">
+        <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0" aria-label="Ana sayfa">
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <h1 class="sitename">Muhammet</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu" aria-label="Ana menü">
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="about.html">Hakkımda</a></li>
+                    <li><a href="resume.html">Deneyim</a></li>
+                    <li><a href="services.html" class="active">Hizmetler</a></li>
+                    <li><a href="portfolio.html">Projeler</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Menüyü aç/kapat" role="button" tabindex="0"></i>
+            </nav>
+
+            <div class="header-social-links">
+                <a href="https://github.com/mr-ozdemir" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/mrozdemir" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="main">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero section">
+
+            <img src="assets/img/Adsız.png" alt="" data-aos="fade-in">
+
+            <div class="container text-center" data-aos="zoom-out" data-aos-delay="100">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>Muhammet Özdemir</h2>
+                        <p>Yapay Zeka Araştıracısı ve Mühendisi</p>
+                        <a href="about.html" class="btn-get-started">Hakkımda</a>
+                    </div>
+                </div>
+            </div>
+
+        </section><!-- /Hero Section -->
+        <!-- Öne Çıkan Projeler -->
+        <section id="one-cikan-projeler" class="section">
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Öne Çıkan Projeler</h2>
+                <p>Gerçek dünyada çalışan, uçtan uca tasarlanmış çözümlerden seçmeler.</p>
+            </div>
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row g-4">
+                    <!-- Proje 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm project-card">
+                            <img src="assets/img/projects/proj1.webp" class="card-img-top" alt="" loading="lazy">
+                            <div class="card-body">
+                                <h5 class="card-title">Yapay Zeka Destekli Meme Kanseri Erken Teşhisi</h5>
+                                <p class="card-text">Çoklu kamera akışlarından eşzamanlı nesne algılama ve olay tetikleme; düşük gecikmeli boru hatları.</p>
+                                <div class="d-flex flex-wrap gap-2 mb-3">
+                                    <span class="badge rounded-pill badge-tech">PyTorch</span>
+                                    <span class="badge rounded-pill badge-tech">ONNX</span>
+                                    <span class="badge rounded-pill badge-tech">CUDA</span>
+                                </div>
+                                <a href="portfolio.html#proj-cv" class="stretched-link">Detayları gör</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Proje 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm project-card">
+                            <img src="assets/img/projects/proj2.webp" class="card-img-top" alt="AutoML araştırması görseli" loading="lazy">
+                            <div class="card-body">
+                                <h5 class="card-title">AutoML: Aktivasyon Keşfi</h5>
+                                <p class="card-text">Evrimsel arama ile özel aktivasyon fonksiyonları ve görev odaklı mimari ince ayarları.</p>
+                                <div class="d-flex flex-wrap gap-2 mb-3">
+                                    <span class="badge rounded-pill badge-tech">Genetic Programming</span>
+                                    <span class="badge rounded-pill badge-tech">NAS</span>
+                                    <span class="badge rounded-pill badge-tech">F1-Optimized</span>
+                                </div>
+                                <a href="portfolio.html#proj-automl" class="stretched-link">Detayları gör</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Proje 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm project-card">
+                            <img src="assets/img/projects/proj3.webp" class="card-img-top" alt="Medikal görüntüleme projesi görseli" loading="lazy">
+                            <div class="card-body">
+                                <h5 class="card-title">Medikal Görü: Tanı Destek</h5>
+                                <p class="card-text">Mamografi ve retina görüntülerinde hassas sınıflandırma ve vaka önceliklendirme.</p>
+                                <div class="d-flex flex-wrap gap-2 mb-3">
+                                    <span class="badge rounded-pill badge-tech">MedMNIST</span>
+                                    <span class="badge rounded-pill badge-tech">Faster R-CNN</span>
+                                    <span class="badge rounded-pill badge-tech">MLOps</span>
+                                </div>
+                                <a href="portfolio.html#proj-medai" class="stretched-link">Detayları gör</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tümü butonu -->
+                <div class="text-center mt-4">
+                    <a href="portfolio.html" class="btn btn-primary btn-lg px-4">Tüm Projeler</a>
+                </div>
+            </div>
+        </section>
+        <!-- /Öne Çıkan Projeler -->
+
+    </main>
+
+    <footer id="footer" class="footer light-background">
+
+        <div class="container">
+            <div class="copyright text-center ">
+                <p>© <span>Copyright</span> <strong class="px-1 sitename"></strong>Developed by Muhammet Ozdemir<span><br></span></p>
+            </div>
+            <div class="social-links d-flex justify-content-center">
+
+                <a href="https://github.com/mr-ozdemir" target="_blank" class="github"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/mrozdemir" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
