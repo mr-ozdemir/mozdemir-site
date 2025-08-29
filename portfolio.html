@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Projeler & Yayınlar | Muhammet Özdemir</title>
-    <meta name="description" content="AutoML, bilgisayarla görü, veri bilimi ve MLOps odaklı projeler ile seçilmiş yayınların kısa showroom listesi. Her karttan detay sayfasına geçiş.">
+    <meta name="description" content="AutoML, bilgisayarla görü, veri bilimi ve MLOps odaklı projeler; seçilmiş yayınlar ve faaliyetler. Karttan detay sayfasına geçiş.">
     <meta name="keywords" content="Yapay Zekâ Projeleri, Bilgisayarla Görü, AutoML, MLOps, Yayınlar, Paper, Derin Öğrenme">
 
     <!-- Favicons -->
@@ -17,82 +17,42 @@
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Poppins:wght@400;500;600;700;800&family=Raleway:wght@700&display=swap" rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
+    <!-- Vendor CSS -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-    <!-- Main CSS File -->
+    <!-- Main CSS -->
     <link href="assets/css/main.css" rel="stylesheet">
-
-    <style>
-        /* Showroom kartları için küçük dokunuşlar */
-        .object-fit-cover {
-            object-fit: cover;
-        }
-
-        .ratio-16x9 {
-            --bs-aspect-ratio: 56.25%;
-        }
-
-        .clamp-2 {
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .badge-tech {
-            background: rgba(0,0,0,.06);
-            border: 1px solid rgba(0,0,0,.08);
-        }
-
-        .card.hover-lift {
-            transition: transform .15s ease, box-shadow .15s ease;
-        }
-
-            .card.hover-lift:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 .5rem 1rem rgba(0,0,0,.10);
-            }
-
-        .portfolio-filters li {
-            cursor: pointer;
-        }
-    </style>
-
-    <!-- =======================================================
-    * Template Base: Kelly (BootstrapMade)
-    * Updated: Aug 07 2024 (Bootstrap v5.3.3)
-    ======================================================== -->
 </head>
 
 <body class="portfolio-page">
 
+    <!-- Header (site genelindekiyle aynı) -->
     <header id="header" class="header d-flex align-items-center light-background sticky-top">
         <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
 
-            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0" aria-label="Ana sayfa">
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
                 <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="sitename">Muhammet</h1>
+                <h1 class="sitename">Muhammet Özdemir</h1>
             </a>
 
-            <nav id="navmenu" class="navmenu" aria-label="Ana menü">
+            <nav id="navmenu" class="navmenu">
                 <ul>
                     <li><a href="index.html">Ana Sayfa</a></li>
                     <li><a href="about.html">Hakkımda</a></li>
                     <li><a href="resume.html">Deneyim</a></li>
-                    <li><a href="services.html">Hizmetler</a></li>
+                    <li><a href="services.html">Yetkinlikler</a></li>
                     <li><a href="portfolio.html" class="active">Projeler</a></li>
                 </ul>
-                <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Menüyü aç/kapat" role="button" tabindex="0"></i>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
             <div class="header-social-links">
-                <a href="https://github.com/mr-ozdemir" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
-                <a href="https://www.linkedin.com/in/mrozdemir" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/mr-ozdemir" class="github" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/mrozdemir" class="linkedin" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
             </div>
 
         </div>
@@ -100,119 +60,109 @@
 
     <main class="main">
 
-        <!-- Portfolio / Showroom Section -->
-        <section id="portfolio" class="portfolio section">
+        <!-- PORTFÖY (bu sayfaya özel sınıf: mx-portfolio) -->
+        <section id="portfolio" class="portfolio section mx-portfolio">
 
-            <!-- Section Title -->
+            <!-- Sayfa Başlığı -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Projeler &amp; Yayınlar</h2>
+                <h2>Projeler, Yayınlar &amp; Faaliyetler</h2>
                 <p>Kısa özet + görsel. Detaylar için karta tıklayın.</p>
-            </div><!-- End Section Title -->
+            </div>
 
-            <div class="container">
-
-                <!-- Isotope Layout (filtreler korunuyor) -->
-                <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-                    <!-- Filters -->
-                    <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-                        <li data-filter="*" class="filter-active">Tümü</li>
-                        <li data-filter=".filter-proje">Projeler</li>
-                        <li data-filter=".filter-yayin">Yayınlar</li>
-                        <li data-filter=".filter-etkinlik">Etkinlikler</li>
+            <!-- Alt-Navigation (hızlı geçiş) -->
+            <nav class="mx-subnav" data-aos="fade-up" data-aos-delay="50" aria-label="Alt navigasyon">
+                <div class="container">
+                    <ul class="nav nav-pills justify-content-center gap-2" id="mxShowroomTabs">
+                        <li class="nav-item"><a class="nav-link active" href="#projeler"><i class="bi bi-kanban me-1"></i>Projeler</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#yayinlar"><i class="bi bi-journal-text me-1"></i>Yayınlar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#faaliyetler"><i class="bi bi-people me-1"></i>Faaliyetler</a></li>
                     </ul>
+                </div>
+            </nav>
 
-                    <!-- Cards Grid -->
-                    <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+            <!-- ===== PROJELER ===== -->
+            <section id="projeler" class="pt-5">
+                <div class="container">
+                    <div class="d-flex align-items-center mb-4" data-aos="fade-up">
+                        <div class="mx-section-icon me-3"><i class="bi bi-kanban"></i></div>
+                        <div>
+                            <h3 class="h4 mb-1">Projeler</h3>
+                            <p class="text-muted mb-0">Uygulama ve araştırma projeleri</p>
+                        </div>
+                    </div>
 
-                        <!-- PROJE: Nahıl AutoML -->
-                        <div class="col-lg-4 col-md-6 isotope-item filter-proje">
-                            <article class="card h-100 shadow-sm border-0 overflow-hidden hover-lift">
-                                <a href="project-nahil-automl.html" class="ratio ratio-16x9">
-                                    <img src="assets/img/projects/nahil-automl.webp"
-                                         alt="Nahıl AutoML — tam otomatik, göreve özel yapay zekâ tasarımı"
-                                         class="w-100 h-100 object-fit-cover">
+                    <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+
+                        <!-- Nahıl AutoML -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="card mx-card h-100 shadow-sm border-0 overflow-hidden">
+                                <a href="project-AutoML.html" class="ratio ratio-16x9">
+                                    <img src="assets/img/projects/p1.jpg" alt="Nahıl AutoML kapak görseli" class="w-100 h-100">
                                 </a>
                                 <div class="card-body">
                                     <h3 class="h5 mb-2 text-truncate">Nahıl AutoML</h3>
-                                    <p class="mb-3 text-muted clamp-2">
-                                        Göreve özel olarak veri ön işleme, ağırlık başlatma, model mimarisi, aktivasyon ve
-                                        kayıp fonksiyonları ile eğitim hiperparametrelerini otomatik tasarlayabilen;
-                                        insan müdahalesi olmadan uçtan uca model kuran yeni bir AutoML tekniği
+                                    <p class="mb-3 text-muted mx-clamp-2">
+                                        Göreve özel veri ön işleme, ağırlık başlatma, mimari, aktivasyon &amp; loss ve hiperparametreleri otomatik tasarlayan uçtan uca AutoML tekniği
                                     </p>
                                     <div class="d-flex flex-wrap gap-2 mb-3">
-
-                                        <span class="badge badge-tech rounded-pill">PyTorch</span>
-                                        <span class="badge badge-tech rounded-pill">CUDA</span>
-                                        <span class="badge badge-tech rounded-pill">NAS</span>
-                                        <span class="badge badge-tech rounded-pill">Weight INT</span>
-                                        <span class="badge badge-tech rounded-pill">Desing Functions</span>
-
-                                        <span class="badge badge-tech rounded-pill">Hyperparameter OPT</span>
-                                        <span class="badge badge-tech rounded-pill">GP</span>
-                                        <span class="badge badge-tech rounded-pill">ABCP</span>
+                                        <span class="badge mx-badge-tech rounded-pill">PyTorch</span>
+                                        <span class="badge mx-badge-tech rounded-pill">CUDA</span>
+                                        <span class="badge mx-badge-tech rounded-pill">NAS</span>
+                                        <span class="badge mx-badge-tech rounded-pill">Hparam Opt.</span>
+                                        <span class="badge mx-badge-tech rounded-pill">GP</span>
+                                        <span class="badge mx-badge-tech rounded-pill">ABCP</span>
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <span class="small text-uppercase text-muted">Proje</span>
-                                        <a class="btn btn-sm btn-primary" href="project-nahil-automl.html">Detaylar</a>
+                                        <a class="btn btn-sm btn-primary" href="project-AutoML.html">Detaylar</a>
                                     </div>
                                 </div>
                             </article>
                         </div>
 
-
-                        <!-- PROJE: Yapay Zeka Destekli Erken Dönem Meme Kanseri Teşhisi -->
-                        <div class="col-lg-4 col-md-6 isotope-item filter-proje">
-                            <article class="card h-100 shadow-sm border-0 overflow-hidden hover-lift">
-                                <a href="project-breast-cancer-ai.html" class="ratio ratio-16x9">
-                                    <img src="assets/img/projects/breast-cancer-ai.webp"
-                                         alt="Erken dönem meme kanseri teşhisi için yapay zekâ – kapak görseli"
-                                         class="w-100 h-100 object-fit-cover">
+                        <!-- Meme Kanseri AI -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="card mx-card h-100 shadow-sm border-0 overflow-hidden">
+                                <a href="project-breast.html" class="ratio ratio-16x9">
+                                    <img src="assets/img/projects/p2.png" alt="Erken dönem meme kanseri teşhisi AI kapak görseli" class="w-100 h-100">
                                 </a>
                                 <div class="card-body">
                                     <h3 class="h5 mb-2 text-truncate">Erken Dönem Meme Kanseri Teşhisi (AI)</h3>
-                                    <p class="mb-3 text-muted clamp-2">
-                                        T.C. Sağlık Bakanlığı &amp; TÜSEB destekli çalışma. Uzman radyolog etiketli ~1000 mamografide
-                                        BIRADS sınıflandırma ile kitle ve kalsifikasyon tespitinde hibrit CNN+YOLO ile %90+ başarı.
+                                    <p class="mb-3 text-muted mx-clamp-2">
+                                        T.C. Sağlık Bakanlığı &amp; TÜSEB destekli. Uzman radyolog etiketli ~1000 mamografide BIRADS sınıflandırma ile kitle &amp; kalsifikasyon tespitinde %90+ başarı
                                     </p>
                                     <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge badge-tech rounded-pill">Python</span>
-                                        <span class="badge badge-tech rounded-pill">PyTorch</span>
-                                        <span class="badge badge-tech rounded-pill">CUDA</span>
-                                        <span class="badge badge-tech rounded-pill">YOLO</span>
-                                        <span class="badge badge-tech rounded-pill">Hibrit CNN</span>
-                                        <span class="badge badge-tech rounded-pill">Görüntü İşleme</span>
+                                        <span class="badge mx-badge-tech rounded-pill">Python</span>
+                                        <span class="badge mx-badge-tech rounded-pill">PyTorch</span>
+                                        <span class="badge mx-badge-tech rounded-pill">YOLO</span>
+                                        <span class="badge mx-badge-tech rounded-pill">Hibrit CNN</span>
+                                        <span class="badge mx-badge-tech rounded-pill">Görüntü İşleme</span>
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <span class="small text-uppercase text-muted">Proje</span>
-                                        <a class="btn btn-sm btn-primary" href="project-breast-cancer-ai.html">Detaylar</a>
+                                        <a class="btn btn-sm btn-primary" href="project-breast.html">Detaylar</a>
                                     </div>
                                 </div>
                             </article>
                         </div>
 
-
-                        <!-- PROJE: Kampüs Giriş-Çıkışların AI ile Kontrolü (Erciyes Üniversitesi) -->
-                        <div class="col-lg-4 col-md-6 isotope-item filter-proje">
-                            <article class="card h-100 shadow-sm border-0 overflow-hidden hover-lift">
+                        <!-- Kampüs Giriş/Çıkış AI -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="card mx-card h-100 shadow-sm border-0 overflow-hidden">
                                 <a href="project-campus-access-ai.html" class="ratio ratio-16x9">
-                                    <img src="assets/img/projects/campus-access-ai.webp"
-                                         alt="Kampüs giriş-çıkış izleme ve kişi/araç sayımı – kapak görseli"
-                                         class="w-100 h-100 object-fit-cover">
+                                    <img src="assets/img/projects/p3.jfif" alt="Kampüs giriş/çıkış kontrolü AI kapak" class="w-100 h-100">
                                 </a>
                                 <div class="card-body">
                                     <h3 class="h5 mb-2 text-truncate">Kampüs Giriş/Çıkış AI Kontrolü</h3>
-                                    <p class="mb-3 text-muted clamp-2">
-                                        Erciyes Üniversitesi BİDB için 6 kapıda insan/araç sayımı ve ID takibi. Kamera akışlarının
-                                        anlık işlenmesiyle gerçek zamanlı tespit ve raporlama.
+                                    <p class="mb-3 text-muted mx-clamp-2">
+                                        6 kapıda insan/araç sayımı ve ID takibi. Kamera akışlarının anlık işlenmesi ile gerçek zamanlı tespit ve raporlama
                                     </p>
                                     <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge badge-tech rounded-pill">Python</span>
-                                        <span class="badge badge-tech rounded-pill">PyTorch</span>
-                                        <span class="badge badge-tech rounded-pill">CUDA</span>
-                                        <span class="badge badge-tech rounded-pill">Görüntü İşleme</span>
-                                        <span class="badge badge-tech rounded-pill">Django</span>
-                                        <span class="badge badge-tech rounded-pill">SQLite</span>
+                                        <span class="badge mx-badge-tech rounded-pill">Python</span>
+                                        <span class="badge mx-badge-tech rounded-pill">PyTorch</span>
+                                        <span class="badge mx-badge-tech rounded-pill">CUDA</span>
+                                        <span class="badge mx-badge-tech rounded-pill">Django</span>
+                                        <span class="badge mx-badge-tech rounded-pill">SQLite</span>
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <span class="small text-uppercase text-muted">Proje</span>
@@ -221,31 +171,24 @@
                                 </div>
                             </article>
                         </div>
-                        <!-- PROJE: ROS + OpenCV Şerit (Lane) Tespiti -->
-                        <!-- PROJE: Kafe & Restoran Öneri Sistemi (ML) -->
-                        <div class="col-lg-4 col-md-6 isotope-item filter-proje">
-                            <article class="card h-100 shadow-sm border-0 overflow-hidden hover-lift">
+
+                        <!-- Restoran Öneri Sistemi -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="card mx-card h-100 shadow-sm border-0 overflow-hidden">
                                 <a href="project-restaurant-recommender.html" class="ratio ratio-16x9">
-                                    <img src="assets/img/projects/restaurant-reco.webp"
-                                         alt="Kafe ve restoranlar için makine öğrenmesi tabanlı öneri sistemi kapak görseli"
-                                         class="w-100 h-100 object-fit-cover">
+                                    <img src="assets/img/projects/p4.png" alt="Kafe & restoran öneri sistemi kapak" class="w-100 h-100">
                                 </a>
                                 <div class="card-body">
                                     <h3 class="h5 mb-2 text-truncate">Kafe &amp; Restoran Öneri Sistemi (ML)</h3>
-                                    <p class="mb-3 text-muted clamp-2">
-                                        TÜBİTAK destekli proje: müşteri segmentasyonu ve işbirlikçi filtreleme ile kullanıcı–ürün–işletme
-                                        önerileri. Analiz, görselleştirme ve üretime hazır servis uçları.
+                                    <p class="mb-3 text-muted mx-clamp-2">
+                                        TÜBİTAK destekli proje: müşteri segmentasyonu ve işbirlikçi filtreleme ile kullanıcı–ürün–işletme önerileri
                                     </p>
                                     <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge badge-tech rounded-pill">Python</span>
-                                        <span class="badge badge-tech rounded-pill">scikit-learn</span>
-                                        <span class="badge badge-tech rounded-pill">Numpy</span>
-                                        <span class="badge badge-tech rounded-pill">Matplotlib</span>
-                                        <span class="badge badge-tech rounded-pill">NoSQL</span>
-                                        <span class="badge badge-tech rounded-pill">KMeans</span>
-                                        <span class="badge badge-tech rounded-pill">Collaborative Filtering</span>
-                                        <span class="badge badge-tech rounded-pill">FastAPI</span>
-                                        <span class="badge badge-tech rounded-pill">Pandas</span>
+                                        <span class="badge mx-badge-tech rounded-pill">scikit-learn</span>
+                                        <span class="badge mx-badge-tech rounded-pill">Pandas</span>
+                                        <span class="badge mx-badge-tech rounded-pill">KMeans</span>
+                                        <span class="badge mx-badge-tech rounded-pill">Collaborative Filtering</span>
+                                        <span class="badge mx-badge-tech rounded-pill">NoSQL</span>
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <span class="small text-uppercase text-muted">Proje</span>
@@ -254,182 +197,181 @@
                                 </div>
                             </article>
                         </div>
-
-
-
-                        <!-- PROJE: ROS + OpenCV Şerit (Lane) Tespiti -->
-                        <div class="col-lg-4 col-md-6 isotope-item filter-proje">
-                            <article class="card h-100 shadow-sm border-0 overflow-hidden hover-lift">
-                                <a href="project-lane-detection-ros.html" class="ratio ratio-16x9">
-                                    <img src="assets/img/projects/lane-detection-ros.webp"
-                                         alt="ROS üzerinde OpenCV ile gerçek zamanlı şerit tespiti — kapak görseli"
-                                         class="w-100 h-100 object-fit-cover">
+                            
+                        <!-- ROS + OpenCV Lane Detection -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="card mx-card h-100 shadow-sm border-0 overflow-hidden">
+                                <a href="project-lane-det.html" class="ratio ratio-16x9">
+                                    <img src="assets/img/projects/p5.jpg" alt="ROS + OpenCV şerit tespiti kapak" class="w-100 h-100">
                                 </a>
                                 <div class="card-body">
                                     <h3 class="h5 mb-2 text-truncate">ROS + OpenCV Şerit Tespiti</h3>
-                                    <p class="mb-3 text-muted clamp-2">
-                                        USB kameradan alınan görüntülerle gerçek zamanlı şerit tespiti ve PID çıktısı üreten takip modülü.
-                                        Teknofest Robotaksi için geliştirilmiş prototip.
+                                    <p class="mb-3 text-muted mx-clamp-2">
+                                        USB kamera ile gerçek zamanlı şerit tespiti ve PID çıktısı üreten takip modülü (Teknofest Robotaksi)
                                     </p>
                                     <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge badge-tech rounded-pill">ROS</span>
-                                        <span class="badge badge-tech rounded-pill">OpenCV</span>
-                                        <span class="badge badge-tech rounded-pill">C++</span>
-                                        <span class="badge badge-tech rounded-pill">CMake</span>
-                                        <span class="badge badge-tech rounded-pill">Python</span>
-                                        <span class="badge badge-tech rounded-pill">PID</span>
-                                        <span class="badge badge-tech rounded-pill">Görüntü İşleme</span>
+                                        <span class="badge mx-badge-tech rounded-pill">ROS</span>
+                                        <span class="badge mx-badge-tech rounded-pill">OpenCV</span>
+                                        <span class="badge mx-badge-tech rounded-pill">C++</span>
+                                        <span class="badge mx-badge-tech rounded-pill">PID</span>
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <span class="small text-uppercase text-muted">Proje</span>
-                                        <a class="btn btn-sm btn-primary" href="project-lane-detection-ros.html">Detaylar</a>
+                                        <a class="btn btn-sm btn-primary" href="project-lane-det.html">Detaylar</a>
                                     </div>
                                 </div>
                             </article>
                         </div>
 
+                    </div>
+                </div>
+            </section>
 
+            <hr class="mx-divider">
 
-                        <!-- YAYIN 1 -->
-                        <div class="col-lg-4 col-md-6 isotope-item filter-yayin">
-                            <article class="card h-100 shadow-sm border-0 overflow-hidden hover-lift">
-                                <a href="paper-automl-activation.html" class="ratio ratio-16x9">
-                                    <img src="assets/img/papers/automl-activation.webp" alt="AutoML aktivasyon fonksiyonu keşfi makalesi kapak görseli" class="w-100 h-100 object-fit-cover">
+            <!-- ===== YAYINLAR ===== -->
+            <section id="yayinlar" class="pt-5">
+                <div class="container">
+                    <div class="d-flex align-items-center mb-4" data-aos="fade-up">
+                        <div class="mx-section-icon mx-icon-green me-3"><i class="bi bi-journal-text"></i></div>
+                        <div>
+                            <h3 class="h4 mb-1">Yayınlar</h3>
+                            <p class="text-muted mb-0">Makale ve bildiriler</p>
+                        </div>
+                    </div>
+
+                    <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+
+                        <!-- Yayın 1 -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="card mx-card h-100 shadow-sm border-0">
+                                <a href="project-AutoG.html" class="ratio ratio-16x9">
+                                    <img src="assets/img/projects/p6.png" class="w-100 h-100" alt="AutoML aktivasyon makalesi kapak">
                                 </a>
                                 <div class="card-body">
-                                    <h3 class="h5 mb-2 text-truncate">
-                                        Derin Sinir Ağları Aktivasyon</br> Fonksiyonlarının Genetik</br> Programlama ile Otomatik Tasarımı
-                                    </h3>
-                                    <p class="mb-3 text-muted clamp-2">Derin Sinir Ağları Aktivasyon Fonksiyonlarının Genetik Programlama ile Otomatik Tasarımı</p>
-                                    <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge badge-tech rounded-pill">NAS</span>
-                                        <span class="badge badge-tech rounded-pill">Genetic Prog.</span>
-                                        <span class="badge badge-tech rounded-pill">F1-Optimized</span>
-                                    </div>
+                                    <h3 class="h6 mb-2">Derin Sinir Ağları Aktivasyon Fonksiyonlarının Genetik Programlama ile Otomatik Tasarımı</h3>
+                                    <p class="text-muted mx-clamp-2 mb-3">Aktivasyon fonksiyonlarının evrimsel arama ile otomatik keşfi</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <span class="small text-uppercase text-muted">Yayın - Dergide</span>
-                                        <a class="btn btn-sm btn-outline-primary" href="paper-automl-activation.html">Detaylar</a>
+                                        <span class="small text-uppercase text-muted">Dergide</span>
+                                        <a class="btn btn-sm btn-outline-primary" href="project-AutoG.html">Detaylar</a>
                                     </div>
                                 </div>
                             </article>
                         </div>
-                        <!-- YAYIN 1 -->
-                        <div class="col-lg-4 col-md-6 isotope-item filter-yayin">
-                            <article class="card h-100 shadow-sm border-0 overflow-hidden hover-lift">
-                                <a href="paper-automl-activation.html" class="ratio ratio-16x9">
-                                    <img src="assets/img/papers/automl-activation.webp" alt="AutoML aktivasyon fonksiyonu keşfi makalesi kapak görseli" class="w-100 h-100 object-fit-cover">
+
+                        <!-- Yayın 2 -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="card mx-card h-100 shadow-sm border-0">
+                                <a href="project-AutoG.html" class="ratio ratio-16x9">
+                                    <img src="assets/img/projects/p7.png" class="w-100 h-100" alt="EA & Mutation review kapak">
                                 </a>
                                 <div class="card-body">
-                                    <h3 class="h5 mb-2 text-truncate">
-                                        A comparative review of</br> Evolutionary Algorithms and</br> Mutation Types in Automatic</br> Activation Function Design
-                                    </h3>
-                                    <p class="mb-3 text-muted clamp-2">Derin Sinir Ağları Aktivasyon Fonksiyonlarının Genetik Programlama ile Otomatik Tasarımı</p>
-                                    <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge badge-tech rounded-pill">NAS</span>
-                                        <span class="badge badge-tech rounded-pill">Genetic Prog.</span>
-                                        <span class="badge badge-tech rounded-pill">F1-Optimized</span>
-                                    </div>
+                                    <h3 class="h6 mb-2">A Comparative Review of EA &amp; Mutation Types in Automatic Activation Function Design</h3>
+                                    <p class="text-muted mx-clamp-2 mb-3">Evrimsel algoritmalarla aktivasyon tasarımında karşılaştırmalı inceleme</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <span class="small text-uppercase text-muted">Yayın - Yazımda</span>
-                                        <a class="btn btn-sm btn-outline-primary" href="paper-automl-activation.html">Detaylar</a>
+                                        <span class="small text-uppercase text-muted">Yazımda</span>
+                                        <a class="btn btn-sm btn-outline-primary" href="project-AutoG.html">Detaylar</a>
                                     </div>
                                 </div>
                             </article>
                         </div>
-                        <!-- YAYIN 1 -->
-                        <div class="col-lg-4 col-md-6 isotope-item filter-yayin">
-                            <article class="card h-100 shadow-sm border-0 overflow-hidden hover-lift">
-                                <a href="paper-automl-activation.html" class="ratio ratio-16x9">
-                                    <img src="assets/img/papers/automl-activation.webp" alt="AutoML aktivasyon fonksiyonu keşfi makalesi kapak görseli" class="w-100 h-100 object-fit-cover">
+
+                        <!-- Yayın 3 -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="card mx-card h-100 shadow-sm border-0">
+                                <a href="project-AutoG.html" class="ratio ratio-16x9">
+                                    <img src="assets/img/projects/p8.png" class="w-100 h-100" alt="ABC programming semantik arama kapak">
                                 </a>
                                 <div class="card-body">
-                                    <h3 class="h5 mb-2 text-truncate">
-                                        Semantic Search for Automatic</br> Activation Function with</br> Artificial Bee Colony Programming
-                                    </h3>
-                                    <p class="mb-3 text-muted clamp-2">Derin Sinir Ağları Aktivasyon Fonksiyonlarının Genetik Programlama ile Otomatik Tasarımı</p>
-                                    <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge badge-tech rounded-pill">NAS</span>
-                                        <span class="badge badge-tech rounded-pill">Genetic Prog.</span>
-                                        <span class="badge badge-tech rounded-pill">F1-Optimized</span>
-                                    </div>
+                                    <h3 class="h6 mb-2">Semantic Search for Automatic Activation Function with Artificial Bee Colony Programming</h3>
+                                    <p class="text-muted mx-clamp-2 mb-3">ABC programlama ile semantik yönlendirmeli aktivasyon keşfi</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <span class="small text-uppercase text-muted">Yayın - Yazımda</span>
-                                        <a class="btn btn-sm btn-outline-primary" href="paper-automl-activation.html">Detaylar</a>
+                                        <span class="small text-uppercase text-muted">Yazımda</span>
+                                        <a class="btn btn-sm btn-outline-primary" href="project-AutoG.html">Detaylar</a>
                                     </div>
                                 </div>
                             </article>
                         </div>
-                        <!-- YAYIN 1 -->
-                        <div class="col-lg-4 col-md-6 isotope-item filter-yayin">
-                            <article class="card h-100 shadow-sm border-0 overflow-hidden hover-lift">
-                                <a href="paper-automl-activation.html" class="ratio ratio-16x9">
-                                    <img src="assets/img/papers/automl-activation.webp" alt="AutoML aktivasyon fonksiyonu keşfi makalesi kapak görseli" class="w-100 h-100 object-fit-cover">
+
+                        <!-- Yayın 4 -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="card mx-card h-100 shadow-sm border-0">
+                                <a href="project-AutoG.html" class="ratio ratio-16x9">
+                                    <img src="assets/img/projects/p9.png" class="w-100 h-100" alt="ABC coding NAS kapak">
                                 </a>
                                 <div class="card-body">
-                                    <h3 class="h5 mb-2 text-truncate">
-                                        Neural Architecture Search with</br> Artificial Bee Colony Coding
-                                    </h3>
-                                    <p class="mb-3 text-muted clamp-2">Derin Sinir Ağları Aktivasyon Fonksiyonlarının Genetik Programlama ile Otomatik Tasarımı</p>
-                                    <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge badge-tech rounded-pill">NAS</span>
-                                        <span class="badge badge-tech rounded-pill">Genetic Prog.</span>
-                                        <span class="badge badge-tech rounded-pill">F1-Optimized</span>
-                                    </div>
+                                    <h3 class="h6 mb-2">Neural Architecture Search with Artificial Bee Colony Coding</h3>
+                                    <p class="text-muted mx-clamp-2 mb-3">Yapay arı kolonisi ile NAS araması için yeni kodlama</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <span class="small text-uppercase text-muted">Yayın - Geliştirme Aşamasında</span>
-                                        <a class="btn btn-sm btn-outline-primary" href="paper-automl-activation.html">Detaylar</a>
+                                        <span class="small text-uppercase text-muted">Geliştirme</span>
+                                        <a class="btn btn-sm btn-outline-primary" href="project-AutoG.html">Detaylar</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <hr class="mx-divider">
+
+            <!-- ===== FAALİYETLER ===== -->
+            <section id="faaliyetler" class="pt-5">
+                <div class="container">
+                    <div class="d-flex align-items-center mb-4" data-aos="fade-up">
+                        <div class="mx-section-icon mx-icon-purple me-3"><i class="bi bi-people"></i></div>
+                        <div>
+                            <h3 class="h4 mb-1">Faaliyetler</h3>
+                            <p class="text-muted mb-0">Topluluk çalışmaları, etkinlikler, konuşmalar</p>
+                        </div>
+                    </div>
+
+                    <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+                        <!-- Yapay Zekâ Kulübü -->
+                        <div class="col-lg-6">
+                            <article class="card mx-card h-100 shadow-sm border-0">
+                                <div class="row g-0">
+                                    <div class="col-md-5">
+                                        <div class="ratio ratio-16x9 h-100">
+                                            <img src="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="w-100 h-100" alt="Yapay Zekâ Kulübü görseli">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="card-body">
+                                            <h3 class="h6 mb-2">Erciyes Üniversitesi Yapay Zekâ Kulübü — Kurucu &amp; Başkan</h3>
+                                            <p class="text-muted mx-clamp-2 mb-3">20 kişilik ekip; 8 teorik proje (TÜBİTAK) ve TÜSEB destekli sağlık AI projesi</p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="small text-uppercase text-muted">Topluluk</span>
+                                                <a class="btn btn-sm btn-outline-primary" href="about.html#Hakkımda" target="_blank" rel="noopener">Hakkımda</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </article>
                         </div>
 
 
-                        <div class="col-lg-4 col-md-6 isotope-item filter-etkinlik">
-                            <article class="card h-100 shadow-sm border-0 overflow-hidden hover-lift">
-                                <a href="paper-automl-activation.html" class="ratio ratio-16x9">
-                                    <img src="assets/img/papers/automl-activation.webp" alt="AutoML aktivasyon fonksiyonu keşfi makalesi kapak görseli" class="w-100 h-100 object-fit-cover">
-                                </a>
-                                <div class="card-body">
-                                    <h3 class="h5 mb-2 text-truncate">
-                                        Yapay Zeka Kulübü
-                                    </h3>
-                                    <p class="mb-3 text-muted clamp-2">Derin Sinir Ağları Aktivasyon Fonksiyonlarının Genetik Programlama ile Otomatik Tasarımı</p>
-                                    <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge badge-tech rounded-pill">NAS</span>
-                                        <span class="badge badge-tech rounded-pill">Genetic Prog.</span>
-                                        <span class="badge badge-tech rounded-pill">F1-Optimized</span>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="small text-uppercase text-muted">Yayın - Geliştirme Aşamasında</span>
-                                        <a class="btn btn-sm btn-outline-primary" href="paper-automl-activation.html">Detaylar</a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
 
+                    </div>
+                </div>
+            </section>
 
-
-                    </div><!-- End Cards Grid -->
-
-                </div><!-- /isotope-layout -->
-
-            </div>
-
-        </section><!-- /Portfolio Section -->
+        </section><!-- /mx-portfolio -->
 
     </main>
 
     <footer id="footer" class="footer light-background">
         <div class="container">
-            <div class="copyright text-center ">
+            <div class="copyright text-center">
                 <p>© <span id="year"></span> <strong class="px-1 sitename">Muhammet</strong> <span>Tüm Hakları Saklıdır<br></span></p>
             </div>
             <div class="social-links d-flex justify-content-center">
-                <a href="https://github.com/mr-ozdemir"><i class="bi bi-github"></i></a>
-                <a href="https://www.linkedin.com/in/mrozdemir"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/mr-ozdemir" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/mrozdemir" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
             </div>
             <div class="credits">
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> — Distributed by <a href="https://themewagon.com">ThemeWagon</a>
+                Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a> — Distributed by <a href="https://themewagon.com" target="_blank" rel="noopener">ThemeWagon</a>
             </div>
         </div>
     </footer>
@@ -442,7 +384,7 @@
     <!-- Preloader -->
     <div id="preloader"></div>
 
-    <!-- Vendor JS Files -->
+    <!-- Vendor JS -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
@@ -453,14 +395,45 @@
     <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-    <!-- Main JS File -->
+    <!-- Main JS -->
     <script src="assets/js/main.js"></script>
 
+    <!-- Sayfaya özel küçük JS (aktif sekme görünümü) -->
     <script>
-        // Yıl otomatik
-        document.addEventListener('DOMContentLoaded', function () {
-            const y = document.getElementById('year');
-            if (y) y.textContent = new Date().getFullYear();
+        document.addEventListener('DOMContentLoaded', () => {
+            const year = document.getElementById('year');
+            if (year) year.textContent = new Date().getFullYear();
+
+            const sections = ['projeler', 'yayinlar', 'faaliyetler']
+                .map(id => document.getElementById(id))
+                .filter(Boolean);
+
+            const links = Array.from(document.querySelectorAll('#mxShowroomTabs .nav-link'));
+
+            // Scroll ile aktif sekme
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+                    }
+                });
+            }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+
+            sections.forEach(s => obs.observe(s));
+
+            // Tıklayınca yumuşak kaydırma
+            links.forEach(a => {
+                a.addEventListener('click', (ev) => {
+                    const targetId = a.getAttribute('href');
+                    if (targetId && targetId.startsWith('#')) {
+                        ev.preventDefault();
+                        const el = document.querySelector(targetId);
+                        if (!el) return;
+                        const y = el.getBoundingClientRect().top + window.scrollY - 90; // header/subnav offset
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                    }
+                });
+            });
         });
     </script>
 

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Bilgilendirme | Muhammet Özdemir</title>
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="portfolio-details-page">
+
+    <header id="header" class="header d-flex align-items-center light-background sticky-top">
+        <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+            <a href="index.html" target="_blank" rel="noopener" class="logo d-flex align-items-center me-auto me-xl-0">
+                <h1 class="sitename">Muhammet</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html" target="_blank" rel="noopener">Ana Sayfa</a></li>
+                    <li><a href="about.html" target="_blank" rel="noopener">Hakkımda</a></li>
+                    <li><a href="resume.html" target="_blank" rel="noopener">Deneyim</a></li>
+                    <li><a href="services.html" target="_blank" rel="noopener">Hizmetler</a></li>
+                    <li><a href="portfolio.html" target="_blank" rel="noopener">Projeler</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+            <div class="header-social-links">
+                <a href="https://github.com/mr-ozdemir" target="_blank" rel="noopener" class="github"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/mrozdemir" target="_blank" rel="noopener" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="section py-5">
+            <div class="container" data-aos="fade-up">
+                <div class="text-center">
+                    <p class="lead mb-4">
+                        Bu yayın Nahıl AutoML projesi kapsamında geliştirildi. Yayın, dergide yayınlanmadan içerik paylaşılamamaktadır.
+                    </p>
+
+                    <a href="portfolio.html" target="_blank" rel="noopener" class="btn btn-primary">
+                        <i class="bi bi-grid me-1"></i> Projelere Git
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" class="footer light-background">
+        <div class="container">
+            <div class="copyright text-center ">
+                <p>© <span id="year"></span> <strong class="px-1 sitename">Muhammet</strong> <span>Tüm Hakları Saklıdır</span></p>
+            </div>
+            <div class="social-links d-flex justify-content-center">
+                <a href="https://github.com/mr-ozdemir" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/mrozdemir" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Yukarı dön">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const y = document.getElementById('year');
+            if (y) y.textContent = new Date().getFullYear();
+            if (window.AOS) AOS.init({ duration: 600, once: true });
+        });
+    </script>
+</body>
+</html>

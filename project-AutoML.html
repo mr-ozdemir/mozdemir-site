@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Nahıl AutoML | Muhammet Özdemir</title>
+    <meta name="description" content="Nahıl AutoML: göreve özel uçtan uca otomatik yapay zekâ tasarımı için teorik çerçeve ve mimari bileşenler.">
+    <meta name="keywords" content="AutoML, NAS, ağırlık başlatma, aktivasyon fonksiyonu, hiperparametre optimizasyonu, PyTorch, CUDA">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts (site genelinizle aynı kalsın) -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <!-- Sayfaya özel ufak stiller (diğer sayfaları bozmaz) -->
+    <style>
+        .nahil-automl-detail .lead {
+            color: var(--bs-body-color);
+            opacity: .85;
+        }
+
+        .nahil-automl-detail .section-title h2 {
+            margin-bottom: .25rem;
+        }
+
+        .nahil-automl-detail .badge-tech {
+            background: rgba(0,0,0,.06);
+            border: 1px solid rgba(0,0,0,.08);
+            font-weight: 500;
+        }
+
+        .nahil-automl-detail .icon-check {
+            width: 1.25rem;
+            height: 1.25rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            border: 1px solid rgba(0,0,0,.15);
+            margin-right: .5rem;
+            font-size: .9rem;
+        }
+
+        .nahil-automl-detail .card {
+            border: 1px solid rgba(0,0,0,.06);
+            box-shadow: 0 .25rem .75rem rgba(0,0,0,.05);
+        }
+    </style>
+</head>
+
+<body class="portfolio-details-page">
+
+    <!-- Header (sitenizdekiyle aynı yapı) -->
+    <header id="header" class="header d-flex align-items-center light-background sticky-top">
+        <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <h1 class="sitename">Muhammet Özdemir</h1>
+            </a>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="about.html">Hakkımda</a></li>
+                    <li><a href="resume.html">Deneyim</a></li>
+                    <li><a href="services.html">Yetkinlikler</a></li>
+                    <li><a href="portfolio.html" class="active">Projeler</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+            <div class="header-social-links">
+                <a href="https://github.com/mr-ozdemir" class="github"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/mrozdemir" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+
+        <!-- DETAY: Nahıl AutoML -->
+        <section id="portfolio-details" class="portfolio-details section nahil-automl-detail">
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Nahıl AutoML</h2>
+                <p class="lead">Göreve özel, uçtan uca otomatik yapay zekâ tasarım çerçevesi — <strong>teorik mimari ve bileşenler</strong></p>
+            </div>
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-4">
+
+                    <!-- Sol: Kapak görsel/slider (isterseniz tek görsel kalsın) -->
+                    <div class="col-lg-7">
+                        <div class="card overflow-hidden">
+                            <img src="assets/img/projects/AutoML.PNG" class="img-fluid" alt="Nahıl AutoML kapak görseli">
+                        </div>
+                    </div>
+
+                    <!-- Sağ: Proje bilgisi -->
+                    <div class="col-lg-5">
+                        <div class="portfolio-info card p-4">
+                            <h3>Proje Bilgisi</h3>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><span class="icon-check">✓</span><strong>Kategori:</strong> AutoML &amp; Meta-Öğrenme</li>
+                                <li class="mb-2"><span class="icon-check">✓</span><strong>Kapsam:</strong> Ön işleme, mimari arama, aktivasyon &amp; kayıp tasarımı, ağırlık başlatma, hiperparametre optimizasyonu</li>
+                                <li class="mb-2"><span class="icon-check">✓</span><strong>Durum:</strong> Teorik çerçeve ve prototip bileşenler</li>
+                            </ul>
+                            <hr>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge rounded-pill badge-tech">Python</span>
+                                <span class="badge rounded-pill badge-tech">PyTorch</span>
+                                <span class="badge rounded-pill badge-tech">CUDA</span>
+                                <span class="badge rounded-pill badge-tech">NAS</span>
+                                <span class="badge rounded-pill badge-tech">Activation Design</span>
+                                <span class="badge rounded-pill badge-tech">Loss Design</span>
+                                <span class="badge rounded-pill badge-tech">Init Strategies</span>
+                                <span class="badge rounded-pill badge-tech">HParam Opt</span>
+                                <span class="badge rounded-pill badge-tech">GP / EA / ABCP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- İçerik bölümü -->
+                <div class="row gy-4 mt-2" data-aos="fade-up" data-aos-delay="150">
+                    <div class="col-12">
+                        <div class="portfolio-description card p-4">
+                            <h3>Teorik Çerçeve</h3>
+                            <p>
+                                Nahıl AutoML, farklı görevler ve veri koşulları için <em>insan müdahalesi olmadan</em> özelleştirilmiş
+                                makine öğrenmesi/derin öğrenme boru hattını tasarlamayı hedefleyen bir üst-seviye otomasyon mimarisidir.
+                                Yaklaşım, veri ön işleme adımlarından başlayarak model mimarisi araması (NAS), aktivasyon ve kayıp
+                                fonksiyonlarının keşfi, ağırlık başlatma stratejilerinin seçimi ve eğitim hiperparametrelerinin
+                                optimizasyonuna kadar tüm süreci birleştirir.
+                            </p>
+
+                            <h4>1) Veri Odaklı Tasarım Kararları</h4>
+                            <p>
+                                Giriş veri istatistikleri ve görev tipine göre; ölçekleme, normalizasyon, dengesizlik giderme,
+                                veri artırma ve özellik seçimi gibi adımlar otomatik önerilir. Boru hattı, bu adımların
+                                <em>kombinasyon uzayını</em> verinin performans sinyaliyle tarar.
+                            </p>
+
+                            <h4>2) Mimari Arama (NAS)</h4>
+                            <p>
+                                Arama uzayı; katman tipleri, kanallar, çekirdek boyları, bağlantı örüntüleri ve düzenlileştirme
+                                seçeneklerini kapsar. Aday mimariler, düşük maliyetli kestirimciler ve çok kollu bantit benzeri
+                                stratejilerle sıralanır; vaatkâr adaylar kısaltılmış eğitim protokolleriyle değerlendirilir.
+                            </p>
+
+                            <h4>3) Aktivasyon &amp; Kayıp Tasarımı</h4>
+                            <p>
+                                Aktivasyon ve kayıp fonksiyonları, semantik bilgilere duyarlı arama operatörleriyle keşfedilir
+                                veya mevcut fonksiyonlar parametrize edilerek görev ölçütlerine uyarlanır. Bu katman, uç değer
+                                dayanıklılığı ve gradyan istikrarı gibi ölçütlerle yönlendirilir.
+                            </p>
+
+                            <h4>4) Ağırlık Başlatma &amp; Eğitim Hiperparametreleri</h4>
+                            <p>
+                                Başlatma stratejileri (ör. He/Xavier varyantları, ölçek uyarlamaları) ve eğitim hiperparametreleri
+                                (öğrenme oranı zamanlamaları, optimizasyon ailesi, momentum/β değerleri, düzenlileştirme) birlikte
+                                optimize edilir; arama sırasında ucuza ölçülen istikrar/uyum metrikleri sinyal olarak kullanılır.
+                            </p>
+
+                            <h4>5) Birleşik Arama &amp; Çok Amaçlı Optimizasyon</h4>
+                            <p>
+                                Bileşenler tek tek değil, etkileşimleriyle değerlendirilir. Çok amaçlı bir hedef seti
+                                (doğruluk/F1, parametre sayısı, FLOPs, gecikme, bellek) altında Pareto-ön cephesi çıkarılarak
+                                dağıtım hedeflerine uygun adaylar seçilir.
+                            </p>
+
+                            <div class="alert alert-secondary mt-2 mb-0">
+                                <strong>Not:</strong> Bilimsel çalışmalar ve araştırma makalesine dönüştürme süreçleri devam ettiği için,
+                                bu sayfada kasıtlı olarak <em>çıktı/sonuç metrikleri paylaşılmamaktadır</em>. İçerik yalnızca teorik
+                                mimari ve yaklaşımı özetler.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Geri butonu -->
+                <div class="row mt-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-12 text-center">
+                        <a href="portfolio.html" class="btn btn-outline-primary">
+                            <i class="bi bi-arrow-left-short me-1"></i> Projelere Dön
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer" class="footer light-background">
+        <div class="container">
+            <div class="copyright text-center ">
+                <p>© <span id="year"></span> <strong class="px-1 sitename">Muhammet</strong> <span>Tüm Hakları Saklıdır<br></span></p>
+            </div>
+            <div class="social-links d-flex justify-content-center">
+                <a href="https://github.com/mr-ozdemir"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/mrozdemir"><i class="bi bi-linkedin"></i></a>
+            </div>
+            <div class="credits">
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> — Distributed by <a href="https://themewagon.com">ThemeWagon</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Yukarı dön">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- SADECE BU SAYFADA, SADECE BU BLOĞU TEMİZLE -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const root = document.querySelector('.nahil-automl-detail');
+            if (!root) return;
+
+            // En güvenlisi: bilinen tam dizeyi temizle
+            const needles = [
+                ':contentReference[oaicite:0]{index=0}'
+            ];
+
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+            const targets = [];
+            while (walker.nextNode()) targets.push(walker.currentNode);
+
+            targets.forEach(node => {
+                let t = node.nodeValue;
+                needles.forEach(s => { if (t.includes(s)) t = t.split(s).join(''); });
+                if (t !== node.nodeValue) node.nodeValue = t;
+            });
+
+            // Yıl otomatik
+            const y = document.getElementById('year');
+            if (y) y.textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
