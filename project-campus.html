@@ -1,98 +1,80 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Erken Dönem Meme Kanseri Teşhisi (CV) | Muhammet Özdemir</title>
-    <meta name="description" content="Mamografilerde kitle ve kalsifikasyon tespiti ile BI-RADS sınıflandırma için bilgisayarlı görü tabanlı uçtan uca sistem.">
-    <meta name="keywords" content="meme kanseri, mamografi, YOLO, bilgisayarlı görü, BI-RADS, CLAHE, hiperparametre optimizasyonu, ABC">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Kampüs Giriş/Çıkış AI Kontrolü | Muhammet Özdemir</title>
+    <meta name="description" content="Erciyes Üniversitesi kampüs kapıları ve tramvay duraklarında çoklu kamera akışlarından gerçek zamanlı kişi/araç sayımı, ID takibi ve raporlama yapan YOLO + görüntü işleme tabanlı sistem." />
+    <meta name="keywords" content="Erciyes Üniversitesi, kampüs, kişi sayımı, araç sayımı, YOLO, gerçek zamanlı, ID tracking, görüntü işleme, PyTorch, OpenCV, GPU sunucu" />
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/img/favicon.ico" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
 
-    <!-- Main CSS File (global) -->
-    <link href="assets/css/main.css" rel="stylesheet">
+    <!-- Global main.css -->
+    <link href="assets/css/main.css" rel="stylesheet" />
 
-    <!-- Page-specific CSS (namespaced) -->
+    <!-- Page-scoped styles -->
     <style>
-        /* ===== Breast Cancer details page — namespaced styles ===== */
-        .mx-bc-hero h1 {
-            font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+        /* ==== CAMPUS DETAILS — page-scoped (won't affect others) ==== */
+        .portfolio-details-page .header a {
+            text-decoration: none !important;
+        }
+
+        .mx-campus-hero h1 {
+            font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
             font-weight: 700;
             letter-spacing: .2px;
             margin-bottom: .5rem;
         }
 
-        .mx-bc-pill {
+        .mx-campus-hero p.mx-muted {
+            color: #667085;
+            max-width: 900px;
+            margin: .5rem auto 0;
+        }
+
+        .mx-pill {
             display: inline-flex;
             align-items: center;
-            gap: .35rem;
+            gap: .4rem;
             font-size: .85rem;
-            padding: .35rem .6rem;
-            border: 1px solid rgba(0,0,0,.07);
+            padding: .4rem .65rem;
             border-radius: 999px;
-            background: rgba(0,0,0,.03);
+            background: rgba(0,0,0,.035);
+            border: 1px solid rgba(0,0,0,.08);
             color: #495057;
         }
 
-        .mx-bc-badges .mx-bc-pill i {
-            font-size: 1rem;
-        }
+            .mx-pill i {
+                font-size: 1rem;
+            }
 
-        .mx-bc-card {
+        .mx-card {
             border: 1px solid rgba(0,0,0,.06);
             border-radius: 14px;
             box-shadow: 0 .25rem .75rem rgba(0,0,0,.05);
         }
 
-            .mx-bc-card .list-group-item {
+            .mx-card .list-group-item {
                 border: 0;
                 padding-left: 0;
                 padding-right: 0;
             }
 
-        .mx-bc-subtle {
-            color: #6c757d;
-            font-size: .95rem;
-        }
-
-        .mx-bc-tech .badge {
-            background: rgba(13,110,253,.08);
-            color: #0d6efd;
-            border: 1px solid rgba(13,110,253,.15);
-            font-weight: 500;
-            padding: .5rem .65rem;
-            border-radius: 999px;
-            margin: .125rem .25rem .25rem 0;
-        }
-
-        .mx-bc-section h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: .75rem;
-        }
-
-        .mx-bc-section p,
-        .mx-bc-section li {
-            font-size: .98rem;
-            line-height: 1.65;
-        }
-
-        .mx-bc-kpi {
+        .mx-kpi {
             border: 1px solid rgba(0,0,0,.06);
             border-radius: 12px;
             padding: 1rem;
@@ -101,70 +83,93 @@
             height: 100%;
         }
 
-            .mx-bc-kpi .mx-bc-kpi-title {
+            .mx-kpi .t {
                 font-size: .85rem;
                 color: #6c757d;
                 margin-bottom: .35rem;
             }
 
-            .mx-bc-kpi .mx-bc-kpi-value {
+            .mx-kpi .v {
                 font-size: 1.35rem;
                 font-weight: 800;
                 letter-spacing: .2px;
             }
 
-        .mx-bc-table thead th {
+        .mx-section h3 {
+            font-size: 1.25rem;
             font-weight: 700;
-            background: #f8f9fa;
-            border-bottom: 1px solid #e9ecef;
+            margin-bottom: .75rem;
         }
 
-        .mx-bc-table td,
-        .mx-bc-table th {
-            vertical-align: middle;
-            font-size: .95rem;
+        .mx-section p, .mx-section li {
+            font-size: .98rem;
+            line-height: 1.65;
         }
 
-        .mx-bc-callout {
+        .mx-tech .badge {
+            background: rgba(13,110,253,.08);
+            color: #0d6efd;
+            border: 1px solid rgba(13,110,253,.18);
+            border-radius: 999px;
+            font-weight: 500;
+            padding: .5rem .65rem;
+            margin: .125rem .25rem .25rem 0;
+        }
+
+        .mx-callout {
             border-left: 4px solid #0d6efd;
             background: #f0f6ff;
             padding: .85rem 1rem;
             border-radius: 8px;
             font-size: .95rem;
         }
-        /* Swiper ratio helper */
-        .mx-bc-ratio {
+
+        /* ---- Responsive gallery that respects image natural size ---- */
+        .mx-campus-gallery {
             position: relative;
-            width: 100%;
-            padding-top: 56.25%;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #f8f9fa;
         }
 
-            .mx-bc-ratio > .swiper {
-                position: absolute;
-                inset: 0;
+            .mx-campus-gallery .swiper {
+                width: 100%;
+                height: auto;
             }
 
-        .mx-bc-hero-muted {
-            color: #667085;
-            max-width: 860px;
-            margin: .5rem auto 0;
-        }
-        /* Header underline guard (only here) */
-        .portfolio-details-page .header a {
-            text-decoration: none !important;
+            .mx-campus-gallery .swiper-wrapper {
+                align-items: center; /* vertically center images of various heights */
+            }
+
+            .mx-campus-gallery .swiper-slide {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #f8f9fa;
+                border-radius: 12px;
+                overflow: hidden;
+                padding: 0.5rem;
+            }
+
+                .mx-campus-gallery .swiper-slide img {
+                    display: block;
+                    width: auto;
+                    height: auto;
+                    max-width: 100%;
+                    max-height: 65vh; /* fill but never upscale */
+                    object-fit: contain;
+                    image-rendering: auto;
+                }
+
+        @media (max-width: 576px) {
+            .mx-campus-gallery .swiper-slide img {
+                max-height: 55vh;
+            }
         }
     </style>
 </head>
-
 <body class="portfolio-details-page">
 
     <!-- Header -->
     <header id="header" class="header d-flex align-items-center light-background sticky-top">
         <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
-
             <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
                 <h1 class="sitename">Muhammet Özdemir</h1>
             </a>
@@ -174,7 +179,7 @@
                     <li><a href="index.html">Ana Sayfa</a></li>
                     <li><a href="about.html">Hakkımda</a></li>
                     <li><a href="resume.html">Deneyim</a></li>
-                    <li><a href="services.html">Yetkinlikler</a></li>
+                    <li><a href="services.html">Hizmetler</a></li>
                     <li><a href="portfolio.html" class="active">Projeler</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -184,56 +189,52 @@
                 <a href="https://github.com/mr-ozdemir" class="github"><i class="bi bi-github"></i></a>
                 <a href="https://www.linkedin.com/in/mrozdemir" class="linkedin"><i class="bi bi-linkedin"></i></a>
             </div>
-
         </div>
     </header>
 
     <main class="main">
-
         <!-- Hero -->
-        <section class="section mx-bc-hero">
+        <section class="section mx-campus-hero">
             <div class="container" data-aos="fade-up">
                 <div class="text-center">
-                    <h1>Erken Dönem Meme Kanseri Teşhisi — Bilgisayarlı Görü</h1>
-                    <p class="mx-bc-hero-muted">
-                        Mamografilerde <strong>kitle</strong> ve <strong>kalsifikasyon</strong> tespiti ile <strong>BI-RADS sınıflandırma</strong> için uçtan uca CV mimarisi
-                        (ön-işleme, yoğunluk sınıflandırma, YOLO tabanlı tespit, model/hiperparametre optimizasyonu).
+                    <h1>Kampüs Giriş/Çıkış AI Kontrolü</h1>
+                    <p class="mx-muted">
+                        Erciyes Üniversitesi kapıları ve tramvay duraklarında çoklu kamera akışlarından
+                        <strong>gerçek zamanlı kişi/araç sayımı</strong>, <strong>ID takibi</strong> ve <strong>raporlama</strong>.
                     </p>
-                    <div class="d-flex flex-wrap justify-content-center gap-2 mt-3 mx-bc-badges">
-                        <span class="mx-bc-pill"><i class="bi bi-hospital"></i> T.C. Sağlık Bakanlığı & TÜSEB desteği</span>
-                        <span class="mx-bc-pill"><i class="bi bi-people"></i> 5 Bin Proje İçinde İlk 50'de Ulusal Finalist </span>
-
+                    <div class="d-flex flex-wrap gap-2 justify-content-center mt-3">
+                        <span class="mx-pill"><i class="bi bi-building-gear"></i> ERÜ BİDB — Staj Projesi (1 Ay)</span>
+                        <span class="mx-pill"><i class="bi bi-check-circle"></i> Üretimde — Rektörlük Kullanımında</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Gallery + Facts -->
+        <!-- Gallery + Info -->
         <section class="section pt-0">
             <div class="container" data-aos="fade-up" data-aos-delay="100">
                 <div class="row gy-4">
                     <div class="col-lg-8">
-                        <div class="mx-bc-ratio">
+                        <div class="mx-campus-gallery">
                             <div class="swiper init-swiper">
                                 <script type="application/json" class="swiper-config">
                                     {
                                       "loop": true,
                                       "speed": 600,
-                                      "autoplay": { "delay": 4800 },
+                                      "autoplay": { "delay": 4500 },
                                       "slidesPerView": 1,
                                       "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true }
                                     }
                                 </script>
                                 <div class="swiper-wrapper">
+                                    <!-- Görselleri assets/img/projects altına koy -->
                                     <div class="swiper-slide">
-                                        <img src="assets/img/projects/breast-cancer-ai.webp" alt="Mamografi tespit ve sınıflandırma görseli" class="w-100 h-100" style="object-fit:cover;">
+                                        <img src="assets/img/projects/c1.jpeg" alt="Kampüs kapısı — gerçek zamanlı kişi/araç tespiti">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img src="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" alt="Veri artırma ve ön işleme temsili" class="w-100 h-100" style="object-fit:cover;">
+                                        <img src="assets/img/projects/c2.jpeg" alt="Tramvay durağı — anlık sayım paneli">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" alt="Model eğitimi & izleme temsili" class="w-100 h-100" style="object-fit:cover;">
-                                    </div>
+                                 
                                 </div>
                                 <div class="swiper-pagination"></div>
                             </div>
@@ -241,158 +242,73 @@
                     </div>
 
                     <div class="col-lg-4">
-                        <div class="mx-bc-card p-3">
+                        <div class="mx-card p-3">
                             <h3 class="h5 mb-3">Proje Bilgileri</h3>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item px-0"><strong>Kategori:</strong> Sağlıkta Yapay Zekâ — Bilgisayarlı Görü</li>
-                                <li class="list-group-item px-0"><strong>Görevler:</strong> Kitle & Kalsifikasyon Tespiti, BI-RADS (Görüntü) Sınıflandırma</li>
-                                <li class="list-group-item px-0"><strong>Yaklaşım:</strong> Yoğunluğa göre özelleşmiş çoklu YOLO modelleri + ön-işleme + ABC hiperparametre optimizasyonu</li>
-                                <li class="list-group-item px-0"><strong>Durum:</strong> Eğitim + optimizasyon, sonuçlar yayınlandı</li>
+                                <li class="list-group-item px-0"><strong>Kurum:</strong> Erciyes Üniversitesi — Bilgi İşlem Daire Başkanlığı</li>
+                                <li class="list-group-item px-0"><strong>Kapsam:</strong> Kapılar & tramvay durakları; kişi, bisiklet, motosiklet sayımı</li>
+                                <li class="list-group-item px-0"><strong>Özellikler:</strong> Anlık sayım, ID takibi, çoklu kamera desteği, raporlama</li>
+                                <li class="list-group-item px-0"><strong>Durum:</strong> Canlı kullanım (Üretimde)</li>
+                                <li class="list-group-item px-0"><strong>Süre:</strong> 1 ay (staj dönemi)</li>
                             </ul>
-                            <div class="mx-bc-subtle mt-3">
-                                * Sayfadaki metrik ve veri seti notları proje raporundan özetlenmiştir. <!-- :contentReference[oaicite:1]{index=1} -->
-                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- KPIs -->
-                <div class="row gy-3 mt-2">
-                    <div class="col-6 col-md-3">
-                        <div class="mx-bc-kpi">
-                            <div class="mx-bc-kpi-title">Kitle Tespiti (mAP50-95)</div>
-                            <div class="mx-bc-kpi-value">%55</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="mx-bc-kpi">
-                            <div class="mx-bc-kpi-title">Kalsifikasyon (mAP50-95)</div>
-                            <div class="mx-bc-kpi-value">%65</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="mx-bc-kpi">
-                            <div class="mx-bc-kpi-title">BI-RADS (Görüntü) F1</div>
-                            <div class="mx-bc-kpi-value">%81.5</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="mx-bc-kpi">
-                            <div class="mx-bc-kpi-title">Test Ölçütleri</div>
-                            <div class="mx-bc-kpi-value">Prec/Rec/F1</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Yukarıdaki metrikler rapordan derlenmiştir (NLP kapsamaz). :contentReference[oaicite:2]{index=2} -->
             </div>
         </section>
 
         <!-- Summary & Architecture -->
-        <section class="section mx-bc-section pt-0">
+        <section class="section mx-section pt-0">
             <div class="container" data-aos="fade-up" data-aos-delay="150">
                 <div class="row gy-4">
                     <div class="col-lg-8">
-                        <h3>Özet & Özgünlük</h3>
+                        <h3>Özet</h3>
                         <p>
-                            Literatürde tek modelle tüm yoğunluklarda yüksek başarı elde etmek zorlu olduğundan
-                            proje; mamografi <em>yoğunluk sınıflandırıcı</em> ile A-B-C-D yoğunluklarına ayırıp
-                            her yoğunluk için <strong>ayrı YOLO tabanlı tespit modelleri</strong> tasarlamaktadır.
-                            Böylece yüksek yoğunluklu memelerde kitle/kalsifikasyon tespit başarısı artmaktadır. Veri artırma için
-                            <strong>90° döndürmeler</strong> ile veri 4× genişletilmiş, kontrastı iyileştirmek için
-                            <strong>CLAHE</strong> filtrelemesi uygulanmıştır. <!-- :contentReference[oaicite:3]{index=3} -->
+                            Sistem; üniversitenin mevcut kamera altyapısından <strong>anlık akışları</strong> alarak
+                            <strong>kişi, bisiklet ve motosiklet</strong> gibi varlıkları tespit eder, her birine <strong>ID</strong> atar ve giriş-çıkış istatistiklerini
+                            gerçek zamanlı olarak raporlar. <strong>YOLO tabanlı tespit</strong> ile geniş bir <em>görüntü işleme</em> sistemini birleştirerek
+                            hız ve verimlilik odaklı uçtan uca bir çözüm tasarlanmıştır. Sistem hâlihazırda <strong>Erciyes Üniversitesi Rektörlüğü</strong> tarafından kullanılmaktadır.
                         </p>
 
-                        <div class="mx-bc-callout mb-3">
-                            YOLOv9 değerlendirilmiş, <strong>YOLOv10</strong> ile daha kararlı eğitimler alınmıştır.
-                            Hiperparametre seçimi <strong>Artificial Bee Colony (ABC)</strong> ile geniş arama uzayında optimize edilmektedir. <!-- :contentReference[oaicite:4]{index=4} -->
+                        <div class="mx-callout mb-3">
+                            <strong>Uçtan Uca Kurulum:</strong> Fizibilite, veri erişimi, model geliştirme, test ve canlıya alma aşamalarına ek olarak
+                            <strong>yüksek hesaplama kapasiteli GPU/Sunucu</strong> tedarik ve kurulumları da proje kapsamına alınmıştır.
                         </div>
 
-                        <h3>Mimari Bileşenler</h3>
+                        <h3>Mimari & Bileşenler</h3>
                         <ul>
-                            <li><strong>ROI Kırpıcı:</strong> Faster R-CNN ile ilgi bölgesi çıkarımı.</li>
-                            <li><strong>Ön İşleme:</strong> DCM→PNG dönüşümü, yeniden boyutlandırma, filtreleme, veri artırma (90° rotasyon), CLAHE.</li>
-                            <li><strong>Yoğunluk Sınıflandırıcı:</strong> Mamografileri A/B/C/D yoğunluklarına ayırır; tespit modelleri yoğunluğa özel eğitilir.</li>
-                            <li><strong>Tespit:</strong> A/B/C/D için ayrı YOLO modelleri ile <em>kitle</em> ve <em>kalsifikasyon</em> tespiti.</li>
-                            <li>
-                                <strong>BI-RADS (Görüntü) Sınıflandırma:</strong> VGG16, InceptionV3, ResNet, EfficientNet, DenseNet fine-tune denemeleri;
-                                sınıf-özel ikili sınıflandırıcı yaklaşımı (ör. “BI-RADS 4 vs diğerleri”). Ayrıca tespit çıktılarından <em>kitle/kalsifikasyon var-yok</em>
-                                sinyallerinin ek özellik olarak kullanımı. <!-- :contentReference[oaicite:5]{index=5} -->
-                            </li>
-                            <li>
-                                <strong>Optimizasyon:</strong> YOLO hiperparametreleri ABC ile; yoğunluk sınıflandırıcıda geniş arama uzayı + Random Search. <!-- :contentReference[oaicite:6]{index=6} -->
-                            </li>
+                            <li><strong>Veri Alma:</strong> Mevcut kamera altyapısından görüntü akışlarının çekilmesi.</li>
+                            <li><strong>Ön İşleme:</strong> Kare normalizasyonu, gürültü azaltma, ROI iyileştirme, ışık/kontrast düzenlemeleri(<em>OpenCV</em>).</li>
+                            <li><strong>Tespit:</strong> <em>YOLO</em> ailesi ile kişi/bisiklet/motosiklet tespiti; gerçek zamanlı çalışmaya uygun optimizasyonlar.</li>
+                            <li><strong>ID Takibi:</strong> Çoklu kamera senaryosunda varlıkların kimliklendirilmesi ve akış içinde takibi (ID sürekliliği).</li>
+                            <li><strong>Sayım & Mantık:</strong> Sanal hat/alan bazlı giriş sayımları, yoğunluk analizi, zaman damgalı kayıt.</li>
+                            <li><strong>Raporlama:</strong> Anlık pano, tarihsel istatistikler, saatlik/günlük/haftalık özetler; dışa aktarma.</li>
                         </ul>
                     </div>
 
                     <div class="col-lg-4">
                         <h3>Teknoloji Yığını</h3>
-                        <div class="mx-bc-tech">
+                        <div class="mx-tech">
                             <span class="badge">Python</span>
                             <span class="badge">PyTorch</span>
-                            <span class="badge">YOLOv10</span>
-                            <span class="badge">Faster R-CNN</span>
-                            <span class="badge">OpenCV / CLAHE</span>
+                            <span class="badge">YOLO</span>
+                            <span class="badge">OpenCV</span>
                             <span class="badge">CUDA</span>
-                            <span class="badge">RTX 4090 (Eğitim)</span>
-                            <span class="badge">ABC (Hiperparametre)</span>
-                            <span class="badge">DenseNet / ResNet / EfficientNet</span>
+                            <span class="badge">Django</span>
+                            <span class="badge">SQLite</span>
+                            <span class="badge">Linux</span>
+
                         </div>
 
-                        <h3 class="mt-4">Kullanılan Veri Setleri</h3>
+                        <h3 class="mt-4">Dağıtım & Operasyon</h3>
                         <ul class="mb-0">
-                            <li><strong>ROI Kırpma:</strong> RSNA Breast Cancer Detection ROI türetilmiş seti (~54k mamografi ROI, ~25 GB).</li>
-                            <li>
-                                <strong>Yoğunluk & BI-RADS (Görüntü):</strong> RSNA halka açık veri (≈314 GB; ~25k yoğunluk etiketli, ~26k BI-RADS 1-2). <!-- :contentReference[oaicite:7]{index=7} -->
-                            </li>
+                            <li><strong>Sunucu:</strong> GPU hızlandırmalı sunucu kurulumu ve yapılandırma.</li>
+                            <li><strong>Ölçekleme:</strong> 10+ kamera akışında gerçek zamanlı izleme & sayım.</li>
+                            <li><strong>Gizlilik:</strong> Kişisel veri içermeyen istatistik üretimi; yalnızca sayım ve ID seviyesinde kayıt.</li>
                         </ul>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Results -->
-        <section class="section mx-bc-section pt-0">
-            <div class="container" data-aos="fade-up" data-aos-delay="200">
-                <h3>Sonuçlar (İlk Testler)</h3>
-                <div class="table-responsive">
-                    <table class="table mx-bc-table">
-                        <thead>
-                            <tr>
-                                <th>Görev</th>
-                                <th>mAP50-95</th>
-                                <th>Precision</th>
-                                <th>Recall</th>
-                                <th>F1</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Kitle Tespiti</td>
-                                <td>%55</td>
-                                <td>%75</td>
-                                <td>%70</td>
-                                <td>%73</td>
-                            </tr>
-                            <tr>
-                                <td>Kalsifikasyon Tespiti</td>
-                                <td>%65</td>
-                                <td>%85</td>
-                                <td>%83</td>
-                                <td>%84</td>
-                            </tr>
-                            <tr>
-                                <td>BI-RADS (Görüntü) Sınıflandırma</td>
-                                <td>—</td>
-                                <td>—</td>
-                                <td>—</td>
-                                <td>%81.5</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p class="mx-bc-subtle">
-                    Not: Değerler, hiperparametre optimizasyonu <em>dahil edilmeden</em> raporlanmıştır; ABC ile ek artış hedeflenmektedir. <!-- :contentReference[oaicite:8]{index=8} -->
-                </p>
             </div>
         </section>
 
@@ -401,27 +317,25 @@
             <div class="container" data-aos="fade-up" data-aos-delay="250">
                 <div class="d-flex flex-wrap gap-2">
                     <a class="btn btn-primary" href="portfolio.html"><i class="bi bi-grid"></i> Tüm Projeler</a>
-                    <a class="btn btn-outline-secondary" href="project-breast-cancer-ai.html#metrics"><i class="bi bi-graph-up"></i> Metriklere Git</a>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <!-- Footer -->
     <footer id="footer" class="footer light-background">
+
         <div class="container">
-            <div class="copyright text-center">
-                <p>© <span id="year"></span> <strong class="px-1 sitename">Muhammet</strong> <span>Tüm Hakları Saklıdır<br></span></p>
+            <div class="copyright text-center ">
+                <p>© <span>Copyright</span> <strong class="px-1 sitename"></strong>Developed by Muhammet Ozdemir<span><br></span></p>
             </div>
             <div class="social-links d-flex justify-content-center">
-                <a href="https://github.com/mr-ozdemir"><i class="bi bi-github"></i></a>
-                <a href="https://www.linkedin.com/in/mrozdemir"><i class="bi bi-linkedin"></i></a>
+
+                <a href="https://github.com/mr-ozdemir" target="_blank" class="github"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/mrozdemir" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
             </div>
-            <div class="credits">
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> — Distributed by <a href="https://themewagon.com">ThemeWagon</a>
-            </div>
+
         </div>
+
     </footer>
 
     <!-- Scroll Top -->
@@ -432,7 +346,7 @@
     <!-- Preloader -->
     <div id="preloader"></div>
 
-    <!-- Vendor JS Files -->
+    <!-- Vendor JS -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
@@ -442,7 +356,7 @@
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
 
-    <!-- Main JS File -->
+    <!-- Main JS -->
     <script src="assets/js/main.js"></script>
 
     <script>

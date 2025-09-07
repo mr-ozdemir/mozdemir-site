@@ -8,7 +8,7 @@
     <meta name="keywords" content="AutoML, NAS, ağırlık başlatma, aktivasyon fonksiyonu, hiperparametre optimizasyonu, PyTorch, CUDA">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/favicon.ico" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Fonts (site genelinizle aynı kalsın) -->
@@ -64,26 +64,30 @@
 
 <body class="portfolio-details-page">
 
-    <!-- Header (sitenizdekiyle aynı yapı) -->
     <header id="header" class="header d-flex align-items-center light-background sticky-top">
         <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
             <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <!-- <img src="assets/img/logo.png" alt=""> -->
                 <h1 class="sitename">Muhammet Özdemir</h1>
             </a>
+
             <nav id="navmenu" class="navmenu">
                 <ul>
                     <li><a href="index.html">Ana Sayfa</a></li>
                     <li><a href="about.html">Hakkımda</a></li>
                     <li><a href="resume.html">Deneyim</a></li>
-                    <li><a href="services.html">Yetkinlikler</a></li>
+                    <li><a href="services.html">Hizmetler</a></li>
                     <li><a href="portfolio.html" class="active">Projeler</a></li>
                 </ul>
-                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Menüyü aç"></i>
             </nav>
+
             <div class="header-social-links">
-                <a href="https://github.com/mr-ozdemir" class="github"><i class="bi bi-github"></i></a>
-                <a href="https://www.linkedin.com/in/mrozdemir" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/mr-ozdemir" target="_blank" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/mrozdemir" target="_blank" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
             </div>
+
         </div>
     </header>
 
@@ -112,7 +116,7 @@
                             <h3>Proje Bilgisi</h3>
                             <ul class="list-unstyled mb-0">
                                 <li class="mb-2"><span class="icon-check">✓</span><strong>Kategori:</strong> AutoML &amp; Meta-Öğrenme</li>
-                                <li class="mb-2"><span class="icon-check">✓</span><strong>Kapsam:</strong> Ön işleme, mimari arama, aktivasyon &amp; kayıp tasarımı, ağırlık başlatma, hiperparametre optimizasyonu</li>
+                                <li class="mb-2"><span class="icon-check">✓</span><strong>Kapsam:</strong> Ön işleme, mimari arama, aktivasyon &amp; kayıp fonksiyonu tasarımı, ağırlık başlatma, hiperparametre optimizasyonu</li>
                                 <li class="mb-2"><span class="icon-check">✓</span><strong>Durum:</strong> Teorik çerçeve ve prototip bileşenler</li>
                             </ul>
                             <hr>
@@ -138,47 +142,49 @@
                         <div class="portfolio-description card p-4">
                             <h3>Teorik Çerçeve</h3>
                             <p>
-                                Nahıl AutoML, farklı görevler ve veri koşulları için <em>insan müdahalesi olmadan</em> özelleştirilmiş
-                                makine öğrenmesi/derin öğrenme boru hattını tasarlamayı hedefleyen bir üst-seviye otomasyon mimarisidir.
-                                Yaklaşım, veri ön işleme adımlarından başlayarak model mimarisi araması (NAS), aktivasyon ve kayıp
-                                fonksiyonlarının keşfi, ağırlık başlatma stratejilerinin seçimi ve eğitim hiperparametrelerinin
-                                optimizasyonuna kadar tüm süreci birleştirir.
+                                Nahıl AutoML, farklı görev ve veri koşullarında <em>insan müdahalesi olmadan</em> görev-özel
+                                makine öğrenmesi/derin öğrenme sistemlerini tasarlamayı hedefleyen üst seviye bir otomasyon
+                                mimarisidir. Yaklaşım; veri ön işlemeyi, mimari aramayı (NAS), aktivasyon ve kayıp fonksiyonu
+                                tasarımını, ağırlık başlatma stratejisi seçimini ve eğitim hiperparametrelerinin optimizasyonunu
+                                uçtan uca birleştirir. Bileşenler eşzamanlı ve etkileşimleri dikkate alınarak optimize edilir.
                             </p>
 
                             <h4>1) Veri Odaklı Tasarım Kararları</h4>
                             <p>
-                                Giriş veri istatistikleri ve görev tipine göre; ölçekleme, normalizasyon, dengesizlik giderme,
-                                veri artırma ve özellik seçimi gibi adımlar otomatik önerilir. Boru hattı, bu adımların
-                                <em>kombinasyon uzayını</em> verinin performans sinyaliyle tarar.
+                                Giriş veri istatistikleri ve görev tipine göre ölçekleme, normalizasyon, <em>sınıf dengesizliği giderme</em>,
+                                veri artırma ve özellik seçimi adımları otomatikleştirilir. Bu veri odaklı kararlar sonraki aşamalara
+                                kısıt/öncelik olarak aktarılır.
                             </p>
 
                             <h4>2) Mimari Arama (NAS)</h4>
                             <p>
-                                Arama uzayı; katman tipleri, kanallar, çekirdek boyları, bağlantı örüntüleri ve düzenlileştirme
-                                seçeneklerini kapsar. Aday mimariler, düşük maliyetli kestirimciler ve çok kollu bantit benzeri
-                                stratejilerle sıralanır; vaatkâr adaylar kısaltılmış eğitim protokolleriyle değerlendirilir.
+                                Arama uzayı; katman türleri, kanal sayıları, çekirdek boyutları, bağlantı örüntüleri ve düzenlileştirme
+                                seçenekleri gibi mimari bileşenleri kapsar. Gereksinime göre düşük maliyet, yüksek performans veya hibrit
+                                uygunluk fonksiyonları tanımlanır. Aday mimariler erken durdurmalı denemelerle değerlendirilir ve
+                                <em>doğrulama</em> setinde en başarılı olanlar seçilir.
                             </p>
 
                             <h4>3) Aktivasyon &amp; Kayıp Tasarımı</h4>
                             <p>
-                                Aktivasyon ve kayıp fonksiyonları, semantik bilgilere duyarlı arama operatörleriyle keşfedilir
-                                veya mevcut fonksiyonlar parametrize edilerek görev ölçütlerine uyarlanır. Bu katman, uç değer
-                                dayanıklılığı ve gradyan istikrarı gibi ölçütlerle yönlendirilir.
+                                Aktivasyon ve kayıp fonksiyonları, semantik farkındalıklı arama operatörleriyle keşfedilir veya mevcut
+                                fonksiyonlar parametreleştirilerek görev metriklerine uyarlanır. Seçimler; uç değer dayanıklılığı,
+                                gradyan istikrarı ve genellenebilirlik ölçütleriyle yönlendirilir.
                             </p>
 
                             <h4>4) Ağırlık Başlatma &amp; Eğitim Hiperparametreleri</h4>
                             <p>
-                                Başlatma stratejileri (ör. He/Xavier varyantları, ölçek uyarlamaları) ve eğitim hiperparametreleri
-                                (öğrenme oranı zamanlamaları, optimizasyon ailesi, momentum/β değerleri, düzenlileştirme) birlikte
-                                optimize edilir; arama sırasında ucuza ölçülen istikrar/uyum metrikleri sinyal olarak kullanılır.
+                                Başlatma stratejileri (He/Xavier varyantları, ölçek uyarlamaları) ve eğitim hiperparametreleri
+                                (<em>epoch</em>, <em>learning rate</em>, <em>batch size</em> vb.) ortak bir arama alanında optimize edilir.
+                                Amaç; hızlı yakınsama ve daha düşük kayıp yüzeylerinin keşfidir.
                             </p>
 
                             <h4>5) Birleşik Arama &amp; Çok Amaçlı Optimizasyon</h4>
                             <p>
-                                Bileşenler tek tek değil, etkileşimleriyle değerlendirilir. Çok amaçlı bir hedef seti
-                                (doğruluk/F1, parametre sayısı, FLOPs, gecikme, bellek) altında Pareto-ön cephesi çıkarılarak
-                                dağıtım hedeflerine uygun adaylar seçilir.
+                                Bileşenler tek tek değil, etkileşimleriyle değerlendirilir. Doğruluk/F1, parametre sayısı, FLOPs,
+                                gecikme ve bellek gibi hedefler altında dağıtım kısıtlarına uygun adaylar seçilir; Pareto-optimal
+                                çözümler raporlanır.
                             </p>
+
 
                             <div class="alert alert-secondary mt-2 mb-0">
                                 <strong>Not:</strong> Bilimsel çalışmalar ve araştırma makalesine dönüştürme süreçleri devam ettiği için,
