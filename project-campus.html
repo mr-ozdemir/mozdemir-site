@@ -164,6 +164,29 @@
             }
         }
     </style>
+
+    <link rel="canonical" href="https://mozdemir.com/project-campus.html" />
+    <link rel="alternate" hreflang="tr" href="https://mozdemir.com/project-campus.html" />
+    <meta property="og:url" content="https://mozdemir.com/project-campus.html" />
+    <meta property="og:image" content="https://mozdemir.com/assets/img/projects/campus-access-ai.webp" />
+    <meta name="twitter:image" content="https://mozdemir.com/assets/img/projects/campus-access-ai.webp" />
+
+    <!-- SoftwareApplication -->
+    <script type="application/ld+json">
+        {
+          "@context":"https://schema.org","@type":"SoftwareApplication",
+          "name":"Kampüs Giriş/Çıkış AI Kontrol Sistemi",
+          "applicationCategory":"ComputerVisionApplication",
+          "operatingSystem":"Linux",
+          "url":"https://mozdemir.com/project-campus.html",
+          "author":{"@type":"Person","name":"Muhammet Özdemir"},
+          "description":"Çoklu kamera akışlarından gerçek zamanlı kişi/araç sayımı, ID takibi ve raporlama.",
+          "softwareVersion":"1.0",
+          "image":"https://mozdemir.com/assets/img/projects/campus-access-ai.webp",
+          "inLanguage":"tr-TR"
+        }
+    </script>
+
 </head>
 <body class="portfolio-details-page">
 
@@ -171,6 +194,7 @@
     <header id="header" class="header d-flex align-items-center light-background sticky-top">
         <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <!-- <img src="assets/img/logo.png" alt=""> -->
                 <h1 class="sitename">Muhammet Özdemir</h1>
             </a>
 
@@ -179,18 +203,21 @@
                     <li><a href="index.html">Ana Sayfa</a></li>
                     <li><a href="about.html">Hakkımda</a></li>
                     <li><a href="resume.html">Deneyim</a></li>
-                    <li><a href="services.html">Hizmetler</a></li>
-                    <li><a href="portfolio.html" class="active">Projeler</a></li>
+                    <li><a href="services.html">Yetkinlikler</a></li>
+                    <li><a href="portfolio.html">Projeler</a></li>
+                    <!-- Kulüp sayfan varsa: -->
+                    <!-- <li><a href="club-activities.html">Kulüp</a></li> -->
                 </ul>
-                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Menüyü aç"></i>
             </nav>
 
             <div class="header-social-links">
-                <a href="https://github.com/mr-ozdemir" class="github"><i class="bi bi-github"></i></a>
-                <a href="https://www.linkedin.com/in/mrozdemir" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/mr-ozdemir" target="_blank" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/mrozdemir" target="_blank" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
             </div>
         </div>
     </header>
+
 
     <main class="main">
         <!-- Hero -->
@@ -234,7 +261,7 @@
                                     <div class="swiper-slide">
                                         <img src="assets/img/projects/c2.jpeg" alt="Tramvay durağı — anlık sayım paneli">
                                     </div>
-                                 
+
                                 </div>
                                 <div class="swiper-pagination"></div>
                             </div>
@@ -312,13 +339,19 @@
             </div>
         </section>
 
-        <!-- CTA -->
-        <section class="section pt-0">
-            <div class="container" data-aos="fade-up" data-aos-delay="250">
-                <div class="d-flex flex-wrap gap-2">
-                    <a class="btn btn-primary" href="portfolio.html"><i class="bi bi-grid"></i> Tüm Projeler</a>
+        <main class="main">
+            <section class="section py-5">
+                <div class="container" data-aos="fade-up">
+                    <div class="text-center">
+
+
+                        <a href="portfolio.html" target="_blank" rel="noopener" class="btn btn-primary">
+                            <i class="bi bi-grid me-1"></i> Projelere Git
+                        </a>
+                    </div>
                 </div>
-            </div>
+            </section>
+        </main>
         </section>
     </main>
 

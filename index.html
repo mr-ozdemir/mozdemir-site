@@ -34,6 +34,7 @@
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
+
     <!-- Vendor CSS -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -75,6 +76,42 @@
         }
     </script>
 
+    <link rel="canonical" href="https://mozdemir.com/" />
+    <link rel="alternate" hreflang="tr" href="https://mozdemir.com/" />
+    <meta property="og:url" content="https://mozdemir.com/" />
+    <meta property="og:image" content="https://mozdemir.com/assets/img/favicon.png" />
+    <meta name="twitter:image" content="https://mozdemir.com/assets/img/favicon.png" />
+
+    <!-- Person + Breadcrumb -->
+    <script type="application/ld+json">
+        {
+          "@context":"https://schema.org",
+          "@type":"Person",
+          "name":"Muhammet Özdemir",
+          "jobTitle":"AI Researcher & Engineer",
+          "url":"https://mozdemir.com/",
+          "image":"https://mozdemir.com/assets/img/favicon.png",
+          "sameAs":[
+            "https://github.com/mr-ozdemir",
+            "https://www.linkedin.com/in/mrozdemir"
+          ],
+          "knowsAbout":[
+            "Computer Vision","AutoML","Deep Learning","Machine Learning","MLOps","Data Science"
+          ],
+          "worksFor":{"@type":"Organization","name":"ERÜ Yapay Zekâ Kulübü"}
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context":"https://schema.org",
+          "@type":"BreadcrumbList",
+          "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://mozdemir.com/"}
+          ]
+        }
+    </script>
+
+
     <!-- JSON-LD: FAQ (sayfadaki SSS ile eşleşir) -->
     <script type="application/ld+json">
         {
@@ -106,7 +143,6 @@
     <!-- Header (sitenle aynı yapı) -->
     <header id="header" class="header d-flex align-items-center light-background sticky-top">
         <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
-
             <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
                 <!-- <img src="assets/img/logo.png" alt=""> -->
                 <h1 class="sitename">Muhammet Özdemir</h1>
@@ -114,11 +150,13 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="index.html" class="active">Ana Sayfa</a></li>
+                    <li><a href="index.html">Ana Sayfa</a></li>
                     <li><a href="about.html">Hakkımda</a></li>
                     <li><a href="resume.html">Deneyim</a></li>
-                    <li><a href="services.html">Hizmetler</a></li>
+                    <li><a href="services.html">Yetkinlikler</a></li>
                     <li><a href="portfolio.html">Projeler</a></li>
+                    <!-- Kulüp sayfan varsa: -->
+                    <!-- <li><a href="club-activities.html">Kulüp</a></li> -->
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Menüyü aç"></i>
             </nav>
@@ -127,9 +165,9 @@
                 <a href="https://github.com/mr-ozdemir" target="_blank" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
                 <a href="https://www.linkedin.com/in/mrozdemir" target="_blank" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
             </div>
-
         </div>
     </header>
+
 
     <main class="main">
 

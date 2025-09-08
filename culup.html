@@ -9,7 +9,7 @@
     <meta name="keywords" content="Erciyes Üniversitesi, Yapay Zekâ Kulübü, ERÜ AI Club, etkinlikler, projeler, TÜBİTAK, TÜSEB, ödüller" />
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/favicon.ico" rel="icon" />
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Fonts -->
@@ -192,15 +192,45 @@
             }
         }
     </style>
+
+    <link rel="canonical" href="https://mozdemir.com/culup.html" />
+    <link rel="alternate" hreflang="tr" href="https://mozdemir.com/culup.html" />
+    <meta property="og:url" content="https://mozdemir.com/culup.html" />
+    <meta property="og:image" content="https://mozdemir.com/assets/img/favicon.png" />
+    <meta name="twitter:image" content="https://mozdemir.com/assets/img/favicon.png" />
+
+    <!-- Organization + WebPage -->
+    <script type="application/ld+json">
+        {
+          "@context":"https://schema.org",
+          "@type":"Organization",
+          "name":"ERÜ Yapay Zekâ Kulübü",
+          "url":"https://mozdemir.com/culup.html",
+          "logo":"https://mozdemir.com/assets/img/favicon.png",
+          "sameAs":[
+            "https://erciyesyapayzeka.com.tr",
+            "https://www.linkedin.com/company/erciyes-yapay-zeka/"
+          ]
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context":"https://schema.org",
+          "@type":"WebPage",
+          "name":"ERÜ Yapay Zekâ Kulübü — Faaliyetler",
+          "url":"https://mozdemir.com/culup.html",
+          "description":"Ödüller, projeler, etkinlikler ve seçilmiş paylaşımlar."
+        }
+    </script>
+
 </head>
 
 <body class="club-page">
 
-    <!-- Header -->
     <header id="header" class="header d-flex align-items-center light-background sticky-top">
         <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
-
             <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <!-- <img src="assets/img/logo.png" alt=""> -->
                 <h1 class="sitename">Muhammet Özdemir</h1>
             </a>
 
@@ -210,19 +240,20 @@
                     <li><a href="about.html">Hakkımda</a></li>
                     <li><a href="resume.html">Deneyim</a></li>
                     <li><a href="services.html">Yetkinlikler</a></li>
-                    <li><a href="portfolio.html" class="active">Projeler</a></li>
-
+                    <li><a href="portfolio.html">Projeler</a></li>
+                    <!-- Kulüp sayfan varsa: -->
+                    <!-- <li><a href="club-activities.html">Kulüp</a></li> -->
                 </ul>
-                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Menüyü aç"></i>
             </nav>
 
             <div class="header-social-links">
-                <a href="https://github.com/mr-ozdemir" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
-                <a href="https://www.linkedin.com/in/mrozdemir" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/mr-ozdemir" target="_blank" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/mrozdemir" target="_blank" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
             </div>
-
         </div>
     </header>
+
 
     <main class="main">
 
@@ -357,6 +388,22 @@
                 </div>
             </div>
         </section>
+
+
+
+        <main class="main">
+            <section class="section py-5">
+                <div class="container" data-aos="fade-up">
+                    <div class="text-center">
+                       
+
+                        <a href="portfolio.html" target="_blank" rel="noopener" class="btn btn-primary">
+                            <i class="bi bi-grid me-1"></i> Projelere Git
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
 
     </main>
 

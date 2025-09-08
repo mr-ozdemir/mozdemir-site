@@ -26,13 +26,41 @@
 
     <!-- Main CSS -->
     <link href="assets/css/main.css" rel="stylesheet">
+
+    <link rel="canonical" href="https://mozdemir.com/portfolio.html" />
+    <link rel="alternate" hreflang="tr" href="https://mozdemir.com/portfolio.html" />
+    <meta property="og:url" content="https://mozdemir.com/portfolio.html" />
+    <meta property="og:image" content="https://mozdemir.com/assets/img/favicon.png" />
+    <meta name="twitter:image" content="https://mozdemir.com/assets/img/favicon.png" />
+
+    <!-- CollectionPage + ItemList -->
+    <script type="application/ld+json">
+        {
+          "@context":"https://schema.org",
+          "@type":"CollectionPage",
+          "name":"Projeler & Yayınlar — Muhammet Özdemir",
+          "url":"https://mozdemir.com/portfolio.html",
+          "about":["AI Projects","Publications","Events"],
+          "mainEntity":{
+            "@type":"ItemList",
+            "itemListElement":[
+              {"@type":"ListItem","position":1,"url":"https://mozdemir.com/project-AutoML.html"},
+              {"@type":"ListItem","position":2,"url":"https://mozdemir.com/project-breast.html"},
+              {"@type":"ListItem","position":3,"url":"https://mozdemir.com/project-campus.html"},
+              {"@type":"ListItem","position":4,"url":"https://mozdemir.com/project-restaurant-recommender.html"},
+              {"@type":"ListItem","position":5,"url":"https://mozdemir.com/project-lane-det.html"},
+              {"@type":"ListItem","position":6,"url":"https://mozdemir.com/project-AutoG.html"}
+            ]
+          }
+        }
+    </script>
+
 </head>
 
 <body class="portfolio-page">
 
     <header id="header" class="header d-flex align-items-center light-background sticky-top">
         <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
-
             <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
                 <!-- <img src="assets/img/logo.png" alt=""> -->
                 <h1 class="sitename">Muhammet Özdemir</h1>
@@ -43,8 +71,10 @@
                     <li><a href="index.html">Ana Sayfa</a></li>
                     <li><a href="about.html">Hakkımda</a></li>
                     <li><a href="resume.html">Deneyim</a></li>
-                    <li><a href="services.html" >Hizmetler</a></li>
-                    <li><a href="portfolio.html" class="active">Projeler</a></li>
+                    <li><a href="services.html">Yetkinlikler</a></li>
+                    <li><a href="portfolio.html">Projeler</a></li>
+                    <!-- Kulüp sayfan varsa: -->
+                    <!-- <li><a href="club-activities.html">Kulüp</a></li> -->
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Menüyü aç"></i>
             </nav>
@@ -53,9 +83,9 @@
                 <a href="https://github.com/mr-ozdemir" target="_blank" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
                 <a href="https://www.linkedin.com/in/mrozdemir" target="_blank" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
             </div>
-
         </div>
     </header>
+
 
     <main class="main">
 
@@ -103,14 +133,7 @@
                                     <p class="mb-3 text-muted mx-clamp-2">
                                         Göreve özel veri ön işleme, ağırlık başlatma, mimari, aktivasyon &amp; loss ve hiperparametreleri otomatik tasarlayan uçtan uca AutoML tekniği
                                     </p>
-                                    <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge mx-badge-tech rounded-pill">PyTorch</span>
-                                        <span class="badge mx-badge-tech rounded-pill">CUDA</span>
-                                        <span class="badge mx-badge-tech rounded-pill">NAS</span>
-                                        <span class="badge mx-badge-tech rounded-pill">Hparam Opt.</span>
-                                        <span class="badge mx-badge-tech rounded-pill">GP</span>
-                                        <span class="badge mx-badge-tech rounded-pill">ABCP</span>
-                                    </div>
+
                                     <div class="d-flex justify-content-between align-items-center">
                                         <span class="small text-uppercase text-muted">Proje</span>
                                         <a class="btn btn-sm btn-primary" href="project-AutoML.html">Detaylar</a>
@@ -130,13 +153,7 @@
                                     <p class="mb-3 text-muted mx-clamp-2">
                                         T.C. Sağlık Bakanlığı &amp; TÜSEB destekli. Uzman radyolog etiketli ~1000 mamografide BIRADS sınıflandırma ile kitle &amp; kalsifikasyon tespitinde %90+ başarı
                                     </p>
-                                    <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge mx-badge-tech rounded-pill">Python</span>
-                                        <span class="badge mx-badge-tech rounded-pill">PyTorch</span>
-                                        <span class="badge mx-badge-tech rounded-pill">YOLO</span>
-                                        <span class="badge mx-badge-tech rounded-pill">Hibrit CNN</span>
-                                        <span class="badge mx-badge-tech rounded-pill">Görüntü İşleme</span>
-                                    </div>
+
                                     <div class="d-flex justify-content-between align-items-center">
                                         <span class="small text-uppercase text-muted">Proje</span>
                                         <a class="btn btn-sm btn-primary" href="project-breast.html">Detaylar</a>
@@ -156,13 +173,7 @@
                                     <p class="mb-3 text-muted mx-clamp-2">
                                         6 kapıda insan/araç sayımı ve ID takibi. Kamera akışlarının anlık işlenmesi ile gerçek zamanlı tespit ve raporlama
                                     </p>
-                                    <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge mx-badge-tech rounded-pill">Python</span>
-                                        <span class="badge mx-badge-tech rounded-pill">PyTorch</span>
-                                        <span class="badge mx-badge-tech rounded-pill">CUDA</span>
-                                        <span class="badge mx-badge-tech rounded-pill">Django</span>
-                                        <span class="badge mx-badge-tech rounded-pill">SQLite</span>
-                                    </div>
+
                                     <div class="d-flex justify-content-between align-items-center">
                                         <span class="small text-uppercase text-muted">Proje</span>
                                         <a class="btn btn-sm btn-primary" href="project-campus.html">Detaylar</a>
@@ -182,13 +193,7 @@
                                     <p class="mb-3 text-muted mx-clamp-2">
                                         TÜBİTAK destekli proje: müşteri segmentasyonu ve işbirlikçi filtreleme ile kullanıcı–ürün–işletme önerileri
                                     </p>
-                                    <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge mx-badge-tech rounded-pill">scikit-learn</span>
-                                        <span class="badge mx-badge-tech rounded-pill">Pandas</span>
-                                        <span class="badge mx-badge-tech rounded-pill">KMeans</span>
-                                        <span class="badge mx-badge-tech rounded-pill">Collaborative Filtering</span>
-                                        <span class="badge mx-badge-tech rounded-pill">NoSQL</span>
-                                    </div>
+
                                     <div class="d-flex justify-content-between align-items-center">
                                         <span class="small text-uppercase text-muted">Proje</span>
                                         <a class="btn btn-sm btn-primary" href="project-restaurant-recommender.html">Detaylar</a>
@@ -208,12 +213,7 @@
                                     <p class="mb-3 text-muted mx-clamp-2">
                                         USB kamera ile gerçek zamanlı şerit tespiti ve PID çıktısı üreten takip modülü (Teknofest Robotaksi)
                                     </p>
-                                    <div class="d-flex flex-wrap gap-2 mb-3">
-                                        <span class="badge mx-badge-tech rounded-pill">ROS</span>
-                                        <span class="badge mx-badge-tech rounded-pill">OpenCV</span>
-                                        <span class="badge mx-badge-tech rounded-pill">C++</span>
-                                        <span class="badge mx-badge-tech rounded-pill">PID</span>
-                                    </div>
+
                                     <div class="d-flex justify-content-between align-items-center">
                                         <span class="small text-uppercase text-muted">Proje</span>
                                         <a class="btn btn-sm btn-primary" href="project-lane-det.html">Detaylar</a>
@@ -333,7 +333,7 @@
                                 <div class="row g-0">
                                     <div class="col-md-5">
                                         <div class="ratio ratio-16x9 h-100">
-                                            <img src="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="w-100 h-100" alt="Yapay Zekâ Kulübü görseli">
+                                            <img src="assets/img/projects/l.png" class="w-100 h-100" alt="Yapay Zekâ Kulübü görseli">
                                         </div>
                                     </div>
                                     <div class="col-md-7">
@@ -342,7 +342,7 @@
                                             <p class="text-muted mx-clamp-2 mb-3">20 kişilik ekip; 8 teorik proje (TÜBİTAK) ve TÜSEB destekli sağlık AI projesi</p>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <span class="small text-uppercase text-muted">Topluluk</span>
-                                                <a class="btn btn-sm btn-outline-primary" href="culup.html" target="_blank" rel="noopener">Hakkımda</a>
+                                                <a class="btn btn-sm btn-outline-primary" href="culup.html" target="_blank" rel="noopener">Detaylar</a>
                                             </div>
                                         </div>
                                     </div>
