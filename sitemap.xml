@@ -1,36 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url>
-    <loc>https://mozdemir.com/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://SENIN-ALAN-ADIN.com/portfolio.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://mozdemir.com/project-nahil-automl.html</loc>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://mozdemir.com/project-breast-cancer-ai.html</loc>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://mozdemir.com/project-campus-access-ai.html</loc>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://mozdemir.com/services.html</loc>
-  </url>
-  <url>
-    <loc>https://mozdemir.com/resume.html</loc>
-  </url>
-  <url>
-    <loc>https://mozdemir.com/club-activities.html</loc>
-  </url>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://mozdemir.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://mozdemir.com/about.html</loc></url>
+  <url><loc>https://mozdemir.com/resume.html</loc></url>
+  <url><loc>https://mozdemir.com/services.html</loc></url>
+  <url><loc>https://mozdemir.com/portfolio.html</loc></url>
+  <url><loc>https://mozdemir.com/culup.html</loc></url>
+
+  <url><loc>https://mozdemir.com/project-AutoML.html</loc></url>
+  <url><loc>https://mozdemir.com/project-breast.html</loc></url>
+  <url><loc>https://mozdemir.com/project-campus.html</loc></url>
+  <url><loc>https://mozdemir.com/project-restaurant-recommender.html</loc></url>
+  <url><loc>https://mozdemir.com/project-lane-det.html</loc></url>
+  <url><loc>https://mozdemir.com/project-AutoG.html</loc></url>
 </urlset>

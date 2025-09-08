@@ -1,6 +1,19 @@
-RewriteEngine on
-RewriteCond %{THE_REQUEST} /([^.]+).html [NC]
-RewriteRule ^ /%1 [NC,L,R]
+RewriteEngine On
 
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^ %{REQUEST_URI}.html [NC,L]
+# Force HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Force non-www
+RewriteCond %{HTTP_HOST} ^www\.mozdemir\.com$ [NC]
+RewriteRule ^ https://mozdemir.com%{REQUEST_URI} [L,R=301]
+
+# Cache static
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/png  "access plus 6 months"
+  ExpiresByType text/css   "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
