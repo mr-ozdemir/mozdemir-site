@@ -8,11 +8,11 @@
     <meta name="description" content="Erciyes Üniversitesi Yapay Zekâ Kulübü: ödüller, projeler, etkinlikler ve LinkedIn'den seçilmiş paylaşımlar. Proje ve eğitim odaklı topluluk." />
     <meta name="keywords" content="Erciyes Üniversitesi, Yapay Zekâ Kulübü, ERÜ AI Club, etkinlikler, projeler, TÜBİTAK, TÜSEB, ödüller" />
 
-    <!-- Faviconlar -->
+    <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon" />
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
-    <!-- Fontlar -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -21,14 +21,14 @@
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
     <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
     <!-- Global CSS -->
     <link href="assets/css/main.css" rel="stylesheet" />
 
-    <!-- Sayfa-özel CSS (sadece bu sayfa) -->
+    <!-- Page-specific CSS (only for this page) -->
     <style>
+        /* =========== CLUB PAGE (only) =========== */
         body.club-page .header a {
             text-decoration: none !important;
         }
@@ -45,23 +45,17 @@
                 margin-bottom: .25rem;
             }
 
-            .club-hero p.lead {
-                color: #5f6b7a;
-                max-width: 940px;
-                margin: 0 auto;
-            }
-
         .club-badges .pill {
             display: inline-flex;
             align-items: center;
             gap: .5rem;
             padding: .5rem .75rem;
             border-radius: 999px;
-            border: 1px solid rgba(0,0,0,.08);
+            border: 1px solid rgba(0, 0, 0, .08);
             background: #fff;
             color: #495057;
             font-size: .92rem;
-            box-shadow: 0 .125rem .35rem rgba(0,0,0,.05);
+            box-shadow: 0 .125rem .35rem rgba(0, 0, 0, .05);
         }
 
         .club-section-title h2 {
@@ -75,13 +69,13 @@
         }
 
         .club-kpi {
-            border: 1px solid rgba(0,0,0,.06);
+            border: 1px solid rgba(0, 0, 0, .06);
             border-radius: 14px;
             padding: 1rem;
             background: #fff;
             text-align: center;
             height: 100%;
-            box-shadow: 0 .25rem .75rem rgba(0,0,0,.04);
+            box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .04);
         }
 
             .club-kpi .kpi-title {
@@ -116,7 +110,7 @@
                     height: 10px;
                     background: #0d6efd;
                     border-radius: 50%;
-                    box-shadow: 0 0 0 4px rgba(13,110,253,.15);
+                    box-shadow: 0 0 0 4px rgba(13, 110, 253, .15);
                 }
 
         .club-callout {
@@ -127,34 +121,74 @@
             font-size: .95rem;
         }
 
-        /* === Galeri: diğer proje sayfalarıyla aynı “init-swiper + JSON config” paterni === */
-        .club-gallery .mx-club-ratio {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 */
-            border-radius: 14px;
-            overflow: hidden;
-            background: #f3f5f7;
-            max-width: 960px;
-            margin: 0 auto; /* daha küçük ve ortalı */
-            border: 1px solid rgba(0,0,0,.06);
+        /* === Ödüller üstü slider (namespaced) === */
+        .club-gallery {
+            padding-top: 8px;
         }
 
-            .club-gallery .mx-club-ratio > .swiper {
-                position: absolute;
-                inset: 0;
+            .club-gallery .mx-club-fit {
+                position: relative;
+                width: 100%;
+                max-width: 860px;
+                margin: 0 auto;
+                border-radius: 14px;
+                overflow: hidden;
+                background: #f3f5f7;
+                border: 1px solid rgba(0, 0, 0, .06);
             }
 
-        .club-gallery .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* diğer sayfalarla aynı görünüm */
-            display: block;
-        }
+            .club-gallery .swiper {
+                width: 100%;
+                height: auto;
+            }
 
-        @media (max-width: 575.98px) {
-            .club-gallery .mx-club-ratio {
-                border-radius: 10px;
+            .club-gallery .swiper-slide {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 8px;
+            }
+
+                /* Doğal boy: asla büyütme; sadece küçültme */
+                .club-gallery .swiper-slide img {
+                    display: block;
+                    width: auto;
+                    height: auto;
+                    max-width: 100%;
+                    max-height: 360px; /* daha küçük istersen 320px yap */
+                    object-fit: contain;
+                    user-select: none;
+                }
+
+            /* Oklar */
+            .club-gallery .club-prev,
+            .club-gallery .club-next {
+                color: #0d6efd;
+                width: 44px;
+                height: 44px;
+                background: rgba(255, 255, 255, .95);
+                border-radius: 999px;
+                box-shadow: 0 .25rem .6rem rgba(0, 0, 0, .12);
+            }
+
+                .club-gallery .club-prev::after,
+                .club-gallery .club-next::after {
+                    font-size: 18px;
+                }
+
+            /* Noktacıklar */
+            .club-gallery .club-pagination .swiper-pagination-bullet {
+                background: rgba(0, 0, 0, .35);
+                opacity: 1;
+            }
+
+            .club-gallery .club-pagination .swiper-pagination-bullet-active {
+                background: #0d6efd;
+            }
+
+        @media (min-width: 992px) {
+            .club-hero {
+                padding: 72px 0 32px;
             }
         }
     </style>
@@ -176,8 +210,8 @@
                     <li><a href="about.html">Hakkımda</a></li>
                     <li><a href="resume.html">Deneyim</a></li>
                     <li><a href="services.html">Yetkinlikler</a></li>
-                    <li><a href="portfolio.html">Projeler</a></li>
-                    <li><a href="club-activities.html" class="active">Kulüp</a></li>
+                    <li><a href="portfolio.html" class="active">Projeler</a></li>
+
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -235,7 +269,7 @@
             </div>
         </section>
 
-        <!-- GALERİ (diğer proje sayfalarıyla aynı yapı) -->
+        <!-- ÖDÜLLER ÜSTÜ SLIDER -->
         <section class="section club-gallery pt-0">
             <div class="container" data-aos="fade-up" data-aos-delay="50">
                 <div class="club-section-title mb-3 text-center">
@@ -243,43 +277,19 @@
                     <p>Etkinliklerden kareler</p>
                 </div>
 
-                <div class="mx-club-ratio">
-                    <div class="swiper init-swiper">
-                        <!-- BootstrapMade “init-swiper” JSON konfigürasyonu -->
-                        <script type="application/json" class="swiper-config">
-                            {
-                              "loop": true,
-                              "speed": 600,
-                              "autoplay": { "delay": 4800 },
-                              "slidesPerView": 1,
-                              "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true }
-                            }
-                        </script>
-
+                <div class="mx-club-fit">
+                    <div id="club-swiper" class="swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <a href="assets/img/projects/k1.jfif" class="glightbox" data-gallery="club-gallery">
-                                    <img src="assets/img/projects/k1.jfif" alt="Kulüp etkinliği 1">
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="assets/img/projects/k2.jfif" class="glightbox" data-gallery="club-gallery">
-                                    <img src="assets/img/projects/k2.jfif" alt="Kulüp etkinliği 2">
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="assets/img/projects/k3.jfif" class="glightbox" data-gallery="club-gallery">
-                                    <img src="assets/img/projects/k3.jfif" alt="Kulüp etkinliği 3">
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="assets/img/projects/k4.jfif" class="glightbox" data-gallery="club-gallery">
-                                    <img src="assets/img/projects/k4.jfif" alt="Kulüp etkinliği 4">
-                                </a>
-                            </div>
+                            <div class="swiper-slide"><img src="assets/img/projects/k1.png" alt="Kulüp etkinliği 1"></div>
+                            <div class="swiper-slide"><img src="assets/img/projects/k2.png" alt="Kulüp etkinliği 2"></div>
+                            <div class="swiper-slide"><img src="assets/img/projects/k3.png" alt="Kulüp etkinliği 3"></div>
+                            <div class="swiper-slide"><img src="assets/img/projects/k4.png" alt="Kulüp etkinliği 4"></div>
                         </div>
 
-                        <div class="swiper-pagination"></div>
+                        <!-- benzersiz oklar + noktacıklar -->
+                        <div class="swiper-button-prev club-prev" aria-label="Önceki"></div>
+                        <div class="swiper-button-next club-next" aria-label="Sonraki"></div>
+                        <div class="swiper-pagination club-pagination"></div>
                     </div>
                 </div>
             </div>
@@ -301,7 +311,7 @@
             </div>
         </section>
 
-        <!-- ZAMAN ÇİZELGESİ -->
+        <!-- ZAMAN ÇİZELGESİ (kısa özet) -->
         <section class="section pt-0">
             <div class="container" data-aos="fade-up">
                 <div class="club-section-title mb-3">
@@ -318,19 +328,19 @@
                             </div>
                             <div class="item">
                                 <h5 class="mb-1">Data Kamp – Teorik ve Uygulamalı Makine Öğrenmesi</h5>
-                                <div class="text-muted small">Güz: 8 hafta; Bahar: proje atölyeleri</div>
+                                <div class="text-muted small">Güz dönemi 8 hafta; baharda proje atölyesi</div>
                             </div>
                             <div class="item">
                                 <h5 class="mb-1">CENGLISH – Haftalık AI Sohbetleri</h5>
-                                <div class="text-muted small">İngilizce pratik amaçlı düzenli buluşmalar</div>
+                                <div class="text-muted small">İngilizce pratik için düzenli buluşmalar</div>
                             </div>
                             <div class="item">
-                                <h5 class="mb-1">Proje Tanıtım & TÜBİTAK Proje Yazım Etkinlikleri</h5>
-                                <div class="text-muted small">“Bilimsel araştırma projeleri nasıl yazılır?” oturumları</div>
+                                <h5 class="mb-1">Proje Tanıtım & TÜBİTAK Proje Yazım Konferansları</h5>
+                                <div class="text-muted small">Bilimsel araştırma projeleri odaklı oturumlar</div>
                             </div>
                             <div class="item">
-                                <h5 class="mb-1">Mutex Algoritma Kampı – Temel Programlama Konseptleri</h5>
-                                <div class="text-muted small">6 ay süren program kapanışı</div>
+                                <h5 class="mb-1">Mutex Algoritma Kampı – Temel Programlama</h5>
+                                <div class="text-muted small">Eki 2024 • 6 ay program kapanışı</div>
                             </div>
                         </div>
                     </div>
@@ -377,16 +387,45 @@
     <!-- Vendor JS -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+    <!-- ZORUNLU: Swiper JS (slider bununla çalışır) -->
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-    <!-- Main JS -->
+    <!-- Main JS (site genel) -->
     <script src="assets/js/main.js"></script>
 
+    <!-- Page-specific JS: Swiper'ı manuel başlat -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const y = document.getElementById('year');
             if (y) y.textContent = new Date().getFullYear();
+
+            const el = document.getElementById('club-swiper');
+            if (!el) return;
+
+            // Önceden init edilmişse temizle
+            if (el.swiper && typeof el.swiper.destroy === 'function') {
+                el.swiper.destroy(true, true);
+            }
+
+            // Manuel init (benzersiz seçicilerle)
+            new Swiper('#club-swiper', {
+                loop: true,
+                speed: 600,
+                autoHeight: true,                 // farklı boy resimler için
+                slidesPerView: 1,
+                autoplay: { delay: 3500, disableOnInteraction: false },
+                pagination: {
+                    el: '.club-pagination',
+                    type: 'bullets',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.club-next',
+                    prevEl: '.club-prev'
+                },
+                keyboard: { enabled: true }
+            });
         });
     </script>
 </body>
