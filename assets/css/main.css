@@ -1424,20 +1424,20 @@ section,
 
 
 /* =========================
-   Proje Detay – Okunabilirlik yamalarý
+   Proje Detay  Okunabilirlik yamalar
    ========================= */
 
 /* Tema paleti (gerekirse uyarlayabilirsin) */
 :root {
     --accent-color: #4154f1; /* sitenin vurgu rengi */
-    --heading-color: #012970; /* baþlýk rengi */
+    --heading-color: #012970; /* balk rengi */
     --ink: #444; /* ana metin */
     --ink-muted: #6b7280; /* ikincil metin */
     --surface: #ffffff; /* kart zeminleri */
-    --surface-2: #f6f9ff; /* açýk ton zemin */
+    --surface-2: #f6f9ff; /* ak ton zemin */
 }
 
-/* Bilgi kartlarý – arka plan ve metin kontrastý */
+/* Bilgi kartlar  arka plan ve metin kontrast */
 .portfolio-details .portfolio-info {
     background: var(--surface-2);
     border: 1px solid #e9eefb;
@@ -1457,7 +1457,7 @@ section,
             text-decoration: underline;
         }
 
-/* Detay içeriði – beyaz görünen yazýlarý koyulaþtýr */
+/* Detay ierii  beyaz grnen yazlar koyulatr */
 .portfolio-details .portfolio-description {
     color: var(--ink);
 }
@@ -1471,13 +1471,13 @@ section,
         color: var(--ink);
     }
 
-/* Teknolojiler rozetleri – gri yerine marka renginin tonlarý */
+/* Teknolojiler rozetleri  gri yerine marka renginin tonlar */
 .badge-tech,
 .tech-list .badge {
-    /* Fallback (tüm tarayýcýlar için) */
+    /* Fallback (tm tarayclar iin) */
     background: rgba(65, 84, 241, .12); /* #4154f1 %12 */
     border: 1px solid rgba(65, 84, 241, .30);
-    color: #2b3a8e; /* vurgu-mürekkep */
+    color: #2b3a8e; /* vurgu-mrekkep */
     font-weight: 600;
     padding: .35rem .6rem;
 }
@@ -1488,14 +1488,14 @@ section,
         border-color: rgba(65, 84, 241, .42);
     }
 
-    /* Ýstersen bazý rozetleri "dolu" yap (class="badge badge-tech solid") */
+    /* stersen baz rozetleri "dolu" yap (class="badge badge-tech solid") */
     .badge-tech.solid {
         background: var(--accent-color);
         border-color: var(--accent-color);
         color: #fff;
     }
 
-/* Ýstatistik kutularý – metinler soluk kalmasýn */
+/* statistik kutular  metinler soluk kalmasn */
 .stat-card {
     background: var(--surface-2);
     color: var(--heading-color);
@@ -1506,7 +1506,7 @@ section,
         color: var(--ink-muted) !important;
     }
 
-/* Swiper nokta (pagination) kontrastý */
+/* Swiper nokta (pagination) kontrast */
 .portfolio-details .swiper-pagination-bullet {
     background: rgba(1, 41, 112, .32);
 }
@@ -1515,17 +1515,17 @@ section,
     background: var(--accent-color);
 }
 
-/* Header: logo | nav | social üçlü kolon; nav her zaman ortada */
+/* Header: logo | nav | social l kolon; nav her zaman ortada */
 @media (min-width: 1200px) {
     #header .container-fluid {
-        display: grid !important; /* flex'i geçersiz kýl */
-        grid-template-columns: 1fr auto 1fr; /* sol | ORTA | sað */
+        display: grid !important; /* flex'i geersiz kl */
+        grid-template-columns: 1fr auto 1fr; /* sol | ORTA | sa */
         align-items: center;
     }
 
     #header .logo {
         justify-self: start;
-        margin: 0 !important; /* me-auto etkisini sýfýrla */
+        margin: 0 !important; /* me-auto etkisini sfrla */
     }
 
     #header .navmenu {
@@ -1533,24 +1533,24 @@ section,
     }
 
     #header .header-social-links {
-        justify-self: end; /* saða yasla */
+        justify-self: end; /* saa yasla */
     }
 }
-/* ——— Logo/baþlýk: tüm sayfalarda tutarlý görünüm ——— */
+/*  Logo/balk: tm sayfalarda tutarl grnm  */
 #header .logo .sitename {
     font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
-    font-weight: 300 !important; /* daha yumuþak, 'aþýrý kalýn' deðil */
+    font-weight: 300 !important; /* daha yumuak, 'ar kaln' deil */
     font-size: 28px;
     line-height: 1;
     letter-spacing: .2px;
     margin: 0;
 }
 
-/* Nav her zaman ortada kalsýn (logo geniþlese bile) */
+/* Nav her zaman ortada kalsn (logo genilese bile) */
 @media (min-width: 1200px) {
     #header .container-fluid {
-        display: grid !important; /* flex'i geçersiz kýl */
-        grid-template-columns: 1fr auto 1fr; /* sol | ORTA | sað */
+        display: grid !important; /* flex'i geersiz kl */
+        grid-template-columns: 1fr auto 1fr; /* sol | ORTA | sa */
         align-items: center;
     }
 
@@ -1567,12 +1567,12 @@ section,
         justify-self: end;
     }
 }
-/* —— Altý çizgiyi global kapat —— */
+/*  Alt izgiyi global kapat  */
 body, p, li, small, span, h1, h2, h3, h4, h5, h6, a {
     text-decoration: none !important;
 }
 
-/* Header logo ve menü linkleri hiç çizilmesin */
+/* Header logo ve men linkleri hi izilmesin */
 .header .logo,
 .header .logo:visited,
 .header .logo:hover,
@@ -1583,7 +1583,7 @@ body, p, li, small, span, h1, h2, h3, h4, h5, h6, a {
     text-decoration: none !important;
 }
 
-/* Kartlardaki görsel linkler ve butonlar da çizgisiz kalsýn */
+/* Kartlardaki grsel linkler ve butonlar da izgisiz kalsn */
 .card a,
 .card a:hover,
 .btn,
@@ -1591,17 +1591,17 @@ body, p, li, small, span, h1, h2, h3, h4, h5, h6, a {
     text-decoration: none !important;
 }
 
-/* (Önceki ayardan kalan) baþlýk fontu ve ortalama – ayný incelikte */
+/* (nceki ayardan kalan) balk fontu ve ortalama  ayn incelikte */
 #header .logo .sitename {
     font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
-    font-weight: 300 !important; /* çok kalýnsa 500 yapabilirsin */
+    font-weight: 300 !important; /* ok kalnsa 500 yapabilirsin */
     font-size: 26px;
     line-height: 1;
     letter-spacing: .2px;
     margin: 0;
 }
 
-/* Nav her zaman ortada kalsýn (logo geniþlese bile) */
+/* Nav her zaman ortada kalsn (logo genilese bile) */
 @media (min-width: 1200px) {
     #header .container-fluid {
         display: grid !important;
@@ -1623,7 +1623,7 @@ body, p, li, small, span, h1, h2, h3, h4, h5, h6, a {
     }
 }
 
-/* Rozetli yetkinlik görünümü */
+/* Rozetli yetkinlik grnm */
 .skill-badge {
     display: inline-block;
     padding: .45rem .66rem;
@@ -1638,13 +1638,13 @@ body, p, li, small, span, h1, h2, h3, h4, h5, h6, a {
 
 
 /* ===========================
-   Portfolio sayfasý (mx-portfolio)
+   Portfolio sayfas (mx-portfolio)
    =========================== */
 .mx-portfolio a {
     text-decoration: none;
 }
 
-/* Bölüm ayracý */
+/* Blm ayrac */
 .mx-portfolio .mx-divider {
     border: 0;
     height: 1px;
@@ -1653,7 +1653,7 @@ body, p, li, small, span, h1, h2, h3, h4, h5, h6, a {
     background: linear-gradient(90deg, transparent, rgba(0,0,0,.08), transparent);
 }
 
-/* Ýkonlu baþlýk rozetleri */
+/* konlu balk rozetleri */
 .mx-portfolio .mx-section-icon {
     width: 40px;
     height: 40px;
@@ -1678,7 +1678,7 @@ body, p, li, small, span, h1, h2, h3, h4, h5, h6, a {
 /* Alt navigasyon (sticky) */
 .mx-portfolio .mx-subnav {
     position: sticky;
-    top: 72px; /* header yüksekliðine göre */
+    top: 72px; /* header yksekliine gre */
     z-index: 9;
     backdrop-filter: saturate(1.2) blur(6px);
     border-bottom: 1px solid rgba(0,0,0,.06);
@@ -1697,7 +1697,7 @@ body, p, li, small, span, h1, h2, h3, h4, h5, h6, a {
             color: #fff;
         }
 
-/* Kart davranýþý */
+/* Kart davran */
 .mx-portfolio .mx-card {
     transition: transform .15s ease, box-shadow .15s ease;
 }
@@ -1714,7 +1714,7 @@ body, p, li, small, span, h1, h2, h3, h4, h5, h6, a {
     font-weight: 500;
 }
 
-/* 2 satýrda kýrpma */
+/* 2 satrda krpma */
 .mx-portfolio .mx-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -1722,7 +1722,7 @@ body, p, li, small, span, h1, h2, h3, h4, h5, h6, a {
     overflow: hidden;
 }
 
-/* Küçük iyileþtirmeler */
+/* Kk iyiletirmeler */
 .mx-portfolio .card-body .h5,
 .mx-portfolio .card-body .h6 {
     margin-bottom: .35rem;
@@ -1735,7 +1735,7 @@ body, p, li, small, span, h1, h2, h3, h4, h5, h6, a {
 .portfolio-details-page .nahil-hero h1 { font-weight: 700; }
 .portfolio-details-page .nahil-card h4 { font-weight: 600; }
 
-/* ---- Lane detail slider: otomatik yükseklik + upscaling yok ---- */
+/* ---- Lane detail slider: otomatik ykseklik + upscaling yok ---- */
 .media-autoheight .swiper-wrapper {
     align-items: center; /* dikey ortalama */
 }
@@ -1746,29 +1746,29 @@ body, p, li, small, span, h1, h2, h3, h4, h5, h6, a {
 }
 
     .media-autoheight .swiper-slide img {
-        /* Görsel asla zorla büyütülmez; geniþse küçülür, küçükse olduðu gibi kalýr */
+        /* Grsel asla zorla bytlmez; genise klr, kkse olduu gibi kalr */
         width: auto;
         max-width: 100%;
         height: auto;
-        object-fit: contain; /* kýrpma yok */
+        object-fit: contain; /* krpma yok */
     }
 
-/* Çok uzun dikey görselleri ekranda taþýrmadan göster (deðeri zevkine göre deðiþtir) */
+/* ok uzun dikey grselleri ekranda tarmadan gster (deeri zevkine gre deitir) */
 @media (min-width: 992px) {
     .media-autoheight .swiper-slide img {
         max-height: 520px;
     }
 }
 
-/* Temada daha önce verilmiþ “object-fit: cover; height:100%” gibi kurallarý ezmek için
-   gerekirse spesifikliði artýr: */
+/* Temada daha nce verilmi object-fit: cover; height:100% gibi kurallar ezmek iin
+   gerekirse spesifiklii artr: */
 .portfolio-details .media-autoheight .swiper-slide img {
     object-fit: contain !important;
     height: auto !important;
 }
 
 
-/* ===== Home (index) — sadece bu sayfaya özel ===== */
+/* ===== Home (index)  sadece bu sayfaya zel ===== */
 .home-hero {
     padding: clamp(40px, 5vw, 72px) 0;
     position: relative;
@@ -1853,3 +1853,37 @@ body, p, li, small, span, h1, h2, h3, h4, h5, h6, a {
         color: #0d6efd;
         background: rgba(13,110,253,.06);
     }
+
+
+/* Dil deÄŸiÅŸtirici */
+.language-switch {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 1090;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid #e5e5e5;
+    border-radius: 32px;
+    padding: 6px 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.language-switch a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #555;
+    letter-spacing: 0.2px;
+    font-size: 13px;
+}
+
+.language-switch .active {
+    color: var(--accent-color);
+}
+
+.language-switch .divider {
+    color: #ccc;
+    font-weight: 400;
+}
