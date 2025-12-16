@@ -1859,7 +1859,7 @@ body, p, li, small, span, h1, h2, h3, h4, h5, h6, a {
 .language-switch {
     position: fixed;
     top: 14px;
-    left: 14px;
+    right: 14px;
     z-index: 1090;
     background: rgba(255, 255, 255, 0.92);
     border: 1px solid #e5e5e5;
