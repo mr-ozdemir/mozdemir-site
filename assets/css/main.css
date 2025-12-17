@@ -1857,18 +1857,17 @@ body, p, li, small, span, h1, h2, h3, h4, h5, h6, a {
 
 /* Dil değiştirici */
 .language-switch {
-    position: fixed;
-    top: 14px;
-    left: 14px;
-    z-index: 1090;
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid #e5e5e5;
-    border-radius: 32px;
-    padding: 6px 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    padding: 7px 12px;
+    margin-left: 12px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid #e5e5e5;
+    border-radius: 32px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    font-weight: 600;
+    color: #555;
 }
 
 .language-switch a {
@@ -1886,4 +1885,10 @@ body, p, li, small, span, h1, h2, h3, h4, h5, h6, a {
 .language-switch .divider {
     color: #ccc;
     font-weight: 400;
+}
+
+@media (max-width: 1199px) {
+    .language-switch {
+        margin: 10px 20px;
+    }
 }
