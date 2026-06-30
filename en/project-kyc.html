@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="canonical" href="https://mozdemir.com/en/project-kyc.html" />
+    <link rel="alternate" hreflang="tr" href="https://mozdemir.com/project-kyc.html" />
+    <link rel="alternate" hreflang="en" href="https://mozdemir.com/en/project-kyc.html" />
+    <link rel="alternate" hreflang="x-default" href="https://mozdemir.com/project-kyc.html" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Identity Verification (KYC) — OCR &amp; Face Match | Muhammet Özdemir</title>
+    <meta name="description" content="Production identity-verification system for banking/KYC: national ID-card OCR + MRZ reading, document authenticity (security-feature) detection, and biometric face matching. The IDOCR and IDBM modules." />
+    <meta name="keywords" content="KYC, identity verification, OCR, MRZ, biometric face match, DeepFace, YOLO, Tesseract, Flask, OpenCV, document authenticity, hologram, Identify-Turkey" />
+
+    <meta property="og:title" content="Identity Verification (KYC) — OCR &amp; Face Match" />
+    <meta property="og:description" content="National ID OCR + MRZ, document authenticity detection, and selfie-to-ID biometric face matching. Production IDOCR &amp; IDBM modules for banking/KYC." />
+    <meta property="og:url" content="https://mozdemir.com/en/project-kyc.html" />
+    <meta property="og:image" content="https://mozdemir.com/assets/img/projects/kyc.webp" />
+    <meta property="og:image:alt" content="Identity Verification (KYC) — OCR & Face Match" />
+    <meta name="twitter:title" content="Identity Verification (KYC) — OCR &amp; Face Match" />
+    <meta name="twitter:description" content="National ID OCR + MRZ, authenticity detection, and biometric face matching; in production for banking/KYC." />
+    <meta name="twitter:image" content="https://mozdemir.com/assets/img/projects/kyc.webp" />
+
+    <!-- Favicons -->
+    <link href="../assets/img/favicon.ico" rel="icon">
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+
+    <!-- Global main.css -->
+    <link href="../assets/css/main.css" rel="stylesheet" />
+
+    <!-- Page-scoped styles -->
+    <style>
+        /* ==== KYC DETAILS — page-scoped (won't affect others) ==== */
+        .portfolio-details-page .header a {
+            text-decoration: none !important;
+        }
+
+        .mx-hero h1 {
+            font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            font-weight: 700;
+            letter-spacing: .2px;
+            margin-bottom: .5rem;
+        }
+
+        .mx-hero p.mx-muted {
+            color: #667085;
+            max-width: 900px;
+            margin: .5rem auto 0;
+        }
+
+        .mx-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            font-size: .85rem;
+            padding: .4rem .65rem;
+            border-radius: 999px;
+            background: rgba(0,0,0,.035);
+            border: 1px solid rgba(0,0,0,.08);
+            color: #495057;
+        }
+
+            .mx-pill i {
+                font-size: 1rem;
+            }
+
+        .mx-card {
+            border: 1px solid rgba(0,0,0,.06);
+            border-radius: 14px;
+            box-shadow: 0 .25rem .75rem rgba(0,0,0,.05);
+        }
+
+            .mx-card .list-group-item {
+                border: 0;
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+        .mx-cover {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,.06);
+            box-shadow: 0 .25rem .75rem rgba(0,0,0,.06);
+        }
+
+            .mx-cover img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+
+        .mx-section h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: .75rem;
+        }
+
+        .mx-section p, .mx-section li {
+            font-size: .98rem;
+            line-height: 1.65;
+        }
+
+        .mx-tech .badge {
+            background: rgba(13,110,253,.08);
+            color: #0d6efd;
+            border: 1px solid rgba(13,110,253,.18);
+            border-radius: 999px;
+            font-weight: 500;
+            padding: .5rem .65rem;
+            margin: .125rem .25rem .25rem 0;
+        }
+
+        .mx-callout {
+            border-left: 4px solid #0d6efd;
+            background: #f0f6ff;
+            padding: .85rem 1rem;
+            border-radius: 8px;
+            font-size: .95rem;
+        }
+    </style>
+
+    <!-- SoftwareApplication -->
+    <script type="application/ld+json">
+        {
+          "@context":"https://schema.org","@type":"SoftwareApplication",
+          "name":"Identity Verification (KYC) — OCR & Face Match",
+          "applicationCategory":"SecurityApplication",
+          "operatingSystem":"Linux",
+          "url":"https://mozdemir.com/en/project-kyc.html",
+          "author":{"@type":"Person","name":"Muhammet Özdemir"},
+          "description":"Production IDOCR and IDBM modules for national ID-card OCR + MRZ reading, document authenticity (security-feature) detection, and biometric face matching.",
+          "softwareVersion":"1.0",
+          "image":"https://mozdemir.com/assets/img/projects/kyc.webp",
+          "inLanguage":"en"
+        }
+    </script>
+
+</head>
+<body class="portfolio-details-page">
+<!-- Header -->
+    <header id="header" class="header d-flex align-items-center light-background sticky-top">
+        <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <h1 class="sitename">Muhammet Özdemir</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="resume.html">Experience</a></li>
+                    <li><a href="services.html">Skills</a></li>
+                    <li><a href="portfolio.html">Projects</a></li>
+
+                    <li class="language-switch" aria-label="Language toggle">
+                        <a href="../project-kyc.html">TR</a>
+                        <span class="divider">|</span>
+                        <span class="active">EN</span>
+                    </li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open menu"></i>
+            </nav>
+
+            <div class="header-social-links">
+                <a href="https://github.com/mr-ozdemir" target="_blank" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/mrozdemir" target="_blank" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="main">
+        <!-- Hero -->
+        <section class="section mx-hero">
+            <div class="container" data-aos="fade-up">
+                <div class="text-center">
+                    <h1>Identity Verification (KYC) — OCR &amp; Face Match</h1>
+                    <p class="mx-muted">
+                        Two production AI services that power <strong>ID-card OCR</strong>, <strong>document-authenticity detection</strong> and
+                        <strong>biometric face matching</strong> for banking and finance customer onboarding:
+                        <strong>IDOCR</strong> and <strong>IDBM</strong>.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2 justify-content-center mt-3">
+                        <span class="mx-pill"><i class="bi bi-bank"></i> Identify-Turkey (id24.tr)</span>
+                        <span class="mx-pill"><i class="bi bi-check-circle"></i> In production — Banking/KYC</span>
+                        <span class="mx-pill"><i class="bi bi-shield-lock"></i> REST API · JWT</span>
+                        <span class="mx-pill"><i class="bi bi-patch-check"></i> TSE Documentation &amp; Certification</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cover + Info -->
+        <section class="section pt-0">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-4">
+                    <div class="col-lg-8">
+                        <div class="mx-cover">
+                            <img src="../assets/img/projects/kyc.webp" alt="Identity verification: ID-card OCR and biometric face matching" width="1200" height="675">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="mx-card p-3">
+                            <h3 class="h5 mb-3">Project Info</h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item px-0"><strong>Role:</strong> Developer — IDOCR &amp; IDBM (AI/CV modules)</li>
+                                <li class="list-group-item px-0"><strong>Client:</strong> Identify-Turkey — id24.tr KYC platform</li>
+                                <li class="list-group-item px-0"><strong>Scope:</strong> ID OCR + MRZ, authenticity detection, biometric face match</li>
+                                <li class="list-group-item px-0"><strong>Integration:</strong> Flask REST API (JWT), Docker/Kubernetes microservices</li>
+                                <li class="list-group-item px-0"><strong>Status:</strong> Live (in production)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary & Architecture -->
+        <section class="section mx-section pt-0">
+            <div class="container" data-aos="fade-up" data-aos-delay="150">
+                <div class="row gy-4">
+                    <div class="col-lg-8">
+                        <h3>Overview</h3>
+                        <p>
+                            I built two independent microservices that form the AI core of a KYC (Know Your Customer) identity-verification platform.
+                            <strong>IDOCR</strong> reads the front and back of a national ID card and extracts its fields (ID number, name/surname, date of birth, validity, serial number, MRZ);
+                            detects whether an image is an ID and its orientation; and verifies <strong>document authenticity</strong> through security features.
+                            <strong>IDBM</strong> is a <strong>biometric face-matching</strong> service that compares a selfie against the ID photo, and additionally provides face analysis and landmark extraction.
+                            Both run in production as encrypted, JWT-protected REST APIs on Docker/Kubernetes.
+                        </p>
+
+                        <div class="mx-callout mb-3">
+                            <strong>End-to-end:</strong> beyond model development and service delivery, I also managed the <strong>TSE documentation and certification</strong> process;
+                            the solution is used in banking customer-verification flows.
+                        </div>
+
+                        <h3>IDOCR — ID OCR &amp; Authenticity Detection</h3>
+                        <ul>
+                            <li><strong>ID Detection &amp; Orientation:</strong> YOLO-based detection of whether an image is an ID and whether it is the front or back side.</li>
+                            <li><strong>Field OCR:</strong> Extraction of ID number, name/surname, date of birth, validity, gender and serial number from the front (YOLO region detection + Tesseract OCR).</li>
+                            <li><strong>MRZ Reading:</strong> Back-side MRZ parsing and cross-validation against the front-side fields.</li>
+                            <li><strong>Authenticity / Security Features:</strong> Hologram and MLI detection on the front, guilloche detection on the back.</li>
+                        </ul>
+
+                        <h3>IDBM — Biometric Face Matching</h3>
+                        <ul>
+                            <li><strong>Face Match (1:1):</strong> Selfie ↔ ID-photo comparison; distance- and threshold-based match decision.</li>
+                            <li><strong>Multiple Models &amp; Metrics:</strong> ArcFace, Facenet512, VGG-Face, SFace, etc.; cosine / euclidean_l2 metrics with per-model tuned thresholds.</li>
+                            <li><strong>Face Detection &amp; Landmarks:</strong> Face detection and landmark extraction via RetinaFace, MTCNN and MediaPipe.</li>
+                            <li><strong>Face Analysis:</strong> Age, gender and emotion estimation; ONNX conversion for performance.</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <h3>Tech Stack</h3>
+                        <div class="mx-tech">
+                            <span class="badge">Python</span>
+                            <span class="badge">Flask</span>
+                            <span class="badge">YOLO (Ultralytics)</span>
+                            <span class="badge">Tesseract OCR</span>
+                            <span class="badge">OpenCV</span>
+                            <span class="badge">PyTorch</span>
+                            <span class="badge">DeepFace</span>
+                            <span class="badge">TensorFlow</span>
+                            <span class="badge">dlib</span>
+                            <span class="badge">MediaPipe</span>
+                            <span class="badge">ONNX</span>
+                            <span class="badge">JWT</span>
+                            <span class="badge">Docker</span>
+                            <span class="badge">Kubernetes</span>
+                            <span class="badge">PostgreSQL</span>
+                            <span class="badge">Gunicorn</span>
+                        </div>
+
+                        <h3 class="mt-4">Deployment &amp; Operations</h3>
+                        <ul class="mb-0">
+                            <li><strong>Serving:</strong> Gunicorn + Flask; Docker images, scalable Kubernetes deployment.</li>
+                            <li><strong>Security:</strong> JWT-based authentication and end-to-end encryption.</li>
+                            <li><strong>Compliance:</strong> TSE documentation and certification for banking/KYC requirements.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section py-5">
+            <div class="container" data-aos="fade-up">
+                <div class="text-center">
+                    <a href="portfolio.html" target="_blank" rel="noopener" class="btn btn-primary">
+                        <i class="bi bi-grid me-1"></i> Go to Projects
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" class="footer light-background">
+        <div class="container">
+            <div class="copyright text-center ">
+                <p>© <span>Copyright</span> <strong class="px-1 sitename"></strong>Developed by Muhammet Ozdemir<span><br></span></p>
+            </div>
+            <div class="social-links d-flex justify-content-center">
+                <a href="https://github.com/mr-ozdemir" target="_blank" class="github"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/mrozdemir" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Back to top">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS -->
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../assets/vendor/php-email-form/validate.js" defer></script>
+    <script src="../assets/vendor/aos/aos.js" defer></script>
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const y = document.getElementById('year');
+            if (y) y.textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
