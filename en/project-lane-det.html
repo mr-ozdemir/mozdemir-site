@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>ROS + OpenCV Şerit Tespiti | Muhammet Özdemir</title>
-    <meta name="description" content="ROS üzerinde OpenCV ile gerçek zamanlı şerit (lane) tespiti: mimari, kurulum, çalıştırma, konular ve parametreler.">
+    <title>ROS + OpenCV Lane Detection | Muhammet Özdemir</title>
+    <meta name="description" content="Real-time lane detection with OpenCV on ROS: architecture, setup, running, topics, and parameters.">
     <meta name="keywords" content="ROS, OpenCV, Lane Detection, Canny, Hough, PID, Teknofest, Robotaksi">
 
     <link rel="canonical" href="https://mozdemir.com/en/project-lane-det.html" />
     <link rel="alternate" hreflang="en" href="https://mozdemir.com/project-lane-det" />
-    <meta property="og:title" content="ROS + OpenCV Şerit Tespiti — Gerçek Zamanlı" />
-    <meta property="og:description" content="USB kamera ile gerçek zamanlı şerit tespiti ve PID tabanlı takip modülü. Teknofest Robotaksi prototipi." />
+    <meta property="og:title" content="ROS + OpenCV Lane Detection — Real-Time" />
+    <meta property="og:description" content="Real-time lane detection with a USB camera and a PID-based tracking module. Teknofest Robotaksi prototype." />
     <meta property="og:url" content="https://mozdemir.com/project-lane-det" />
     <meta property="og:image" content="https://mozdemir.com/assets/img/og/og-lane.jpg" />
     <meta property="og:image:alt" content="ROS + OpenCV Lane Detection" />
-    <meta name="twitter:title" content="ROS + OpenCV Şerit Tespiti — Gerçek Zamanlı" />
-    <meta name="twitter:description" content="Gerçek zamanlı şerit tespiti ve PID takip modülü." />
+    <meta name="twitter:title" content="ROS + OpenCV Lane Detection — Real-Time" />
+    <meta name="twitter:description" content="Real-time lane detection and PID tracking module." />
     <meta name="twitter:image" content="https://mozdemir.com/assets/img/og/og-lane.jpg" />
 
 
@@ -108,7 +108,7 @@
           "author":{"@type":"Person","name":"Muhammet Özdemir"},
           "url":"https://mozdemir.com/project-lane-det.html",
           "image":"https://mozdemir.com/assets/img/projects/lane-detection-ros.webp",
-          "inLanguage":"tr-TR"
+          "inLanguage":"en"
         }
     </script>
 
@@ -132,13 +132,13 @@
                     <!-- Kulüp sayfan varsa: -->
                     <!-- <li><a href="club-activities.html">Kulüp</a></li> -->
                 
-                    <li class="language-switch" aria-label="Language toggle">
+                    <li class="language-switch" aria-label="Language switcher">
                         <a href="../project-lane-det.html">TR</a>
                         <span class="divider">|</span>
                         <span class="active">EN</span>
                     </li>
                 </ul>
-                <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Menüyü aç"></i>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Open menu"></i>
             </nav>
 
             <div class="header-social-links">
@@ -153,8 +153,8 @@
 
         <section id="portfolio-details" class="portfolio-details section lane-ros-detail">
             <div class="container section-title" data-aos="fade-up">
-                <h2>ROS + OpenCV Şerit Tespiti</h2>
-                <p class="lead">USB kamera akışından gerçek zamanlı şerit algılama ve yönlendirme sinyali üretimi — Teknofest Robotaksi prototipi</p>
+                <h2>ROS + OpenCV Lane Detection</h2>
+                <p class="lead">Real-time lane detection from a USB camera stream and steering signal generation — Teknofest Robotaksi prototype</p>
             </div>
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -183,19 +183,19 @@
                                 <div class="swiper-wrapper align-items-center">
                                     <div class="swiper-slide">
                                         <img src="../assets/img/projects/lane1.png"
-                                             alt="ROS + OpenCV lane detection — genel görünüm">
+                                             alt="ROS + OpenCV lane detection — overview">
                                     </div>
                                     <div class="swiper-slide">
                                         <img src="../assets/img/projects/lane2.png"
-                                             alt="ROI ve Canny sonrası kenar görüntüsü">
+                                             alt="Edge image after ROI and Canny">
                                     </div>
                                     <div class="swiper-slide">
                                         <img src="../assets/img/projects/lane3.png"
-                                             alt="Hough çizgileri ve şerit merkez çizgisi">
+                                             alt="Hough lines and lane center line">
                                     </div>
                                     <div class="swiper-slide">
                                         <img src="../assets/img/projects/lane4.png"
-                                             alt="PID’e gönderilen steering açısı overlay">
+                                             alt="Steering angle overlay sent to PID">
                                     </div>
                                 </div>
 
@@ -208,12 +208,12 @@
                     <!-- Proje bilgisi -->
                     <div class="col-lg-5">
                         <div class="portfolio-info card p-4">
-                            <h3>Proje Bilgisi</h3>
+                            <h3>Project Info</h3>
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><span class="icon-check">✓</span><strong>Kategori:</strong> Bilgisayarlı Görü / Otonom Sürüş</li>
-                                <li class="mb-2"><span class="icon-check">✓</span><strong>Bağlam:</strong> Teknofest Robotaksi için gerçek zamanlı prototip</li>
-                                <li class="mb-2"><span class="icon-check">✓</span><strong>Girdi:</strong> USB kamera veya ROS kamera sürücüsü</li>
-                                <li class="mb-2"><span class="icon-check">✓</span><strong>Çıktı:</strong> Şerit maskeleme &amp; yönlendirme açısı (PID’e uygun)</li>
+                                <li class="mb-2"><span class="icon-check">✓</span><strong>Category:</strong> Computer Vision / Autonomous Driving</li>
+                                <li class="mb-2"><span class="icon-check">✓</span><strong>Context:</strong> Real-time prototype for Teknofest Robotaksi</li>
+                                <li class="mb-2"><span class="icon-check">✓</span><strong>Input:</strong> USB camera or ROS camera driver</li>
+                                <li class="mb-2"><span class="icon-check">✓</span><strong>Output:</strong> Lane masking &amp; steering angle (PID-ready)</li>
                                 <li class="mb-2"><span class="icon-check">✓</span><strong>Platform:</strong> ROS (Ubuntu), OpenCV</li>
                             </ul>
                             <hr>
@@ -228,10 +228,10 @@
                             </div>
                             <div class="mt-3 d-flex gap-2">
                                 <a class="btn btn-primary btn-sm" href="https://github.com/mr-ozdemir/Lane-detection-with-Opencv-in-Ros" target="_blank" rel="noopener">
-                                    <i class="bi bi-github me-1"></i> GitHub Deposu
+                                    <i class="bi bi-github me-1"></i> GitHub Repository
                                 </a>
                                 <a class="btn btn-outline-secondary btn-sm" href="portfolio.html">
-                                    <i class="bi bi-arrow-left-short me-1"></i> Projectse Dön
+                                    <i class="bi bi-arrow-left-short me-1"></i> Back to Projects
                                 </a>
                             </div>
                         </div>
@@ -242,23 +242,23 @@
                 <div class="row gy-4 mt-2" data-aos="fade-up" data-aos-delay="150">
                     <div class="col-12">
                         <div class="portfolio-description card p-4">
-                            <h3>Mimari &amp; Algoritma Boru Hattı</h3>
+                            <h3>Architecture &amp; Algorithm Pipeline</h3>
                             <p>
-                                Sistem, klasik OpenCV tabanlı bir şerit tespiti yaklaşımıyla <em>gerçek zaman</em> performans hedefler.
-                                Tipik akış aşağıdaki adımlardan oluşur:
+                                The system targets <em>real-time</em> performance with a classic OpenCV-based lane detection approach.
+                                A typical flow consists of the following steps:
                             </p>
                             <ol class="mb-3">
-                                <li><strong>ROI (Region of Interest):</strong> Yolun ilgi bölgesi maskeleme (alt üçgen/poligon).</li>
-                                <li><strong>Ön işleme:</strong> Gri tonlama, Gauss bulanıklaştırma, dinamik eşikleme.</li>
-                                <li><strong>Kenar çıkarımı (Canny):</strong> Aday çizgi kenarlarının çıkarımı.</li>
-                                <li><strong>HoughLinesP:</strong> Sağ/sol şerit adaylarının hat segmentleri olarak bulunması.</li>
-                                <li><strong>Simetri &amp; birleştirme:</strong> Çizgilerin filtrelenmesi, eğim/süreklilik ile birleştirme.</li>
-                                <li><strong>Yön açısı tahmini:</strong> Şerit merkezine göre sapma ve <code>steering_angle</code> üretimi.</li>
-                                <li><strong>İsteğe bağlı düzeltmeler:</strong> Zaman penceresinde yumuşatma, jitter azaltma.</li>
+                                <li><strong>ROI (Region of Interest):</strong> Masking the road's region of interest (lower triangle/polygon).</li>
+                                <li><strong>Preprocessing:</strong> Grayscale, Gaussian blur, dynamic thresholding.</li>
+                                <li><strong>Edge extraction (Canny):</strong> Extracting candidate line edges.</li>
+                                <li><strong>HoughLinesP:</strong> Finding right/left lane candidates as line segments.</li>
+                                <li><strong>Symmetry &amp; merging:</strong> Filtering the lines and merging by slope/continuity.</li>
+                                <li><strong>Heading angle estimation:</strong> Computing deviation relative to the lane center and generating <code>steering_angle</code>.</li>
+                                <li><strong>Optional corrections:</strong> Temporal-window smoothing, jitter reduction.</li>
                             </ol>
                             <div class="alert alert-secondary mb-0">
-                                <strong>Not:</strong> Konu adları (topic), düğüm isimleri ve parametre dosyaları depo içinde tanımlıdır; burada verilenler
-                                genel şablondur. Depodaki <em>launch</em> ve/veya <em>param</em> dosyalarıyla özelleştirilebilir.
+                                <strong>Note:</strong> Topic names, node names, and parameter files are defined within the repository; the values given here
+                                are a general template. They can be customized via the <em>launch</em> and/or <em>param</em> files in the repository.
                             </div>
                         </div>
                     </div>
@@ -268,35 +268,35 @@
                 <div class="row gy-4 mt-1" data-aos="fade-up" data-aos-delay="180">
                     <div class="col-lg-6">
                         <div class="card p-4 h-100">
-                            <h4 class="mb-3">Örnek ROS Konuları</h4>
+                            <h4 class="mb-3">Example ROS Topics</h4>
                             <ul class="mb-0">
-                                <li><code>/camera/image_raw</code> – Giriş görüntüsü</li>
-                                <li><code>/lane/overlay</code> – Tespit edilen şerit overlay’i (isteğe bağlı)</li>
-                                <li><code>/lane/steering_angle</code> – Yönlendirme açısı (float)</li>
-                                <li><code>/lane/pid</code> – PID kontrol girdisi (opsiyonel)</li>
+                                <li><code>/camera/image_raw</code> – Input image</li>
+                                <li><code>/lane/overlay</code> – Detected lane overlay (optional)</li>
+                                <li><code>/lane/steering_angle</code> – Steering angle (float)</li>
+                                <li><code>/lane/pid</code> – PID control input (optional)</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="card p-4 h-100">
-                            <h4 class="mb-3">Örnek Parametreler</h4>
+                            <h4 class="mb-3">Example Parameters</h4>
                             <div class="table-responsive">
                                 <table class="table align-middle mb-0">
                                     <thead>
-                                        <tr><th>Parametre</th><th>Açıklama</th><th>Örnek</th></tr>
+                                        <tr><th>Parameter</th><th>Description</th><th>Example</th></tr>
                                     </thead>
                                     <tbody>
-                                        <tr><td><code>canny_low</code></td><td>Kenar alt eşiği</td><td>50</td></tr>
-                                        <tr><td><code>canny_high</code></td><td>Kenar üst eşiği</td><td>150</td></tr>
-                                        <tr><td><code>hough_threshold</code></td><td>Hough oy eşiği</td><td>30</td></tr>
-                                        <tr><td><code>minLineLength</code></td><td>Minimum çizgi uzunluğu</td><td>25</td></tr>
-                                        <tr><td><code>maxLineGap</code></td><td>Çizgi birleştirme boşluğu</td><td>20</td></tr>
-                                        <tr><td><code>roi_vertices</code></td><td>İlgi bölgesi çokgeni</td><td>alt üçgen</td></tr>
-                                        <tr><td><code>smoothing_window</code></td><td>Açı yumuşatma penceresi</td><td>5</td></tr>
+                                        <tr><td><code>canny_low</code></td><td>Lower edge threshold</td><td>50</td></tr>
+                                        <tr><td><code>canny_high</code></td><td>Upper edge threshold</td><td>150</td></tr>
+                                        <tr><td><code>hough_threshold</code></td><td>Hough vote threshold</td><td>30</td></tr>
+                                        <tr><td><code>minLineLength</code></td><td>Minimum line length</td><td>25</td></tr>
+                                        <tr><td><code>maxLineGap</code></td><td>Line merging gap</td><td>20</td></tr>
+                                        <tr><td><code>roi_vertices</code></td><td>Region-of-interest polygon</td><td>lower triangle</td></tr>
+                                        <tr><td><code>smoothing_window</code></td><td>Angle smoothing window</td><td>5</td></tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <small class="text-muted">Kesin parametre isimleri için depo içeriğine bakınız.</small>
+                            <small class="text-muted">Refer to the repository contents for the exact parameter names.</small>
                         </div>
                     </div>
                 </div>
@@ -305,19 +305,19 @@
                 <div class="row gy-4 mt-1" data-aos="fade-up" data-aos-delay="200">
                     <div class="col-lg-6">
                         <div class="card p-4 h-100">
-                            <h4 class="mb-3">Kurulum (Örnek)</h4>
-                            <pre><code># ROS & bağımlılıklar (örnek: Noetic / Ubuntu 20.04)
+                            <h4 class="mb-3">Setup (Example)</h4>
+                            <pre><code># ROS & dependencies (example: Noetic / Ubuntu 20.04)
 sudo apt update
 sudo apt install ros-noetic-desktop-full python3-opencv
 
-# Çalışma alanı
+# Workspace
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
 
-# Depoyu ekle
+# Add the repository
 git clone https://github.com/mr-ozdemir/Lane-detection-with-Opencv-in-Ros.git
 
-# Derleme (varsa C++ düğümleri için)
+# Build (for C++ nodes, if any)
 cd ..
 catkin_make
 source devel/setup.bash
@@ -326,19 +326,19 @@ source devel/setup.bash
                     </div>
                     <div class="col-lg-6">
                         <div class="card p-4 h-100">
-                            <h4 class="mb-3">Çalıştırma (Örnek)</h4>
-                            <pre><code># Kamera sürücünüzü başlatın (örnek)
+                            <h4 class="mb-3">Running (Example)</h4>
+                            <pre><code># Start your camera driver (example)
 roslaunch usb_cam usb_cam-test.launch
 
-# Lane tespiti - launch dosyası varsa:
+# Lane detection - if a launch file exists:
 roslaunch lane_detection lane_detection.launch
 
-# veya tek düğüm çalıştırma (depo yapısına göre):
+# or run a single node (depending on the repository structure):
 rosrun lane_detection lane_node.py
-# ya da
+# or
 rosrun lane_detection lane_node
               </code></pre>
-                            <small class="text-muted">Komutlar depo yapısına göre değişebilir; depodaki README/launch dosyalarına göre uyarlayın.</small>
+                            <small class="text-muted">Commands may vary depending on the repository structure; adapt them to the README/launch files in the repository.</small>
                         </div>
                     </div>
                 </div>
@@ -347,12 +347,12 @@ rosrun lane_detection lane_node
                 <div class="row gy-4 mt-1" data-aos="fade-up" data-aos-delay="220">
                     <div class="col-12">
                         <div class="card p-4">
-                            <h4 class="mb-3">Notlar &amp; Olası Geliştirmeler</h4>
+                            <h4 class="mb-3">Notes &amp; Potential Improvements</h4>
                             <ul class="mb-0">
-                                <li>Farklı ışık/zemin koşulları için ROI ve kenar/çizgi eşikleri sahaya göre ayarlanmalıdır.</li>
-                                <li>FPS/latency hedefleri çözünürlüğe ve donanıma bağlıdır; 640×480 ile daha stabil gerçek zaman performans alınır.</li>
-                                <li>Gelecekte segmentasyon tabanlı yaklaşımlar (örn. U-Net, ENet) ile klasik yöntem hibrit edilebilir.</li>
-                                <li>ROS2 portu ve donanım ivmelendirme (GPU/OpenCL) planlanabilir.</li>
+                                <li>The ROI and edge/line thresholds should be tuned to the field for different lighting/surface conditions.</li>
+                                <li>FPS/latency targets depend on resolution and hardware; more stable real-time performance is achieved at 640×480.</li>
+                                <li>In the future, the classic method could be combined with segmentation-based approaches (e.g., U-Net, ENet) in a hybrid scheme.</li>
+                                <li>A ROS2 port and hardware acceleration (GPU/OpenCL) can be planned.</li>
                             </ul>
                         </div>
                     </div>
@@ -365,7 +365,7 @@ rosrun lane_detection lane_node
 
 
                                 <a href="portfolio.html" target="_blank" rel="noopener" class="btn btn-primary">
-                                    <i class="bi bi-grid me-1"></i> Projectse Git
+                                    <i class="bi bi-grid me-1"></i> Go to Projects
                                 </a>
                             </div>
                         </div>
@@ -381,7 +381,7 @@ rosrun lane_detection lane_node
     <footer id="footer" class="footer light-background">
         <div class="container">
             <div class="copyright text-center ">
-                <p>© <span id="year"></span> <strong class="px-1 sitename">Muhammet</strong> <span>Tüm Hakları Saklıdır<br></span></p>
+                <p>© <span id="year"></span> <strong class="px-1 sitename">Muhammet</strong> <span>All Rights Reserved<br></span></p>
             </div>
             <div class="social-links d-flex justify-content-center">
                 <a href="https://github.com/mr-ozdemir" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
@@ -394,7 +394,7 @@ rosrun lane_detection lane_node
     </footer>
 
     <!-- Scroll Top -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Yukarı dön">
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Back to top">
         <i class="bi bi-arrow-up-short"></i>
     </a>
 
