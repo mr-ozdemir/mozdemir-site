@@ -1,0 +1,283 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import type { IconName } from '../components/icons';
+import { useTranslations, type Lang } from '../i18n/ui';
+import { pagePath } from '../i18n/routes';
+import { profile, services, skills, club } from '../data/site';
+import profilePhoto from '../assets/images/profile.jpeg';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const ids = lang === 'tr' ? { services: 'hizmetler', contact: 'iletisim' } : { services: 'services', contact: 'contact' };
+const site = 'https://mozdemir.com';
+
+const description =
+  lang === 'tr'
+    ? 'Muhammet Özdemir hakkında: 3 yılı aşkın yapay zekâ sistemi geliştirme deneyimi, AutoML araştırması, sunulan hizmetler ve yetkinlikler.'
+    : 'About Muhammet Özdemir: 3+ years building AI systems, AutoML research, services offered and skills.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  url: new URL(pagePath(lang, 'about'), site).href,
+  inLanguage: lang === 'tr' ? 'tr-TR' : 'en',
+  mainEntity: {
+    '@type': 'Person',
+    '@id': `${site}/#person`,
+    name: profile.name,
+    alternateName: profile.alternateName,
+    jobTitle: profile.role[lang],
+    email: `mailto:${profile.email}`,
+    sameAs: [profile.github, profile.linkedin],
+  },
+};
+---
+
+<BaseLayout
+  lang={lang}
+  path={pagePath(lang, 'about')}
+  title={t('about.title')}
+  description={description}
+  current="about"
+  type="profile"
+  jsonLd={jsonLd}
+>
+  <div class="container page">
+    <div class="about-intro">
+      <div>
+        <h1>{t('about.title')}</h1>
+        <p class="about-role">{profile.role[lang]}</p>
+        <p class="lead">{profile.bioShort[lang]}</p>
+        <p class="about-long">{profile.bioLong[lang]}</p>
+        <div class="about-actions">
+          <a class="btn btn-primary" href={profile.cvPdf} download="Muhammet_Ozdemir_CV.pdf">
+            <Icon name="download" />
+            {lang === 'tr' ? 'CV’yi indir (PDF)' : 'Download CV (PDF)'}
+          </a>
+          <a class="btn btn-secondary" href={pagePath(lang, 'cv')}>{t('nav.cv')}</a>
+        </div>
+      </div>
+      <div class="about-side">
+        <Image
+          class="about-photo"
+          src={profilePhoto}
+          alt={profile.name}
+          widths={[320, 480, 640]}
+          sizes="(min-width: 1024px) 320px, 60vw"
+          loading="eager"
+        />
+        <section class="panel" aria-labelledby="h-facts">
+          <h2 id="h-facts" class="meta panel-title">{t('about.facts')}</h2>
+          <dl class="facts">
+            {
+              profile.facts[lang].map((f) => (
+                <div>
+                  <dt>{f.label}</dt>
+                  <dd>{f.value.includes('@') ? <a href={`mailto:${f.value}`}>{f.value}</a> : f.value}</dd>
+                </div>
+              ))
+            }
+          </dl>
+        </section>
+      </div>
+    </div>
+
+    <section class="section" id={ids.services} aria-labelledby="h-services">
+      <div class="section-head">
+        <h2 id="h-services">{t('about.services')}</h2>
+      </div>
+      <p class="lead services-lead">{t('about.services.lead')}</p>
+      <ul class="services">
+        {
+          services.map((s) => (
+            <li class="service">
+              <span class="service-icon">
+                <Icon name={s.icon as IconName} />
+              </span>
+              <h3>{s.title[lang]}</h3>
+              <p>{s.text[lang]}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="h-skills">
+      <div class="section-head">
+        <h2 id="h-skills">{t('about.skills')}</h2>
+      </div>
+      <div class="skills">
+        {
+          skills.map((g) => (
+            <div>
+              <h3>{g.group[lang]}</h3>
+              <ul class="tags">
+                {g.items.map((s) => (
+                  <li class="tag">{s}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="h-club">
+      <div class="section-head">
+        <h2 id="h-club">{t('about.club')}</h2>
+        <a class="more-link" href={pagePath(lang, 'club')}>{t('club.title')} <Icon name="arrow-right" /></a>
+      </div>
+      <p class="prose">{club.about[lang]}</p>
+    </section>
+
+    <section class="section contact-box" id={ids.contact} aria-labelledby="h-contact">
+      <h2 id="h-contact">{t('about.contact')}</h2>
+      <p class="lead">{t('about.contact.lead')}</p>
+      <div class="about-actions">
+        <a class="btn btn-primary" href={`mailto:${profile.email}`}><Icon name="mail" />{profile.email}</a>
+        <a class="btn btn-secondary" href={profile.linkedin} target="_blank" rel="me noopener"><Icon name="linkedin" />LinkedIn</a>
+        <a class="btn btn-secondary" href={profile.github} target="_blank" rel="me noopener"><Icon name="github" />GitHub</a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-intro {
+    display: grid;
+    gap: var(--s-7);
+  }
+
+  @media (min-width: 1024px) {
+    .about-intro {
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: var(--s-8);
+      align-items: start;
+    }
+  }
+
+  .about-role {
+    margin-top: var(--s-3);
+    font-weight: 600;
+    font-size: 1.0625rem;
+  }
+
+  .about-intro .lead {
+    margin-top: var(--s-5);
+  }
+
+  .about-long {
+    margin-top: var(--s-4);
+    max-width: var(--w-prose);
+  }
+
+  .about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+    margin-top: var(--s-6);
+  }
+
+  .about-side {
+    display: grid;
+    gap: var(--s-4);
+    max-width: 420px;
+  }
+
+  .about-side :global(.about-photo) {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: top;
+    border-radius: var(--r-lg);
+    border: 1px solid var(--rule);
+  }
+
+  .services-lead {
+    margin-bottom: var(--s-5);
+  }
+
+  .services {
+    display: grid;
+    gap: var(--s-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (min-width: 720px) {
+    .services {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .services {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .service {
+    padding: var(--s-5);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: var(--r-lg);
+  }
+
+  .service-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--r-md);
+    background: var(--accent-soft);
+    color: var(--accent);
+    margin-bottom: var(--s-4);
+  }
+
+  .service-icon :global(svg) {
+    width: 18px;
+    height: 18px;
+  }
+
+  .service p {
+    margin-top: var(--s-2);
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .skills {
+    display: grid;
+    gap: var(--s-5);
+  }
+
+  @media (min-width: 720px) {
+    .skills {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .skills h3 {
+    font-size: 0.9375rem;
+    margin-bottom: var(--s-2);
+  }
+
+  .contact-box {
+    padding: var(--s-6);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: var(--r-lg);
+  }
+
+  .contact-box .lead {
+    margin-top: var(--s-3);
+  }
+</style>

@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations } from '../i18n/ui';
+import { pagePath } from '../i18n/routes';
+
+const tr = useTranslations('tr');
+const en = useTranslations('en');
+---
+
+<BaseLayout
+  lang="tr"
+  path="/404.html"
+  title={tr('notfound.title')}
+  description={tr('notfound.text')}
+  noindex
+  hasAlternate={false}
+>
+  <div class="container page notfound">
+    <p class="meta">404</p>
+    <h1>{tr('notfound.title')}</h1>
+    <p class="lead">{tr('notfound.text')}</p>
+    <p class="lead" lang="en">{en('notfound.title')} — {en('notfound.text')}</p>
+    <div class="actions">
+      <a class="btn btn-primary" href={pagePath('tr', 'home')}>{tr('nav.home')}</a>
+      <a class="btn btn-secondary" href={pagePath('tr', 'projects')}>{tr('nav.projects')}</a>
+      <a class="btn btn-secondary" href={pagePath('en', 'home')} lang="en">English</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .notfound h1 {
+    margin-top: var(--s-3);
+  }
+
+  .notfound .lead {
+    margin-top: var(--s-4);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+    margin-top: var(--s-6);
+  }
+</style>

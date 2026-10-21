@@ -1,0 +1,390 @@
+---
+import { Image } from 'astro:assets';
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import StatusBadge from '../components/StatusBadge.astro';
+import { useTranslations, type Lang } from '../i18n/ui';
+import { pagePath, projectPath } from '../i18n/routes';
+import { profile } from '../data/site';
+import type { Project } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+  project: Project;
+  prev?: Project;
+  next?: Project;
+}
+
+const { lang, project, prev, next } = Astro.props;
+const t = useTranslations(lang);
+const { data } = project;
+const { Content } = await render(project);
+const path = projectPath(lang, project.slug);
+const site = 'https://mozdemir.com';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: data.title,
+  description: data.summary,
+  url: new URL(path, site).href,
+  inLanguage: lang === 'tr' ? 'tr-TR' : 'en',
+  author: { '@type': 'Person', '@id': `${site}/#person`, name: profile.name },
+  keywords: data.stack.join(', '),
+};
+const figures = data.gallery;
+---
+
+<BaseLayout
+  lang={lang}
+  path={path}
+  title={data.title}
+  description={data.summary}
+  current="projects"
+  image={data.cover}
+  imageAlt={data.coverAlt}
+  type="article"
+  jsonLd={jsonLd}
+>
+  <article class="container page project">
+    <nav class="crumbs" aria-label={lang === 'tr' ? 'Konum' : 'Breadcrumb'}>
+      <a href={pagePath(lang, 'projects')}>{t('nav.projects')}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{data.title}</span>
+    </nav>
+
+    <header class="project-head">
+      <div class="card-meta">
+        <StatusBadge lang={lang} status={data.status} />
+        {data.badges.map((b) => <span class="badge">{b}</span>)}
+      </div>
+      <h1>{data.title}</h1>
+      <p class="lead">{data.summary}</p>
+      <p class="card-context project-context">
+        {[data.context, data.period].filter(Boolean).join(' · ')}
+      </p>
+    </header>
+
+    <figure class="figure project-cover">
+      <div class="figure-frame">
+        <Image
+          src={data.cover}
+          alt={data.coverAlt}
+          widths={[640, 960, 1280, 1600]}
+          sizes="(min-width: 1120px) 1120px, 100vw"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+      <figcaption><span class="meta">{t('project.figure')} 1</span>{data.coverAlt}</figcaption>
+    </figure>
+
+    <div class="project-grid">
+      <div class="project-main">
+        {
+          data.metrics.length > 0 && (
+            <section aria-labelledby="h-metrics" class="block">
+              <h2 id="h-metrics" class="meta block-title">
+                {t('project.metrics')}
+              </h2>
+              <dl class="metrics">
+                {data.metrics.map((m) => (
+                  <div>
+                    <dt>{m.label}</dt>
+                    <dd>{m.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )
+        }
+
+        {
+          data.note && (
+            <p class="callout block">
+              <Icon name="info" />
+              <span>{data.note}</span>
+            </p>
+          )
+        }
+
+        <div class="prose">
+          <Content />
+        </div>
+
+        {
+          figures.length > 0 && (
+            <div class="gallery">
+              {figures.map((f, i) => (
+                <figure class="figure">
+                  <div class="figure-frame">
+                    <Image src={f.src} alt={f.alt} widths={[480, 800, 1200]} sizes="(min-width: 1024px) 720px, 100vw" />
+                  </div>
+                  {f.caption && (
+                    <figcaption>
+                      <span class="meta">
+                        {t('project.figure')} {i + 2}
+                      </span>
+                      {f.caption}
+                    </figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          )
+        }
+      </div>
+
+      <aside class="project-aside">
+        <div class="aside-sticky">
+          <section class="panel" aria-labelledby="h-summary">
+            <h2 id="h-summary" class="meta panel-title">{t('project.summary')}</h2>
+            <dl class="facts">
+              {
+                data.facts.map((f) => (
+                  <div>
+                    <dt>{f.label}</dt>
+                    <dd>{f.value}</dd>
+                  </div>
+                ))
+              }
+            </dl>
+          </section>
+
+          <section class="panel" aria-labelledby="h-stack">
+            <h2 id="h-stack" class="meta panel-title">{t('project.stack')}</h2>
+            <ul class="tags">
+              {data.stack.map((s) => <li class="tag">{s}</li>)}
+            </ul>
+          </section>
+
+          {
+            data.links.length > 0 && (
+              <section class="panel" aria-labelledby="h-links">
+                <h2 id="h-links" class="meta panel-title">
+                  {t('project.links')}
+                </h2>
+                <ul class="link-list">
+                  {data.links.map((l) => (
+                    <li>
+                      <a href={l.href} target="_blank" rel="noopener">
+                        <Icon name={l.href.includes('github.com') ? 'github' : 'external'} />
+                        {l.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )
+          }
+        </div>
+      </aside>
+    </div>
+
+    <nav class="pager" aria-label={lang === 'tr' ? 'Diğer projeler' : 'More projects'}>
+      {
+        prev ? (
+          <a class="pager-link" href={projectPath(lang, prev.slug)} rel="prev">
+            <span class="meta">
+              <Icon name="arrow-left" /> {t('project.prev')}
+            </span>
+            <span class="pager-title">{prev.data.title}</span>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      {
+        next && (
+          <a class="pager-link pager-next" href={projectPath(lang, next.slug)} rel="next">
+            <span class="meta">
+              {t('project.next')} <Icon name="arrow-right" />
+            </span>
+            <span class="pager-title">{next.data.title}</span>
+          </a>
+        )
+      }
+    </nav>
+
+    <section class="cta" aria-labelledby="h-cta">
+      <div>
+        <h2 id="h-cta">{t('project.cta.title')}</h2>
+        <p class="muted">{t('project.cta.text')}</p>
+      </div>
+      <a class="btn btn-primary" href={`mailto:${profile.email}?subject=${encodeURIComponent(data.title)}`}>
+        <Icon name="mail" />
+        {t('project.cta.button')}
+      </a>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .project-head {
+    max-width: 52rem;
+  }
+
+  .project-head h1 {
+    margin-top: var(--s-4);
+  }
+
+  .project-head .lead {
+    margin-top: var(--s-4);
+  }
+
+  .project-context {
+    margin-top: var(--s-4);
+  }
+
+  .project-cover {
+    margin-top: var(--s-7);
+  }
+
+  .project-cover .figure-frame {
+    max-height: 640px;
+  }
+
+  .project-cover :global(img) {
+    max-height: 640px;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .project-grid {
+    display: grid;
+    gap: var(--s-7);
+    margin-top: var(--s-7);
+  }
+
+  @media (min-width: 1024px) {
+    .project-grid {
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: var(--s-8);
+    }
+
+    .aside-sticky {
+      position: sticky;
+      top: calc(var(--header-h) + var(--s-5));
+    }
+  }
+
+  .project-main {
+    min-width: 0;
+  }
+
+  .block {
+    margin-bottom: var(--s-6);
+  }
+
+  .block-title {
+    margin-bottom: var(--s-3);
+  }
+
+  .aside-sticky {
+    display: grid;
+    gap: var(--s-4);
+  }
+
+  .link-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .link-list a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 32px;
+    font-size: 0.9375rem;
+  }
+
+  .link-list :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+
+  .gallery {
+    display: grid;
+    gap: var(--s-6);
+    margin-top: var(--s-7);
+  }
+
+  .gallery :global(.figure-frame) {
+    padding: var(--s-3);
+  }
+
+  .gallery :global(img) {
+    width: auto;
+    max-width: 100%;
+    max-height: 520px;
+  }
+
+  .pager {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-4);
+    margin-top: var(--s-8);
+    padding-top: var(--s-5);
+    border-top: 1px solid var(--rule);
+  }
+
+  .pager-link {
+    display: grid;
+    gap: 6px;
+    padding: var(--s-4) 0;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .pager-link .meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .pager-link :global(svg) {
+    width: 12px;
+    height: 12px;
+  }
+
+  .pager-title {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    line-height: 1.3;
+  }
+
+  .pager-link:hover .pager-title {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .pager-next {
+    text-align: right;
+    justify-items: end;
+  }
+
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-5);
+    margin-top: var(--s-6);
+    padding: var(--s-6);
+    border-radius: var(--r-lg);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+  }
+
+  .cta h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta p {
+    margin-top: var(--s-2);
+    max-width: 52ch;
+  }
+</style>

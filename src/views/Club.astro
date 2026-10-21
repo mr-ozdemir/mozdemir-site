@@ -1,0 +1,218 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { useTranslations, type Lang } from '../i18n/ui';
+import { pagePath } from '../i18n/routes';
+import { club } from '../data/site';
+import k1 from '../assets/images/club/k1.png';
+import k2 from '../assets/images/club/k2.png';
+import k3 from '../assets/images/club/k3.png';
+import k4 from '../assets/images/club/k4.png';
+import cover from '../assets/images/club/club-cover.png';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const photos = [k1, k2, k3, k4];
+const photoAlt = lang === 'tr' ? 'Kulüp etkinliği' : 'Club event';
+
+const description =
+  lang === 'tr'
+    ? 'Erciyes Üniversitesi Yapay Zekâ Kulübü: 8 TÜBİTAK projesi, TÜSEB finalisti sağlık AI projesi, 20 kişilik çekirdek ekip, ödüller ve etkinlikler.'
+    : 'Erciyes University AI Club: eight TÜBİTAK projects, a TÜSEB-finalist healthcare AI project, a 20-person core team, awards and events.';
+---
+
+<BaseLayout
+  lang={lang}
+  path={pagePath(lang, 'club')}
+  title={t('club.title')}
+  description={description}
+  current="projects"
+  image={cover}
+  imageAlt={t('club.title')}
+>
+  <div class="container page">
+    <nav class="crumbs" aria-label={lang === 'tr' ? 'Konum' : 'Breadcrumb'}>
+      <a href={pagePath(lang, 'projects')}>{t('nav.projects')}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{t('projects.activities')}</span>
+    </nav>
+
+    <header class="page-head">
+      <p class="meta">{lang === 'tr' ? 'Kurucu & Başkan · 03/2024 — Güncel' : 'Founder & President · 03/2024 — Present'}</p>
+      <h1>{t('club.title')}</h1>
+      <p class="lead">{club.about[lang]}</p>
+      <div class="club-links">
+        <a class="btn btn-primary" href={club.url} target="_blank" rel="noopener"><Icon name="globe" />{t('club.site')}</a>
+        <a class="btn btn-secondary" href={club.linkedin} target="_blank" rel="noopener"><Icon name="linkedin" />LinkedIn</a>
+      </div>
+    </header>
+
+    <dl class="metrics">
+      {
+        club.kpis.map((k) => (
+          <div>
+            <dt>{k.label[lang]}</dt>
+            <dd>{k.value[lang]}</dd>
+          </div>
+        ))
+      }
+    </dl>
+
+    <section class="section" aria-labelledby="h-gallery">
+      <div class="section-head">
+        <h2 id="h-gallery">{t('club.gallery')}</h2>
+      </div>
+      <ul class="strip" role="list">
+        {
+          photos.map((p, i) => (
+            <li>
+              <Image src={p} alt={`${photoAlt} ${i + 1}`} widths={[400, 800]} sizes="(min-width: 720px) 420px, 85vw" />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="h-awards">
+      <div class="section-head">
+        <h2 id="h-awards">{t('club.awards')}</h2>
+        <span class="card-context">{club.awardsLead[lang]}</span>
+      </div>
+      <ul class="award-cards">
+        {
+          club.awards[lang].map((a) => (
+            <li class="panel">
+              <Icon name="trophy" />
+              <h3>{a.name}</h3>
+              <p class="muted">{a.text}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="h-timeline">
+      <div class="section-head">
+        <h2 id="h-timeline">{t('club.timeline')}</h2>
+      </div>
+      <ol class="timeline">
+        {
+          club.timeline[lang].map((item) => (
+            <li>
+              <h3>{item.title}</h3>
+              <p class="muted">{item.text}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-head h1 {
+    margin-top: var(--s-3);
+  }
+
+  .club-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+    margin-top: var(--s-5);
+  }
+
+  .strip {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min(85vw, 420px);
+    gap: var(--s-4);
+    margin: 0;
+    padding: 0 0 var(--s-3);
+    list-style: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+  }
+
+  .strip li {
+    scroll-snap-align: start;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 4 / 3;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+  }
+
+  .strip :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .award-cards {
+    display: grid;
+    gap: var(--s-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (min-width: 720px) {
+    .award-cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .award-cards :global(svg) {
+    width: 20px;
+    height: 20px;
+    color: var(--accent-2);
+    margin-bottom: var(--s-3);
+  }
+
+  .award-cards p {
+    margin-top: var(--s-2);
+    font-size: 0.9375rem;
+  }
+
+  .timeline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-left: 1px solid var(--rule-strong);
+    max-width: 52rem;
+  }
+
+  .timeline li {
+    position: relative;
+    padding: 0 0 var(--s-5) var(--s-5);
+  }
+
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 0.5em;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+  }
+
+  .timeline h3 {
+    font-size: 1rem;
+  }
+
+  .timeline p {
+    margin-top: 2px;
+    font-size: 0.9375rem;
+  }
+</style>

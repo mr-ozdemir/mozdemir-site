@@ -1,0 +1,28 @@
+---
+// Bootstrap Icons SVG'lerini satır içi basar (ikon fontu yok, ek istek yok — R36).
+import { iconFiles, type IconName } from './icons';
+
+const icons = import.meta.glob<string>('/node_modules/bootstrap-icons/icons/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+
+interface Props {
+  name: IconName;
+  label?: string;
+  class?: string;
+}
+
+const { name, label, class: className } = Astro.props;
+const raw = icons[`/node_modules/bootstrap-icons/icons/${iconFiles[name]}.svg`];
+if (!raw) throw new Error(`Icon not found: ${name}`);
+
+const a11y = label ? `role="img" aria-label="${label}"` : 'aria-hidden="true" focusable="false"';
+const svg = raw
+  .replace(/\s(width|height)="16"/g, '')
+  .replace(/\sclass="[^"]*"/, '')
+  .replace('<svg', `<svg ${a11y}${className ? ` class="${className}"` : ''}`);
+---
+
+<Fragment set:html={svg} />

@@ -1,0 +1,13 @@
+---
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  status: 'production' | 'research' | 'completed' | 'prototype' | 'confidential';
+}
+
+const { lang, status } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<span class={`badge badge-dot badge-${status}`}>{t(`status.${status}`)}</span>

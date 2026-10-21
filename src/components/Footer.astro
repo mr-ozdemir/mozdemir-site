@@ -1,0 +1,143 @@
+---
+import Icon from './Icon.astro';
+import { useTranslations, type Lang } from '../i18n/ui';
+import { pagePath } from '../i18n/routes';
+import { profile, lastUpdated } from '../data/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const updated = new Date(lastUpdated + 'T00:00:00Z').toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-GB', {
+  year: 'numeric',
+  month: 'long',
+  timeZone: 'UTC',
+});
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-id">
+      <p class="footer-name">{profile.name}</p>
+      <p class="muted">{profile.role[lang]}</p>
+      <ul class="footer-social">
+        <li>
+          <a href={`mailto:${profile.email}`}><Icon name="mail" /> {profile.email}</a>
+        </li>
+        <li>
+          <a href={profile.github} rel="me noopener" target="_blank"><Icon name="github" /> GitHub</a>
+        </li>
+        <li>
+          <a href={profile.linkedin} rel="me noopener" target="_blank"><Icon name="linkedin" /> LinkedIn</a>
+        </li>
+      </ul>
+    </div>
+
+    <nav aria-label={t('nav.primary')}>
+      <ul class="footer-nav">
+        <li><a href={pagePath(lang, 'projects')}>{t('nav.projects')}</a></li>
+        <li><a href={pagePath(lang, 'publications')}>{t('nav.publications')}</a></li>
+        <li><a href={pagePath(lang, 'cv')}>{t('nav.cv')}</a></li>
+        <li><a href={pagePath(lang, 'about')}>{t('nav.about')}</a></li>
+        <li><a href={pagePath(lang, 'club')}>{t('nav.club')}</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container footer-base">
+    <p>
+      © {year}
+      {profile.name}. {t('footer.rights')}
+    </p>
+    <p>
+      {t('footer.updated')}: <time datetime={lastUpdated}>{updated}</time>
+      · <a href="/llms.txt">{t('footer.llms')}</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: var(--s-9);
+    border-top: 1px solid var(--rule);
+    background: var(--surface);
+    font-size: 0.9375rem;
+  }
+
+  .footer-inner {
+    display: grid;
+    gap: var(--s-6);
+    padding-block: var(--s-7) var(--s-6);
+  }
+
+  @media (min-width: 720px) {
+    .footer-inner {
+      grid-template-columns: 1fr auto;
+      align-items: start;
+    }
+  }
+
+  .footer-name {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .footer-social,
+  .footer-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2) var(--s-5);
+    margin-top: var(--s-4);
+  }
+
+  .footer-social a,
+  .footer-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 32px;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .footer-social a:hover,
+  .footer-nav a:hover {
+    color: var(--text);
+  }
+
+  .footer-social :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+
+  .footer-nav {
+    display: grid;
+    gap: 2px var(--s-6);
+    grid-template-columns: repeat(2, auto);
+  }
+
+  .footer-base {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--s-2) var(--s-5);
+    padding-block: var(--s-4) var(--s-5);
+    border-top: 1px solid var(--rule);
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  .footer-base a {
+    color: inherit;
+  }
+</style>

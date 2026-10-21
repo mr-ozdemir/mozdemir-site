@@ -1,0 +1,210 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import StatusBadge from '../components/StatusBadge.astro';
+import { useTranslations, type Lang } from '../i18n/ui';
+import { pagePath, projectPath } from '../i18n/routes';
+import { club } from '../data/site';
+import { getProjects } from '../lib/content';
+import clubCover from '../assets/images/club/club-cover.png';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const projects = await getProjects(lang);
+const categories = ['industry', 'research', 'robotics'] as const;
+const counts = Object.fromEntries(categories.map((c) => [c, projects.filter((p) => p.data.category === c).length]));
+
+const description =
+  lang === 'tr'
+    ? 'Üretimde çalışan KYC ve kampüs AI sistemleri, meme kanseri teşhisi, Nahıl AutoML ve ROS şerit tespiti dâhil projelerin vaka çalışmaları.'
+    : 'Case studies of production KYC and campus AI systems, breast-cancer diagnosis, Nahıl AutoML and ROS lane detection.';
+---
+
+<BaseLayout lang={lang} path={pagePath(lang, 'projects')} title={t('projects.title')} description={description} current="projects">
+  <div class="container page">
+    <header class="page-head">
+      <h1>{t('projects.title')}</h1>
+      <p class="lead">{t('projects.lead')}</p>
+    </header>
+
+    <div class="filters" role="group" aria-label={t('projects.filter')} hidden data-filters>
+      <button type="button" class="chip" aria-pressed="true" data-filter="all">
+        {t('category.all')} <span class="chip-count">{projects.length}</span>
+      </button>
+      {
+        categories.map((c) => (
+          <button type="button" class="chip" aria-pressed="false" data-filter={c}>
+            {t(`category.${c}`)} <span class="chip-count">{counts[c]}</span>
+          </button>
+        ))
+      }
+    </div>
+
+    <div class="card-grid" data-grid>
+      {projects.map((p, i) => <ProjectCard lang={lang} project={p} headingLevel="h2" eager={i < 2} />)}
+    </div>
+
+    <section class="section" aria-labelledby="h-archive">
+      <div class="section-head">
+        <h2 id="h-archive">{t('projects.archive')}</h2>
+      </div>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">{t('projects.archive.project')}</th>
+              <th scope="col" class="hide-sm">{t('projects.archive.context')}</th>
+              <th scope="col">{t('projects.archive.status')}</th>
+              <th scope="col" class="hide-sm">{t('projects.archive.stack')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              projects.map((p) => (
+                <tr>
+                  <td>
+                    <a href={projectPath(lang, p.slug)}>{p.data.title}</a>
+                  </td>
+                  <td class="hide-sm muted">{p.data.context}</td>
+                  <td>
+                    <StatusBadge lang={lang} status={p.data.status} />
+                  </td>
+                  <td class="hide-sm muted">{p.data.tags.join(' · ')}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="h-activities">
+      <div class="section-head">
+        <h2 id="h-activities">{t('projects.activities')}</h2>
+        <span class="card-context">{t('projects.activities.lead')}</span>
+      </div>
+      <article class="card activity">
+        <div class="activity-media">
+          <Image src={clubCover} alt="" widths={[320, 560]} sizes="(min-width: 720px) 280px, 100vw" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <span class="meta">{lang === 'tr' ? 'Kurucu & Başkan · 03/2024 — Güncel' : 'Founder & President · 03/2024 — Present'}</span>
+          <h3 class="card-title">
+            <a class="card-link" href={pagePath(lang, 'club')}>{t('club.title')}</a>
+          </h3>
+          <p class="card-summary">{club.summary[lang]}</p>
+          <p class="card-outcome">
+            <Icon name="trophy" />
+            <span>{lang === 'tr' ? 'ERÜ Rektörlüğü tarafından 2024’te iki ödül' : 'Two awards from the ERÜ Rectorate in 2024'}</span>
+          </p>
+        </div>
+      </article>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  // İsteğe bağlı filtre: JS yoksa tüm projeler görünür, düğmeler gizli kalır.
+  const bar = document.querySelector<HTMLElement>('[data-filters]');
+  const cards = [...document.querySelectorAll<HTMLElement>('[data-grid] > .card')];
+  if (bar) {
+    bar.hidden = false;
+    const chips = [...bar.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+    chips.forEach((chip) =>
+      chip.addEventListener('click', () => {
+        const f = chip.dataset.filter;
+        chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+        cards.forEach((card) => {
+          card.hidden = f !== 'all' && card.dataset.category !== f;
+        });
+      }),
+    );
+  }
+</script>
+
+<style>
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+    margin-bottom: var(--s-5);
+  }
+
+  .filters[hidden] {
+    display: none;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 36px;
+    padding: 0 14px;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--rule-strong);
+    background: transparent;
+    color: var(--text-muted);
+    font: 500 0.875rem/1 var(--font-sans);
+    cursor: pointer;
+    transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease),
+      border-color var(--t-fast) var(--ease);
+  }
+
+  .chip:hover {
+    color: var(--text);
+    border-color: var(--text-muted);
+  }
+
+  .chip[aria-pressed='true'] {
+    background: var(--text);
+    border-color: var(--text);
+    color: var(--bg);
+  }
+
+  .chip-count {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+
+  .card-grid :global(.card[hidden]) {
+    display: none;
+  }
+
+  .activity {
+    flex-direction: column;
+  }
+
+  @media (min-width: 720px) {
+    .activity {
+      flex-direction: row;
+    }
+  }
+
+  .activity-media {
+    flex: none;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  @media (min-width: 720px) {
+    .activity-media {
+      width: 280px;
+      border-bottom: 0;
+      border-right: 1px solid var(--rule);
+    }
+  }
+
+  .activity-media :global(img) {
+    width: 100%;
+    height: 100%;
+    max-height: 280px;
+    object-fit: cover;
+  }
+</style>
