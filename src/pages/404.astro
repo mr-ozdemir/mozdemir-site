@@ -7,40 +7,23 @@ const tr = useTranslations('tr');
 const en = useTranslations('en');
 ---
 
-<BaseLayout
-  lang="tr"
-  path="/404.html"
-  title={tr('notfound.title')}
-  description={tr('notfound.text')}
-  noindex
-  hasAlternate={false}
->
-  <div class="container page notfound">
-    <p class="meta">404</p>
+<BaseLayout lang="tr" path="/404.html" title={tr('notfound.title')} description={tr('notfound.text')} noindex hasAlternate={false}>
+  <div class="container page">
     <h1>{tr('notfound.title')}</h1>
     <p class="lead">{tr('notfound.text')}</p>
-    <p class="lead" lang="en">{en('notfound.title')} — {en('notfound.text')}</p>
-    <div class="actions">
-      <a class="btn btn-primary" href={pagePath('tr', 'home')}>{tr('nav.home')}</a>
-      <a class="btn btn-secondary" href={pagePath('tr', 'projects')}>{tr('nav.projects')}</a>
-      <a class="btn btn-secondary" href={pagePath('en', 'home')} lang="en">English</a>
-    </div>
+    <p class="lead" lang="en">{en('notfound.text')}</p>
+    <p class="actions">
+      <a href={pagePath('tr', 'home')}>{tr('nav.home')}</a> · <a href={pagePath('en', 'home')} lang="en">Home (English)</a>
+    </p>
   </div>
 </BaseLayout>
 
 <style>
-  .notfound h1 {
-    margin-top: var(--s-3);
-  }
-
-  .notfound .lead {
-    margin-top: var(--s-4);
+  .lead {
+    margin-top: 12px;
   }
 
   .actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--s-3);
-    margin-top: var(--s-6);
+    margin-top: 24px;
   }
 </style>

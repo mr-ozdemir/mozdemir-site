@@ -1,10 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Icon from '../components/Icon.astro';
 import ExperienceItem from '../components/ExperienceItem.astro';
 import { useTranslations, type Lang } from '../i18n/ui';
 import { pagePath } from '../i18n/routes';
-import { profile, experience, education, certificates, awards, skills, lastUpdated } from '../data/site';
+import { profile, experience, education, certificates, awards, skills } from '../data/site';
 
 interface Props {
   lang: Lang;
@@ -13,194 +12,90 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const pdf = profile.cvPdfMeta;
-const pdfLabel =
-  lang === 'tr' ? `PDF · ${pdf.pages} sayfa · ${pdf.sizeKb} KB` : `PDF · ${pdf.pages} page · ${pdf.sizeKb} KB`;
-const updated = new Date(lastUpdated + 'T00:00:00Z').toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-GB', {
-  year: 'numeric',
-  month: 'long',
-  timeZone: 'UTC',
-});
 
 const description =
   lang === 'tr'
-    ? 'Muhammet Özdemir özgeçmişi: serbest AI mühendisliği (Skechers, Identify-Turkey), ERÜ Yapay Zekâ Araştırma Merkezi, ERÜ BİDB stajı, Yapay Zekâ Kulübü kurucusu; eğitim ve yetkinlikler.'
-    : 'CV of Muhammet Özdemir: freelance AI engineering (Skechers, Identify-Turkey), ERÜ AI Research Center, ERÜ IT internship, AI Club founder; education and skills.';
+    ? 'Muhammet Özdemir özgeçmişi: AI mühendisliği (Identify-Turkey), ERÜ Yapay Zekâ Araştırma Merkezi, Skechers Türkiye stajı, eğitim ve yetkinlikler.'
+    : 'CV of Muhammet Özdemir: AI engineering (Identify-Turkey), ERÜ AI Research Center, Skechers Türkiye internship, education and skills.';
 ---
 
 <BaseLayout lang={lang} path={pagePath(lang, 'cv')} title={t('cv.title')} description={description} current="cv" type="profile">
   <div class="container page">
-    <header class="page-head cv-head">
-      <div>
-        <h1>{t('cv.title')}</h1>
-        <p class="lead">{profile.role[lang]} — {t('cv.lead')}</p>
-      </div>
-      <div class="cv-download">
-        <a class="btn btn-primary" href={profile.cvPdf} download="Muhammet_Ozdemir_CV.pdf">
-          <Icon name="download" />
-          {t('cv.download')}
-        </a>
-        <p class="meta">{pdfLabel}</p>
-        <p class="meta">{t('cv.updated')}: <time datetime={lastUpdated}>{updated}</time></p>
-      </div>
-    </header>
+    <h1>{t('cv.title')}</h1>
+    <p class="lead">
+      <a href={profile.cvPdf} download="Muhammet_Ozdemir_CV.pdf">{t('cv.download')}</a>
+      <span class="small"> ({pdf.sizeKb} KB)</span>
+    </p>
 
-    <div class="cv-grid">
-      <div>
-        <section class="section" aria-labelledby="h-xp">
-          <div class="section-head"><h2 id="h-xp">{t('cv.experience')}</h2></div>
-          <ul class="xp-list">
-            {experience.map((x) => <ExperienceItem lang={lang} item={x} />)}
-          </ul>
-        </section>
+    <section class="section">
+      <h2>{t('cv.experience')}</h2>
+      <ul class="list">
+        {experience.map((x) => <ExperienceItem lang={lang} item={x} details />)}
+      </ul>
+    </section>
 
-        <section class="section" aria-labelledby="h-edu">
-          <div class="section-head"><h2 id="h-edu">{t('cv.education')}</h2></div>
-          <ul class="xp-list">
-            {
-              education.map((e) => (
-                <li class="xp">
-                  <p class="xp-date meta">{e.period}</p>
-                  <div>
-                    <h3 class="xp-role">{e.degree[lang]}</h3>
-                    <p class="xp-org">
-                      {e.school[lang]} · {e.detail[lang]}
-                    </p>
-                    <p class="xp-points">{e.note[lang]}</p>
-                  </div>
-                </li>
-              ))
-            }
-          </ul>
-        </section>
-
-        <section class="section" aria-labelledby="h-cert">
-          <div class="section-head"><h2 id="h-cert">{t('cv.certificates')}</h2></div>
-          <ul class="xp-list">
-            {
-              certificates.map((c) => (
-                <li class="xp">
-                  <p class="xp-date meta">{c.date}</p>
-                  <div>
-                    <h3 class="xp-role">{c.name[lang]}</h3>
-                    <p class="xp-org">{c.issuer[lang]}</p>
-                  </div>
-                </li>
-              ))
-            }
-          </ul>
-        </section>
-
-        <section class="section" aria-labelledby="h-awards">
-          <div class="section-head"><h2 id="h-awards">{t('cv.awards')}</h2></div>
-          <ul class="award-list">
-            {
-              awards.map((a) => (
-                <li>
-                  <Icon name="award" />
-                  <div>
-                    <p class="award-name">{a.name[lang]}</p>
-                    <p class="muted">{a.detail[lang]}</p>
-                  </div>
-                </li>
-              ))
-            }
-          </ul>
-        </section>
-      </div>
-
-      <aside class="cv-aside" aria-labelledby="h-skills">
-        <div class="panel">
-          <h2 id="h-skills" class="meta panel-title">{t('cv.skills')}</h2>
-          {
-            skills.map((g) => (
-              <div class="skill-group">
-                <h3>{g.group[lang]}</h3>
-                <ul class="tags">
-                  {g.items.map((s) => (
-                    <li class="tag">{s}</li>
-                  ))}
-                </ul>
+    <section class="section">
+      <h2>{t('cv.education')}</h2>
+      <ul class="list">
+        {
+          education.map((e) => (
+            <li>
+              <div class="item-head">
+                <p class="item-title">{e.degree[lang]}</p>
+                <p class="item-date">{e.period}</p>
               </div>
-            ))
-          }
-        </div>
-      </aside>
-    </div>
+              <p class="item-meta">
+                {e.school[lang]} · {e.detail[lang]}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>{t('cv.certificates')}</h2>
+      <ul class="list">
+        {
+          certificates.map((c) => (
+            <li>
+              <div class="item-head">
+                <p class="item-title">{c.name[lang]}</p>
+                <p class="item-date">{c.date}</p>
+              </div>
+              <p class="item-meta">{c.issuer[lang]}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>{t('cv.awards')}</h2>
+      <ul class="list">
+        {
+          awards.map((a) => (
+            <li>
+              <p class="item-title">{a.name[lang]}</p>
+              <p class="item-meta">{a.detail[lang]}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>{t('cv.skills')}</h2>
+      <dl class="facts">
+        {
+          skills.map((g) => (
+            <>
+              <dt>{g.group[lang]}</dt>
+              <dd>{g.items.join(', ')}</dd>
+            </>
+          ))
+        }
+      </dl>
+    </section>
   </div>
 </BaseLayout>
-
-<style>
-  .cv-head {
-    max-width: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: var(--s-5);
-  }
-
-  .cv-download {
-    display: grid;
-    gap: 6px;
-    justify-items: start;
-  }
-
-  .cv-grid {
-    display: grid;
-    gap: var(--s-7);
-  }
-
-  @media (min-width: 1024px) {
-    .cv-grid {
-      grid-template-columns: minmax(0, 1fr) 320px;
-      gap: var(--s-8);
-    }
-
-    .cv-aside .panel {
-      position: sticky;
-      top: calc(var(--header-h) + var(--s-5));
-    }
-  }
-
-  .cv-aside {
-    margin-top: 0;
-  }
-
-  .skill-group + .skill-group {
-    margin-top: var(--s-5);
-  }
-
-  .skill-group h3 {
-    font-size: 0.9375rem;
-    margin-bottom: var(--s-2);
-  }
-
-  .award-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: var(--s-4);
-  }
-
-  .award-list li {
-    display: flex;
-    gap: var(--s-3);
-  }
-
-  .award-list :global(svg) {
-    width: 18px;
-    height: 18px;
-    flex: none;
-    margin-top: 3px;
-    color: var(--accent-2);
-  }
-
-  .award-name {
-    font-weight: 600;
-  }
-
-  .award-list .muted {
-    font-size: 0.9375rem;
-  }
-</style>

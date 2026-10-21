@@ -1,6 +1,7 @@
 ---
 title: ML-Based Customer Matching & Product Recommendation
 summary: A hybrid machine-learning recommendation engine for cafes and restaurants that combines clustering with user/item collaborative filtering.
+short: "Customer–product recommendations for cafes and restaurants."
 outcome: Over 90% match accuracy; integrated into POS and mobile apps.
 status: completed
 category: research

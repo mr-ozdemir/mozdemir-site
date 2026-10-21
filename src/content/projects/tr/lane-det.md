@@ -1,6 +1,7 @@
 ---
 title: ROS + OpenCV Şerit Tespiti
 summary: USB kamera akışından gerçek zamanlı şerit algılama ve PID'e uygun yönlendirme sinyali üretimi — Teknofest Robotaksi prototipi.
+short: "ROS ve OpenCV ile gerçek zamanlı şerit tespiti."
 outcome: Klasik OpenCV boru hattıyla gerçek zamanlı şerit maskeleme ve yönlendirme açısı; kaynak kodu GitHub'da açık.
 status: prototype
 category: robotics

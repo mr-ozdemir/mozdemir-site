@@ -1,6 +1,7 @@
 ---
 title: Kampüs Giriş/Çıkış AI Kontrolü
 summary: Erciyes Üniversitesi kapıları ve tramvay duraklarında çoklu kamera akışlarından gerçek zamanlı kişi/araç sayımı, ID takibi ve raporlama.
+short: "Kampüs kapılarında gerçek zamanlı kişi ve araç sayımı."
 outcome: Erciyes Üniversitesi Rektörlüğü kullanımında; 10+ kamera akışında gerçek zamanlı izleme ve sayım.
 status: production
 category: industry

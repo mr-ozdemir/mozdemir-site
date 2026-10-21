@@ -1,6 +1,7 @@
 ---
 title: Early-Stage Breast Cancer Diagnosis — Computer Vision
 summary: A decision-support system of density-specific hybrid CNN models for mass and calcification detection and BI-RADS classification, built on 4,000+ mammograms.
+short: "Mass, calcification and BI-RADS detection on mammograms."
 outcome: Macro F1 > 90% for mass, calcification and BI-RADS 1-2-4-5 classification · national finalist, top 50 among 5,000 projects (presented in Antalya).
 status: research
 category: research

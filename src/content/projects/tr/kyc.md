@@ -1,6 +1,7 @@
 ---
 title: Kimlik Doğrulama (KYC) — OCR & Yüz Eşleştirme
 summary: Bankacılık müşteri onboarding süreçleri için kimlik kartı OCR'ı, sahtelik tespiti ve biyometrik yüz eşleştirme sağlayan, üretimde çalışan iki yapay zekâ servisi.
+short: "Bankacılık için kimlik OCR'ı ve biyometrik yüz doğrulama."
 outcome: 10 milyonda 1 hata oranıyla yüz doğrulama; bankacılık müşteri doğrulama akışlarında canlı kullanımda, TSE sertifikasyonu tamamlandı.
 status: production
 category: industry

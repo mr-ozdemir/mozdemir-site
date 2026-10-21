@@ -9,7 +9,8 @@ const projects = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      summary: z.string(), // kartta 2–3 satır
+      summary: z.string(), // proje sayfasının giriş cümlesi
+      short: z.string(), // listelerde gösterilen tek kısa cümle
       outcome: z.string().optional(), // tek satırlık somut sonuç (yalnızca doğrulanmış bilgi)
       status: z.enum(['production', 'research', 'completed', 'prototype', 'confidential']),
       category: z.enum(['industry', 'research', 'robotics']),

@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import { useTranslations, type Lang } from '../i18n/ui';
+import { projectPath } from '../i18n/routes';
+import type { Project } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+  project: Project;
+}
+
+const { lang, project } = Astro.props;
+const t = useTranslations(lang);
+const { data } = project;
+const meta = [t(`status.${data.status}`), data.period].filter(Boolean).join(' · ');
+---
+
+<li class="project-row">
+  <Image src={data.cover} alt="" width={256} height={144} fit="cover" />
+  <div>
+    <a href={projectPath(lang, project.slug)}>{data.title}</a>
+    <p>{data.short}</p>
+    <p>{meta}</p>
+  </div>
+</li>

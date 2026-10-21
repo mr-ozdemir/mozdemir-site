@@ -1,6 +1,7 @@
 ---
 title: ABC ile Ayarlanan ACO — Filo Optimizasyonu
 summary: Talep tahmini, Yapay Arı Kolonisi (ABC) ile hiperparametre ayarı ve Karınca Kolonisi Optimizasyonu'nu (ACO) birleştiren, maliyet odaklı sevkiyat planlaması için hibrit filo optimizasyon sistemi.
+short: "Arı ve karınca kolonisi algoritmalarıyla sevkiyat planlama."
 outcome: Geliştirme sürüyor; sonuçlar tamamlandığında paylaşılacak.
 status: research
 category: research

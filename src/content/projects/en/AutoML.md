@@ -1,6 +1,7 @@
 ---
 title: Nahıl AutoML
 summary: An end-to-end AutoML framework that automatically designs task-specific preprocessing, weight initialization, architecture, activation & loss functions, and hyperparameters.
+short: "An AutoML framework that designs task-specific models end to end."
 outcome: Two papers from the framework are at the revision stage in SCI/E-indexed journals (Q2, Q3); result metrics are withheld while the publication process continues.
 status: research
 category: research

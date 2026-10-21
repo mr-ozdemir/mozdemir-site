@@ -5,22 +5,33 @@ import type { Experience } from '../data/site';
 interface Props {
   lang: Lang;
   item: Experience;
-  compact?: boolean;
+  /** Ana sayfada yalnızca başlık satırı gösterilir. */
+  details?: boolean;
 }
 
-const { lang, item, compact = false } = Astro.props;
+const { lang, item, details = false } = Astro.props;
 const t = useTranslations(lang);
-const end = item.end ?? t('cv.present');
-const points = compact ? item.points[lang].slice(0, 1) : item.points[lang];
 ---
 
-<li class="xp">
-  <p class="xp-date meta">{item.start} — {end}</p>
-  <div>
-    <h3 class="xp-role">{item.role[lang]}</h3>
-    <p class="xp-org">{item.org[lang]}</p>
-    <ul class="xp-points">
-      {points.map((p) => <li>{p}</li>)}
-    </ul>
+<li>
+  <div class="item-head">
+    <p class="item-title">{item.role[lang]}</p>
+    <p class="item-date">{item.start} — {item.end ?? t('cv.present')}</p>
   </div>
+  <p class="item-meta">{item.org[lang]}</p>
+  {
+    details && (
+      <ul class="item-text">
+        {item.points[lang].map((p) => (
+          <li>{p}</li>
+        ))}
+      </ul>
+    )
+  }
 </li>
+
+<style>
+  ul {
+    padding-left: 1.1em;
+  }
+</style>

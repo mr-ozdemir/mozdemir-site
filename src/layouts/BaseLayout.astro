@@ -1,6 +1,5 @@
 ---
 import '@fontsource-variable/inter';
-import '@fontsource-variable/newsreader/wght.css';
 import '../styles/global.css';
 import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
@@ -82,8 +81,8 @@ const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     {noindex && <meta name="robots" content="noindex, follow" />}
 
     <meta name="author" content={profile.name} />
-    <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#141412" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -135,19 +134,18 @@ const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 <style is:global>
   .skip-link {
     position: absolute;
-    left: var(--s-4);
+    left: 16px;
     top: -100px;
     z-index: 100;
-    padding: 10px 16px;
-    border-radius: var(--r-md);
-    background: var(--accent);
-    color: var(--on-accent);
-    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 6px;
+    background: var(--text);
+    color: var(--bg);
     text-decoration: none;
   }
 
   .skip-link:focus {
-    top: var(--s-3);
+    top: 12px;
   }
 
   main:focus {

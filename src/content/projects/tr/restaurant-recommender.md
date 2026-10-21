@@ -1,6 +1,7 @@
 ---
 title: ML Tabanlı Müşteri Eşleştirme & Ürün Öneri Sistemi
 summary: Kafe ve restoranlar için kümeleme ile kullanıcı/ürün tabanlı işbirlikçi filtrelemeyi birleştiren hibrit makine öğrenmesi öneri motoru.
+short: "Kafe ve restoranlar için müşteri–ürün öneri sistemi."
 outcome: "%90'ın üzerinde eşleştirme doğruluğu; POS ve mobil uygulamalara entegre edildi."
 status: completed
 category: research

@@ -1,10 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Icon from '../components/Icon.astro';
 import PublicationItem from '../components/PublicationItem.astro';
 import { useTranslations, type Lang, type UIKey } from '../i18n/ui';
 import { pagePath } from '../i18n/routes';
-import { getProjects, getPublications } from '../lib/content';
+import { getPublications } from '../lib/content';
 
 interface Props {
   lang: Lang;
@@ -13,9 +12,8 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const pubs = await getPublications();
-const projectTitles = Object.fromEntries((await getProjects(lang)).map((p) => [p.slug, p.data.title]));
 
-// Hakemli/yayımlanmış ve süreçteki işler asla karışmasın (R19).
+// Yayımlanmış ve süreçteki işler ayrı gruplarda (R19).
 const groups: { key: UIKey; items: typeof pubs }[] = [
   { key: 'pubs.group.published', items: pubs.filter((p) => p.data.status === 'published') },
   {
@@ -30,52 +28,24 @@ const groups: { key: UIKey; items: typeof pubs }[] = [
 
 const description =
   lang === 'tr'
-    ? 'AutoML kapsamında genetik programlama ve yapay arı kolonisi ile aktivasyon fonksiyonu tasarımı ve sinir ağı mimari araması üzerine makaleler.'
-    : 'Papers on activation-function design and neural architecture search with genetic programming and artificial bee colony methods, within AutoML research.';
+    ? 'Genetik programlama ve yapay arı kolonisi ile aktivasyon fonksiyonu tasarımı ve sinir ağı mimari araması üzerine makaleler.'
+    : 'Papers on activation-function design and neural architecture search with genetic programming and artificial bee colony methods.';
 ---
 
-<BaseLayout
-  lang={lang}
-  path={pagePath(lang, 'publications')}
-  title={t('pubs.title')}
-  description={description}
-  current="publications"
->
+<BaseLayout lang={lang} path={pagePath(lang, 'publications')} title={t('pubs.title')} description={description} current="publications">
   <div class="container page">
-    <header class="page-head">
-      <h1>{t('pubs.title')}</h1>
-      <p class="lead">{t('pubs.lead')}</p>
-    </header>
-
+    <h1>{t('pubs.title')}</h1>
     {
-      groups.map((g, i) => (
-        <section class="section" aria-labelledby={`pubs-${i}`}>
-          <div class="section-head">
-            <h2 id={`pubs-${i}`}>{t(g.key)}</h2>
-            <span class="meta">{g.items.length}</span>
-          </div>
-          <ul class="pub-list">
+      groups.map((g) => (
+        <section class="section">
+          <h2>{t(g.key)}</h2>
+          <ul class="list">
             {g.items.map((p) => (
-              <PublicationItem lang={lang} pub={p} projectTitle={projectTitles[p.data.project ?? '']} />
+              <PublicationItem lang={lang} pub={p} />
             ))}
           </ul>
         </section>
       ))
     }
-
-    <p class="callout section">
-      <Icon name="info" />
-      <span>
-        {
-          lang === 'tr'
-            ? 'Makaleler yayımlandıkça yazar, dergi ve DOI bilgileriyle güncellenecektir. Çalışmalar hakkında konuşmak için '
-            : 'Entries will be updated with authors, venues and DOIs as papers are published. To discuss the work, see the '
-        }
-        <a href={pagePath(lang, 'about') + (lang === 'tr' ? '#iletisim' : '#contact')}>
-          {lang === 'tr' ? 'iletişim bilgilerine' : 'contact details'}
-        </a>
-        {lang === 'tr' ? ' göz atın.' : '.'}
-      </span>
-    </p>
   </div>
 </BaseLayout>

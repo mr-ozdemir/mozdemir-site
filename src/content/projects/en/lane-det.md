@@ -1,6 +1,7 @@
 ---
 title: ROS + OpenCV Lane Detection
 summary: Real-time lane detection from a USB camera stream with PID-ready steering signal generation — Teknofest Robotaksi prototype.
+short: "Real-time lane detection with ROS and OpenCV."
 outcome: Real-time lane masking and steering angle with a classic OpenCV pipeline; source code is open on GitHub.
 status: prototype
 category: robotics

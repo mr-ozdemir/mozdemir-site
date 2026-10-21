@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Icon from '../components/Icon.astro';
 import { useTranslations, type Lang } from '../i18n/ui';
 import { pagePath } from '../i18n/routes';
 import { club } from '../data/site';
@@ -26,193 +25,75 @@ const description =
     : 'Erciyes University AI Club: eight TÜBİTAK projects, a TÜSEB-finalist healthcare AI project, a 20-person core team, awards and events.';
 ---
 
-<BaseLayout
-  lang={lang}
-  path={pagePath(lang, 'club')}
-  title={t('club.title')}
-  description={description}
-  current="projects"
-  image={cover}
-  imageAlt={t('club.title')}
->
+<BaseLayout lang={lang} path={pagePath(lang, 'club')} title={t('club.title')} description={description} current="projects" image={cover} imageAlt={t('club.title')}>
   <div class="container page">
-    <nav class="crumbs" aria-label={lang === 'tr' ? 'Konum' : 'Breadcrumb'}>
-      <a href={pagePath(lang, 'projects')}>{t('nav.projects')}</a>
-      <span aria-hidden="true">/</span>
-      <span aria-current="page">{t('projects.activities')}</span>
-    </nav>
+    <p class="back small"><a href={pagePath(lang, 'projects')}>← {t('nav.projects')}</a></p>
+    <h1>{t('club.title')}</h1>
+    <p class="lead">{lang === 'tr' ? 'Kurucu & Başkan · 03/2024 — Güncel' : 'Founder & President · 03/2024 — Present'}</p>
 
-    <header class="page-head">
-      <p class="meta">{lang === 'tr' ? 'Kurucu & Başkan · 03/2024 — Güncel' : 'Founder & President · 03/2024 — Present'}</p>
-      <h1>{t('club.title')}</h1>
-      <p class="lead">{club.about[lang]}</p>
-      <div class="club-links">
-        <a class="btn btn-primary" href={club.url} target="_blank" rel="noopener"><Icon name="globe" />{t('club.site')}</a>
-        <a class="btn btn-secondary" href={club.linkedin} target="_blank" rel="noopener"><Icon name="linkedin" />LinkedIn</a>
-      </div>
-    </header>
+    <div class="prose intro">
+      <p>{club.about[lang]}</p>
+      <p>{club.summary[lang]}</p>
+      <p>
+        <a href={club.url} target="_blank" rel="noopener">{t('club.site')}</a> ·
+        <a href={club.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+    </div>
 
-    <dl class="metrics">
-      {
-        club.kpis.map((k) => (
-          <div>
-            <dt>{k.label[lang]}</dt>
-            <dd>{k.value[lang]}</dd>
-          </div>
-        ))
-      }
-    </dl>
+    <div class="photos">
+      {photos.map((p, i) => <Image src={p} alt={`${photoAlt} ${i + 1}`} widths={[360, 720]} sizes="(min-width: 760px) 352px, 50vw" />)}
+    </div>
 
-    <section class="section" aria-labelledby="h-gallery">
-      <div class="section-head">
-        <h2 id="h-gallery">{t('club.gallery')}</h2>
-      </div>
-      <ul class="strip" role="list">
-        {
-          photos.map((p, i) => (
-            <li>
-              <Image src={p} alt={`${photoAlt} ${i + 1}`} widths={[400, 800]} sizes="(min-width: 720px) 420px, 85vw" />
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-
-    <section class="section" aria-labelledby="h-awards">
-      <div class="section-head">
-        <h2 id="h-awards">{t('club.awards')}</h2>
-        <span class="card-context">{club.awardsLead[lang]}</span>
-      </div>
-      <ul class="award-cards">
+    <section class="section">
+      <h2>{t('club.awards')}</h2>
+      <ul class="list">
         {
           club.awards[lang].map((a) => (
-            <li class="panel">
-              <Icon name="trophy" />
-              <h3>{a.name}</h3>
-              <p class="muted">{a.text}</p>
+            <li>
+              <p class="item-title">{a.name}</p>
+              <p class="item-meta">{a.text}</p>
             </li>
           ))
         }
       </ul>
     </section>
 
-    <section class="section" aria-labelledby="h-timeline">
-      <div class="section-head">
-        <h2 id="h-timeline">{t('club.timeline')}</h2>
-      </div>
-      <ol class="timeline">
+    <section class="section">
+      <h2>{t('club.timeline')}</h2>
+      <ul class="list">
         {
           club.timeline[lang].map((item) => (
             <li>
-              <h3>{item.title}</h3>
-              <p class="muted">{item.text}</p>
+              <p class="item-title">{item.title}</p>
+              <p class="item-meta">{item.text}</p>
             </li>
           ))
         }
-      </ol>
+      </ul>
     </section>
   </div>
 </BaseLayout>
 
 <style>
-  .page-head h1 {
-    margin-top: var(--s-3);
+  .back {
+    margin-bottom: 24px;
   }
 
-  .club-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--s-3);
-    margin-top: var(--s-5);
+  .intro {
+    margin-top: 24px;
   }
 
-  .strip {
+  .photos {
     display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: min(85vw, 420px);
-    gap: var(--s-4);
-    margin: 0;
-    padding: 0 0 var(--s-3);
-    list-style: none;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    overscroll-behavior-x: contain;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 32px;
   }
 
-  .strip li {
-    scroll-snap-align: start;
-    display: grid;
-    place-items: center;
-    aspect-ratio: 4 / 3;
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: var(--r-lg);
-    overflow: hidden;
-  }
-
-  .strip :global(img) {
+  .photos :global(img) {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
-  }
-
-  .award-cards {
-    display: grid;
-    gap: var(--s-4);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  @media (min-width: 720px) {
-    .award-cards {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  .award-cards :global(svg) {
-    width: 20px;
-    height: 20px;
-    color: var(--accent-2);
-    margin-bottom: var(--s-3);
-  }
-
-  .award-cards p {
-    margin-top: var(--s-2);
-    font-size: 0.9375rem;
-  }
-
-  .timeline {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    border-left: 1px solid var(--rule-strong);
-    max-width: 52rem;
-  }
-
-  .timeline li {
-    position: relative;
-    padding: 0 0 var(--s-5) var(--s-5);
-  }
-
-  .timeline li::before {
-    content: '';
-    position: absolute;
-    left: -5px;
-    top: 0.5em;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--bg);
-    border: 2px solid var(--accent);
-  }
-
-  .timeline h3 {
-    font-size: 1rem;
-  }
-
-  .timeline p {
-    margin-top: 2px;
-    font-size: 0.9375rem;
+    border-radius: 6px;
   }
 </style>

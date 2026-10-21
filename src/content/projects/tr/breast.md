@@ -1,6 +1,7 @@
 ---
 title: Erken Dönem Meme Kanseri Teşhisi — Bilgisayarlı Görü
 summary: 4.000+ mamografi üzerinde hibrit CNN mimarileriyle kitle ve kalsifikasyon tespiti ile BI-RADS sınıflandırması yapan, yoğunluğa özel modellerden oluşan karar destek sistemi.
+short: "Mamografilerde kitle, kalsifikasyon ve BI-RADS tespiti."
 outcome: Kitle, kalsifikasyon ve BI-RADS 1-2-4-5 sınıflandırmasında F1 makro > %90 · 5 bin proje içinde ilk 50'de ulusal finalist (Antalya'da sunuldu).
 status: research
 category: research

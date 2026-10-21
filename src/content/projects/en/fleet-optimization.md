@@ -1,6 +1,7 @@
 ---
 title: ABC-Tuned ACO Fleet Optimization
 summary: A hybrid fleet-optimization system that combines demand forecasting, Artificial Bee Colony (ABC) hyperparameter tuning and Ant Colony Optimization (ACO) for cost-aware shipment planning.
+short: "Shipment planning with bee and ant colony algorithms."
 outcome: In development; results will be shared once complete.
 status: research
 category: research

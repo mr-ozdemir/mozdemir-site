@@ -1,6 +1,7 @@
 ---
 title: Identity Verification (KYC) — OCR & Face Match
 summary: Two production AI services that power ID-card OCR, document-authenticity detection and biometric face matching for banking and finance customer onboarding.
+short: "ID OCR and biometric face verification for banking."
 outcome: Face verification with a 1-in-10M error rate; live in banking customer-verification flows with TSE certification completed.
 status: production
 category: industry

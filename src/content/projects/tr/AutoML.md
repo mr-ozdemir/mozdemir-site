@@ -1,6 +1,7 @@
 ---
 title: Nahıl AutoML
 summary: Göreve özel veri ön işleme, ağırlık başlatma, mimari, aktivasyon & kayıp fonksiyonu ve hiperparametreleri otomatik tasarlayan uçtan uca AutoML çerçevesi.
+short: "Göreve özel modeli uçtan uca otomatik tasarlayan AutoML çerçevesi."
 outcome: Çerçeveden doğan iki makale SCI/E indeksli dergilerde (Q2, Q3) revizyon aşamasında; sonuç metrikleri yayın süreci nedeniyle paylaşılmıyor.
 status: research
 category: research

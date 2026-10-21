@@ -1,6 +1,7 @@
 ---
 title: Campus Entry/Exit AI Control
 summary: Real-time person/vehicle counting, ID tracking and reporting from multiple camera streams at Erciyes University gates and tram stops.
+short: "Real-time people and vehicle counting at campus gates."
 outcome: Used by the Erciyes University Rectorate; real-time monitoring and counting across 10+ camera streams.
 status: production
 category: industry
