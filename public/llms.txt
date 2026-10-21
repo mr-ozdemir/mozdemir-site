@@ -1,0 +1,33 @@
+# Muhammet Özdemir
+
+> AI engineer & researcher (Istanbul, Türkiye). B.S. in Computer Engineering, Erciyes University (graduated July 2026). Researches AutoML — automatic design of activation functions and neural architectures with genetic programming and artificial bee colony methods — and builds production computer-vision and identity-verification (KYC) systems. Site is bilingual: Turkish at https://mozdemir.com/, English at https://mozdemir.com/en/.
+
+Contact: mr.ozdemir34@gmail.com · GitHub: https://github.com/mr-ozdemir · LinkedIn: https://www.linkedin.com/in/mrozdemir
+Availability: open to freelance work (AutoML, computer vision, end-to-end production AI systems).
+
+## Experience
+
+- AI Engineer (freelance, Identify-Turkey) — since 09/2025: face-verification systems with a 1-in-10M error rate, ID recognition, OCR and liveness modules for banking; owned the full TSE certification process.
+- AI Researcher (full-time, remote), Erciyes University AI and Big Data Application and Research Center — since 10/2024: activation-function design, NAS, end-to-end AutoML.
+- AI Engineer Intern, Skechers Türkiye / Olka — 06/2026–08/2026: on-premises LLM serving with vLLM, Text-to-SQL, centralized RAG, CNN-based document processing, KVKK-compliant guardrails.
+- AI Intern, Erciyes University IT Department — 09/2024–01/2025: real-time campus entry/exit counting system.
+- Founder & President, Erciyes University AI Club — since 03/2024.
+
+## Projects (case studies)
+
+- [Identity Verification (KYC) — OCR & Face Match](https://mozdemir.com/en/project-kyc.html): in production for banking; 1-in-10M face-verification error rate; ID OCR + MRZ, authenticity detection, liveness.
+- [Early-Stage Breast Cancer Diagnosis](https://mozdemir.com/en/project-breast.html): hybrid CNNs on 4,000+ mammograms, macro F1 > 90%; Ministry of Health & TÜSEB funded; national finalist (2024).
+- [Campus Entry/Exit AI Control](https://mozdemir.com/en/project-campus.html): real-time person/vehicle counting and ID tracking across 10+ camera streams; used by the Erciyes University Rectorate.
+- [Nahıl AutoML](https://mozdemir.com/en/project-AutoML.html): end-to-end AutoML framework (preprocessing, NAS, activation/loss design, initialization, hyperparameters).
+- [ABC-Tuned ACO Fleet Optimization](https://mozdemir.com/en/project-fleet-optimization.html): demand forecasting + ABC hyperparameter tuning + ACO for cost-aware shipment planning (in development, since 03/2026).
+- [ROS + OpenCV Lane Detection](https://mozdemir.com/en/project-lane-det.html): real-time lane detection and PID-ready steering for Teknofest Robotaksi; open source.
+- [ML-Based Customer Matching & Product Recommendation](https://mozdemir.com/en/project-restaurant-recommender.html): clustering + collaborative filtering, > 90% match accuracy, integrated into POS and mobile apps; TÜBİTAK funded (2023).
+
+## Publications
+
+- Automatic Design of Deep Neural Network Activation Functions Using Genetic Programming — SCI/E-indexed journal (Q3), revision submitted.
+- Analysis of Evolutionary and Genetic Programming Mutation Operators for Automated Activation Function Design in Deep Neural Networks — SCI/E-indexed journal (Q2), revision submitted.
+
+## Pages
+
+- [Projects](https://mozdemir.com/en/portfolio.html) · [Publications](https://mozdemir.com/en/publications.html) · [CV](https://mozdemir.com/en/resume.html) · [CV PDF](https://mozdemir.com/assets/cv/Muhammet%20Ozdemir_CV.pdf) · [About](https://mozdemir.com/en/about.html) · [ERÜ AI Club](https://mozdemir.com/en/culup.html)

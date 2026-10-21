@@ -1,0 +1,31 @@
+// Site içinde kullanılan ikon adları → bootstrap-icons dosya adları.
+export const iconFiles = {
+  github: 'github',
+  linkedin: 'linkedin',
+  mail: 'envelope',
+  download: 'download',
+  'arrow-right': 'arrow-right',
+  'arrow-left': 'arrow-left',
+  'arrow-up-right': 'arrow-up-right',
+  external: 'box-arrow-up-right',
+  sun: 'sun',
+  moon: 'moon-stars',
+  menu: 'list',
+  close: 'x-lg',
+  pdf: 'file-earmark-pdf',
+  info: 'info-circle',
+  sliders: 'sliders',
+  eye: 'eye',
+  graph: 'graph-up-arrow',
+  chat: 'chat-square-dots',
+  cpu: 'cpu',
+  globe: 'globe2',
+  journal: 'journal-text',
+  people: 'people',
+  trophy: 'trophy',
+  award: 'award',
+  check: 'check2',
+  location: 'geo-alt',
+} as const;
+
+export type IconName = keyof typeof iconFiles;

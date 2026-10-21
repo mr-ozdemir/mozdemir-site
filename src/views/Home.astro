@@ -1,0 +1,433 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import PublicationItem from '../components/PublicationItem.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+import { useTranslations, type Lang } from '../i18n/ui';
+import { pagePath } from '../i18n/routes';
+import { profile, experience } from '../data/site';
+import { getProjects, getPublications } from '../lib/content';
+import profilePhoto from '../assets/images/profile.jpeg';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const projects = await getProjects(lang);
+const featured = projects.filter((p) => p.data.featured);
+const pubs = (await getPublications()).filter((p) => p.data.selected).slice(0, 3);
+const projectTitles = Object.fromEntries(projects.map((p) => [p.slug, p.data.title]));
+
+const sections = [
+  { id: 'projeler', en: 'projects', label: t('home.projects') },
+  { id: 'yayinlar', en: 'publications', label: t('home.publications') },
+  { id: 'deneyim', en: 'experience', label: t('home.experience') },
+  { id: 'iletisim', en: 'contact', label: t('home.contact') },
+].map((s) => ({ id: lang === 'tr' ? s.id : s.en, label: s.label }));
+
+const routes = [
+  { label: t('home.route.recruiter'), cta: t('home.route.recruiter.cta'), href: pagePath(lang, 'cv') },
+  { label: t('home.route.academic'), cta: t('home.route.academic.cta'), href: pagePath(lang, 'publications') },
+  { label: t('home.route.client'), cta: t('home.route.client.cta'), href: `#${sections[3].id}` },
+];
+
+const description =
+  lang === 'tr'
+    ? 'Muhammet Özdemir — yapay zekâ araştırmacısı ve mühendisi. AutoML araştırması; üretimde çalışan bilgisayarlı görü ve kimlik doğrulama (KYC) sistemleri, meme kanseri teşhisi için AI.'
+    : 'Muhammet Özdemir — AI researcher and engineer. AutoML research; production computer-vision and identity-verification (KYC) systems, AI for breast-cancer diagnosis.';
+
+const site = 'https://mozdemir.com';
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${site}/#website`,
+    name: profile.name,
+    url: `${site}/`,
+    inLanguage: ['tr-TR', 'en'],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${site}/#person`,
+    name: profile.name,
+    alternateName: profile.alternateName,
+    jobTitle: profile.role[lang],
+    url: `${site}/`,
+    email: `mailto:${profile.email}`,
+    affiliation: {
+      '@type': 'Organization',
+      name:
+        lang === 'tr'
+          ? 'Erciyes Üniversitesi Yapay Zekâ ve Büyük Veri Uygulama ve Araştırma Merkezi'
+          : 'Erciyes University AI and Big Data Application and Research Center',
+    },
+    alumniOf: { '@type': 'CollegeOrUniversity', name: lang === 'tr' ? 'Erciyes Üniversitesi' : 'Erciyes University' },
+    knowsAbout: ['AutoML', 'Computer Vision', 'Machine Learning', 'Deep Learning', 'MLOps'],
+    sameAs: [profile.github, profile.linkedin],
+  },
+];
+---
+
+<BaseLayout lang={lang} path={pagePath(lang, 'home')} title={profile.name} description={description} jsonLd={jsonLd}>
+  <div class="container home">
+    <aside class="profile" aria-labelledby="profile-name">
+      <div class="profile-sticky">
+        <Image
+          class="avatar"
+          src={profilePhoto}
+          alt={profile.name}
+          width={96}
+          height={96}
+          densities={[1, 2]}
+          fit="cover"
+          position="top"
+          loading="eager"
+        />
+        <h1 id="profile-name" class="profile-name">{profile.name}</h1>
+        <p class="profile-role">{profile.role[lang]}</p>
+        <p class="profile-tagline">{profile.tagline[lang]}</p>
+
+        <div class="currently">
+          <p class="meta">{t('home.currently')}</p>
+          <ul>
+            {profile.currently[lang].map((c) => <li>{c}</li>)}
+          </ul>
+        </div>
+
+        <ul class="profile-links">
+          <li>
+            <a href={`mailto:${profile.email}`}><Icon name="mail" />{profile.email}</a>
+          </li>
+          <li>
+            <a href={profile.cvPdf} download="Muhammet_Ozdemir_CV.pdf"><Icon name="pdf" />CV (PDF)</a>
+          </li>
+          <li>
+            <a href={profile.github} target="_blank" rel="me noopener"><Icon name="github" />GitHub</a>
+          </li>
+          <li>
+            <a href={profile.linkedin} target="_blank" rel="me noopener"><Icon name="linkedin" />LinkedIn</a>
+          </li>
+        </ul>
+
+        <nav class="toc" aria-label={t('home.sections')}>
+          <ol>
+            {
+              sections.map((s) => (
+                <li>
+                  <a href={`#${s.id}`} data-spy={s.id}>
+                    {s.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ol>
+        </nav>
+      </div>
+    </aside>
+
+    <div class="home-main">
+      <section class="routes" aria-labelledby="routes-title">
+        <h2 id="routes-title" class="meta">{t('home.for')}</h2>
+        <ul>
+          {
+            routes.map((r) => (
+              <li>
+                <a href={r.href}>
+                  <span class="route-label">{r.label}</span>
+                  <span class="route-cta">
+                    {r.cta}
+                    <Icon name="arrow-right" />
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section class="section" id={sections[0].id} aria-labelledby="h-projects">
+        <div class="section-head">
+          <h2 id="h-projects">{t('home.projects')}</h2>
+          <a class="more-link" href={pagePath(lang, 'projects')}>{t('home.projects.all')} <Icon name="arrow-right" /></a>
+        </div>
+        <div class="card-grid">
+          {featured.map((p, i) => <ProjectCard lang={lang} project={p} eager={i < 2} />)}
+        </div>
+      </section>
+
+      <section class="section" id={sections[1].id} aria-labelledby="h-pubs">
+        <div class="section-head">
+          <h2 id="h-pubs">{t('home.publications')}</h2>
+          <a class="more-link" href={pagePath(lang, 'publications')}>{t('home.publications.all')} <Icon name="arrow-right" /></a>
+        </div>
+        <ul class="pub-list">
+          {pubs.map((p) => <PublicationItem lang={lang} pub={p} projectTitle={projectTitles[p.data.project ?? '']} />)}
+        </ul>
+      </section>
+
+      <section class="section" id={sections[2].id} aria-labelledby="h-xp">
+        <div class="section-head">
+          <h2 id="h-xp">{t('home.experience')}</h2>
+          <a class="more-link" href={pagePath(lang, 'cv')}>{t('home.experience.all')} <Icon name="arrow-right" /></a>
+        </div>
+        <ul class="xp-list">
+          {experience.map((x) => <ExperienceItem lang={lang} item={x} compact />)}
+        </ul>
+      </section>
+
+      <section class="section contact" id={sections[3].id} aria-labelledby="h-contact">
+        <h2 id="h-contact">{t('home.contact')}</h2>
+        <p class="lead">{profile.availability[lang]}</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href={`mailto:${profile.email}`}><Icon name="mail" />{profile.email}</a>
+          <a class="btn btn-secondary" href={profile.linkedin} target="_blank" rel="me noopener"><Icon name="linkedin" />LinkedIn</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Bölüm takibi: sol menüde görünür bölüm işaretlenir.
+  const links = new Map(
+    [...document.querySelectorAll<HTMLAnchorElement>('[data-spy]')].map((a) => [a.dataset.spy!, a]),
+  );
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        links.forEach((a, id) => a.toggleAttribute('data-active', id === entry.target.id));
+      }
+    },
+    { rootMargin: '-35% 0px -60% 0px' },
+  );
+  links.forEach((_, id) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+</script>
+
+<style>
+  .home {
+    display: grid;
+    gap: var(--s-7);
+    padding-block: var(--s-7) 0;
+  }
+
+  @media (min-width: 1024px) {
+    .home {
+      grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+      gap: var(--s-8);
+      padding-top: var(--s-8);
+    }
+
+    .profile-sticky {
+      position: sticky;
+      top: calc(var(--header-h) + var(--s-6));
+    }
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    border: 1px solid var(--rule);
+    margin-bottom: var(--s-5);
+  }
+
+  .profile-name {
+    font-size: clamp(2.25rem, 1.8rem + 1.8vw, 2.9rem);
+    line-height: 1.04;
+  }
+
+  .profile-role {
+    margin-top: var(--s-3);
+    font-size: 1.0625rem;
+    font-weight: 600;
+  }
+
+  .profile-tagline {
+    margin-top: var(--s-3);
+    color: var(--text-muted);
+    max-width: 36ch;
+  }
+
+  .currently {
+    margin-top: var(--s-5);
+    padding-top: var(--s-4);
+    border-top: 1px solid var(--rule);
+  }
+
+  .currently ul {
+    margin-top: var(--s-2);
+    padding: 0;
+    list-style: none;
+    font-size: 0.9rem;
+  }
+
+  .currently li + li {
+    margin-top: 6px;
+  }
+
+  .profile-links {
+    display: grid;
+    gap: 2px;
+    margin-top: var(--s-5);
+    padding: 0;
+    list-style: none;
+    font-size: 0.9rem;
+  }
+
+  .profile-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 32px;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .profile-links a:hover {
+    color: var(--accent);
+  }
+
+  .profile-links :global(svg) {
+    width: 16px;
+    height: 16px;
+    color: var(--text-muted);
+  }
+
+  .toc {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .toc {
+      display: block;
+      margin-top: var(--s-6);
+      padding-top: var(--s-4);
+      border-top: 1px solid var(--rule);
+    }
+  }
+
+  .toc ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: toc;
+  }
+
+  .toc a {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    min-height: 34px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-decoration: none;
+    counter-increment: toc;
+  }
+
+  .toc a::before {
+    content: counter(toc, decimal-leading-zero);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    width: 2ch;
+  }
+
+  .toc a::after {
+    content: '';
+    height: 1px;
+    width: 16px;
+    background: var(--rule-strong);
+    order: -1;
+    transition: width var(--t-base) var(--ease), background-color var(--t-base) var(--ease);
+  }
+
+  .toc a:hover,
+  .toc a[data-active] {
+    color: var(--text);
+  }
+
+  .toc a[data-active]::after {
+    width: 32px;
+    background: var(--accent);
+  }
+
+  /* Ziyaretçi yönlendirmesi */
+  .routes ul {
+    display: grid;
+    margin: var(--s-3) 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--rule);
+  }
+
+  .routes a {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px var(--s-4);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .route-label {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .route-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent);
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  .route-cta :global(svg) {
+    width: 14px;
+    height: 14px;
+    transition: transform var(--t-fast) var(--ease);
+  }
+
+  .routes a:hover .route-cta :global(svg) {
+    transform: translateX(3px);
+  }
+
+  .routes a:hover .route-label {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .contact {
+    padding: var(--s-6);
+    border-radius: var(--r-lg);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+  }
+
+  .contact .lead {
+    margin-top: var(--s-3);
+  }
+
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+    margin-top: var(--s-5);
+  }
+</style>

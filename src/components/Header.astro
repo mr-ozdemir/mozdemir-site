@@ -1,0 +1,325 @@
+---
+import Icon from './Icon.astro';
+import { useTranslations, languages, type Lang } from '../i18n/ui';
+import { pagePath, alternatePath, otherLang, type PageKey } from '../i18n/routes';
+import { profile } from '../data/site';
+
+interface Props {
+  lang: Lang;
+  current?: PageKey;
+  /** Bu sayfanın diğer dildeki karşılığı (varsayılan: aynı yol, dil öneki değişir). */
+  altPath?: string;
+}
+
+const { lang, current, altPath } = Astro.props;
+const t = useTranslations(lang);
+const other = otherLang(lang);
+const switchHref = altPath ?? alternatePath(Astro.url.pathname, other);
+
+const items: { key: PageKey; label: string }[] = [
+  { key: 'projects', label: t('nav.projects') },
+  { key: 'publications', label: t('nav.publications') },
+  { key: 'cv', label: t('nav.cv') },
+  { key: 'about', label: t('nav.about') },
+];
+const contactHref = `mailto:${profile.email}`;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href={pagePath(lang, 'home')} aria-label={`${profile.name} — ${t('nav.home')}`}>
+      <span class="brand-mark" aria-hidden="true">MÖ</span>
+      <span class="brand-name">{profile.name}</span>
+    </a>
+
+    <nav class="nav" id="site-nav" aria-label={t('nav.primary')}>
+      <ul class="nav-list">
+        {
+          items.map((item) => (
+            <li>
+              <a
+                class="nav-link"
+                href={pagePath(lang, item.key)}
+                aria-current={current === item.key ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a class="btn btn-primary btn-sm nav-cta" href={contactHref}>
+        <Icon name="mail" />
+        {t('nav.contact')}
+      </a>
+    </nav>
+
+    <div class="header-tools">
+      <a class="lang-switch" href={switchHref} hreflang={other} lang={other} title={languages[other]}>
+        <span class="visually-hidden">{t('lang.switch')}: </span>
+        {languages[other]}
+      </a>
+      <button class="icon-btn theme-toggle" type="button" aria-label={t('theme.toggle')} data-theme-toggle>
+        <Icon name="moon" class="i-moon" />
+        <Icon name="sun" class="i-sun" />
+      </button>
+      <button
+        class="icon-btn menu-toggle"
+        type="button"
+        aria-controls="site-nav"
+        aria-expanded="false"
+        data-menu-toggle
+        data-label-open={t('nav.menu')}
+        data-label-close={t('nav.close')}
+        aria-label={t('nav.menu')}
+      >
+        <Icon name="menu" class="i-menu" />
+        <Icon name="close" class="i-close" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('.site-header');
+  const menuBtn = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const themeBtn = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+
+  function setMenu(open: boolean) {
+    if (!header || !menuBtn) return;
+    header.classList.toggle('is-open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', (open ? menuBtn.dataset.labelClose : menuBtn.dataset.labelOpen) ?? '');
+    document.documentElement.classList.toggle('menu-open', open);
+  }
+
+  menuBtn?.addEventListener('click', () => setMenu(!header?.classList.contains('is-open')));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && header?.classList.contains('is-open')) {
+      setMenu(false);
+      menuBtn?.focus();
+    }
+  });
+  window.matchMedia('(min-width: 860px)').addEventListener('change', (e) => e.matches && setMenu(false));
+
+  themeBtn?.addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try {
+      localStorage.setItem('theme', next);
+    } catch {}
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    height: var(--header-h);
+    background: var(--header-bg);
+    backdrop-filter: saturate(1.4) blur(10px);
+    -webkit-backdrop-filter: saturate(1.4) blur(10px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .header-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--s-5);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    text-decoration: none;
+    min-height: 44px;
+    margin-right: auto;
+  }
+
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: var(--r-md);
+    background: var(--text);
+    color: var(--bg);
+    font: 600 0.75rem/1 var(--font-sans);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-name {
+    font-family: var(--font-serif);
+    font-size: 1.1875rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: var(--s-4);
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 12px;
+    border-radius: var(--r-md);
+    color: var(--text-muted);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease);
+  }
+
+  .nav-link:hover {
+    color: var(--text);
+    background: var(--surface-2);
+  }
+
+  .nav-link[aria-current='page'] {
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
+    text-decoration-color: var(--accent);
+  }
+
+  .header-tools {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 10px;
+    border-radius: var(--r-md);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .lang-switch:hover {
+    color: var(--text);
+    background: var(--surface-2);
+  }
+
+  .icon-btn {
+    display: inline-grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    border-radius: var(--r-md);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+
+  .icon-btn:hover {
+    color: var(--text);
+    background: var(--surface-2);
+  }
+
+  .icon-btn :global(svg) {
+    width: 18px;
+    height: 18px;
+  }
+
+  .theme-toggle :global(.i-sun),
+  :global([data-theme='dark']) .theme-toggle :global(.i-moon) {
+    display: none;
+  }
+
+  :global([data-theme='dark']) .theme-toggle :global(.i-sun) {
+    display: block;
+  }
+
+  .menu-toggle,
+  .menu-toggle :global(.i-close) {
+    display: none;
+  }
+
+  /* ---- Mobil: menü düğmesi + tam genişlik panel ---- */
+  @media (max-width: 859px) {
+    .menu-toggle {
+      display: inline-grid;
+    }
+
+    .nav {
+      position: fixed;
+      inset: var(--header-h) 0 auto 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--s-4);
+      padding: var(--s-4) var(--gutter) var(--s-6);
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+      display: none;
+    }
+
+    .is-open .nav {
+      display: flex;
+    }
+
+    .is-open .menu-toggle :global(.i-menu) {
+      display: none;
+    }
+
+    .is-open .menu-toggle :global(.i-close) {
+      display: block;
+    }
+
+    .nav-list {
+      flex-direction: column;
+    }
+
+    .nav-link {
+      min-height: 48px;
+      font-size: 1.0625rem;
+      padding: 0 var(--s-2);
+    }
+
+    .nav-cta {
+      min-height: 48px;
+    }
+  }
+
+  /* JS yoksa mobilde de menü görünür kalsın. */
+  @media (max-width: 859px) {
+    :global(html:not(.js)) .nav {
+      position: static;
+      display: flex;
+    }
+    :global(html:not(.js)) .site-header {
+      height: auto;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .brand-name {
+      font-size: 1.0625rem;
+    }
+  }
+</style>
