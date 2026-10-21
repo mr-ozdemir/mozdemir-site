@@ -36,4 +36,4 @@ Tek seferlik ayar: GitHub → Settings → Pages → Source = **GitHub Actions**
 
 ## Tasarım
 
-Araştırma ve tasarım kararları: `docs/tasarim-arastirmasi/00-sentez-ve-tasarim-spesifikasyonu.md`.
+Tasarım: "Araştırma Editoryal" yönü — sıcak kâğıt zemin, Newsreader (başlık) + Inter (arayüz), İznik kobaltı vurgu, açık/koyu tema. Renk ve ölçü değerleri `src/styles/global.css` başındaki token'larda.

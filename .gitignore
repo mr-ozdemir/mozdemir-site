@@ -5,6 +5,9 @@ dist/
 # dependencies
 node_modules/
 
+# yerel çalışma notları (tasarım araştırması; repoya girmez)
+docs/
+
 # logs
 npm-debug.log*
 
