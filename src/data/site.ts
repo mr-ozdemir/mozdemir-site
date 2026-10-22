@@ -25,11 +25,11 @@ export const profile = {
   },
   currently: {
     tr: [
-      'AI Mühendisi — bankacılık için kimlik ve yüz doğrulama sistemleri (Identify-Turkey)',
+      'AI Mühendisi (serbest) — bankacılık ve gemicilik operasyonları için yapay zekâ çözümleri',
       'Yapay Zekâ Araştırmacısı — Erciyes Üniversitesi Yapay Zekâ ve Büyük Veri Uygulama ve Araştırma Merkezi',
     ],
     en: [
-      'AI Engineer — identity and face-verification systems for banking (Identify-Turkey)',
+      'AI Engineer (self-employed) — AI solutions for banking and shipping operations',
       'AI Researcher — Erciyes University AI and Big Data Application and Research Center',
     ],
   },
@@ -78,16 +78,18 @@ export type Experience = {
 export const experience: Experience[] = [
   {
     role: { tr: 'AI Mühendisi', en: 'AI Engineer' },
-    org: { tr: 'Serbest (Freelance) — Identify-Turkey · Türkiye', en: 'Freelance — Identify-Turkey · Türkiye' },
+    org: { tr: 'Serbest çalışan · Türkiye', en: 'Self-employed · Türkiye' },
     start: '09/2025',
     end: null,
-    kind: { tr: 'Serbest', en: 'Freelance' },
+    kind: { tr: 'Serbest', en: 'Self-employed' },
     points: {
       tr: [
         'Bankacılık uygulamaları için 10 milyonda 1 hata oranına sahip yüz doğrulama sistemleri ile kimlik tanıma, OCR ve canlılık (liveness) modülleri geliştirdim; TSE sertifikasyon sürecinin tamamını yönettim.',
+        'Gemicilik operasyonları için yapay zekâ hizmetleri sunuyorum.',
       ],
       en: [
         'Built face-verification systems with a 1-in-10M error rate, plus ID recognition, OCR, and liveness modules for banking applications; owned the full TSE certification process.',
+        'Provide AI services for shipping operations.',
       ],
     },
   },

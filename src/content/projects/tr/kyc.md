@@ -5,14 +5,14 @@ short: "Bankacılık için kimlik OCR'ı ve biyometrik yüz doğrulama."
 outcome: 10 milyonda 1 hata oranıyla yüz doğrulama; bankacılık müşteri doğrulama akışlarında canlı kullanımda, TSE sertifikasyonu tamamlandı.
 status: production
 category: industry
-context: Identify-Turkey — id24.tr KYC platformu
+context: Bankacılık / KYC — serbest proje
 role: Geliştirici — IDOCR & IDBM (AI/CV modülleri)
 period: 09/2025 — Güncel
 badges: [REST API · JWT, TSE Dokümantasyon & Sertifikasyon]
 tags: [Python, Flask, YOLO, DeepFace, OpenCV]
 stack: [Python, Flask, YOLO (Ultralytics), Tesseract OCR, OpenCV, PyTorch, DeepFace, TensorFlow, dlib, MediaPipe, ONNX, JWT, Docker, Kubernetes, PostgreSQL, Gunicorn]
 facts:
-  - { label: "Müşteri", value: "Identify-Turkey — id24.tr KYC platformu" }
+  - { label: "Sektör", value: "Bankacılık (KYC platformu)" }
   - { label: "Rol", value: "Geliştirici — IDOCR & IDBM (AI/CV modülleri)" }
   - { label: "Kapsam", value: "Kimlik OCR + MRZ, sahtelik tespiti, biyometrik yüz eşleştirme" }
   - { label: "Entegrasyon", value: "Flask REST API (JWT), Docker/Kubernetes mikroservis" }

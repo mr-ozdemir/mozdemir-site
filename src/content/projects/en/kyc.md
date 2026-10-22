@@ -5,14 +5,14 @@ short: "ID OCR and biometric face verification for banking."
 outcome: Face verification with a 1-in-10M error rate; live in banking customer-verification flows with TSE certification completed.
 status: production
 category: industry
-context: Identify-Turkey — id24.tr KYC platform
+context: Banking / KYC — self-employed project
 role: Developer — IDOCR & IDBM (AI/CV modules)
 period: 09/2025 — Present
 badges: [REST API · JWT, TSE Documentation & Certification]
 tags: [Python, Flask, YOLO, DeepFace, OpenCV]
 stack: [Python, Flask, YOLO (Ultralytics), Tesseract OCR, OpenCV, PyTorch, DeepFace, TensorFlow, dlib, MediaPipe, ONNX, JWT, Docker, Kubernetes, PostgreSQL, Gunicorn]
 facts:
-  - { label: "Client", value: "Identify-Turkey — id24.tr KYC platform" }
+  - { label: "Sector", value: "Banking (KYC platform)" }
   - { label: "Role", value: "Developer — IDOCR & IDBM (AI/CV modules)" }
   - { label: "Scope", value: "ID OCR + MRZ, authenticity detection, biometric face match" }
   - { label: "Integration", value: "Flask REST API (JWT), Docker/Kubernetes microservices" }

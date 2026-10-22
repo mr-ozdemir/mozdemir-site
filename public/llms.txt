@@ -7,7 +7,7 @@ Availability: open to freelance work (AutoML, computer vision, end-to-end produc
 
 ## Experience
 
-- AI Engineer (freelance, Identify-Turkey) — since 09/2025: face-verification systems with a 1-in-10M error rate, ID recognition, OCR and liveness modules for banking; owned the full TSE certification process.
+- AI Engineer (self-employed) — since 09/2025: face-verification systems with a 1-in-10M error rate, ID recognition, OCR and liveness modules for banking (owned the full TSE certification process); AI services for shipping operations.
 - AI Researcher (full-time, remote), Erciyes University AI and Big Data Application and Research Center — since 10/2024: activation-function design, NAS, end-to-end AutoML.
 - AI Engineer Intern, Skechers Türkiye / Olka — 06/2026–08/2026: on-premises LLM serving with vLLM, Text-to-SQL, centralized RAG, CNN-based document processing, KVKK-compliant guardrails.
 - AI Intern, Erciyes University IT Department — 09/2024–01/2025: real-time campus entry/exit counting system.
